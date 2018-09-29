@@ -18,10 +18,11 @@ public class CardEffects : MonoBehaviour {
         }
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Snek")
         {
-            //gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_OnPlayEffect);
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_MoreSnek_Summon);
+
             gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_OnPlayEffect);
 
-            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_MoreSnek);
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_MoreSnek_Hand);
 
 
 
@@ -75,7 +76,7 @@ public class CardEffects : MonoBehaviour {
 
     }
 
-    public void Snek_MoreSnek()
+    public void Snek_MoreSnek_Hand()
     {
 
 
@@ -84,7 +85,6 @@ public class CardEffects : MonoBehaviour {
             GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
 
             player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
-            Debug.Log(player1turn);
             if (player1turn == true)
             {
                 GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP1").transform);
@@ -107,6 +107,50 @@ public class CardEffects : MonoBehaviour {
 
             gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
             
+            StartedTargeting = false;
+            gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+
+        }
+    }
+
+    public void Snek_MoreSnek_Summon()
+    {
+
+
+        if (StartedTargeting == true)
+        {
+            GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
+
+            player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
+            if (player1turn == true)
+            {
+                GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
+                New_snek.name = "Card(Clone)";
+                New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
+                New_snek.GetComponent<CardEffects>().enabled = false;
+                New_snek.GetComponent<BoxCollider2D>().enabled = false;
+                Button But = New_snek.gameObject.AddComponent<Button>();
+                But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                New_snek.tag = "Player1";
+
+            }
+            if (player1turn == false)
+            {
+                GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
+                New_snek.name = "Card(Clone)";
+                New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
+                New_snek.GetComponent<CardEffects>().enabled = false;
+                New_snek.GetComponent<BoxCollider2D>().enabled = false;
+                Button But = New_snek.gameObject.AddComponent<Button>();
+                But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                New_snek.tag = "Player2";
+
+            }
+
+            //Instantiate(New_Snek, gameObject.transform.parent);
+
+            gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
+
             StartedTargeting = false;
             gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
 

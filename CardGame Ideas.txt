@@ -25,7 +25,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 2; 1/1; Taunt, OnPlay: Gain +2 Health 2 times to this minion.
 	-(Rare)Cost 7; 1/1; Taunt, OnPlay: Gain +3 Health 3 times to this minion.
 	-(Common)Cost 3; 0/6; Taunt, At the start of your turn if this card is damaged: heal it to max and give it +2/+1.
-	-(Rare)Cost 4; 4/2; OnDeath: Deal 2 dmg to all enemy minions and add a (Cost 4; 1/1; OnDeath: Deal 2 dmg to all enemy minions).
+	-(Rare)Cost 4; 4/2; OnDeath: Deal 2 dmg to all enemy minions and add a (Cost 4; 1/1; OnDeath: Deal 2 dmg to all enemy minions) to your hand.
 	-(Common)Cost 2; 2/3; OnPlay: Deal one dmg to 3 random enemy minions.
 	-(Rare)Cost 4; 2/4; Taunt, OnDeath: Deal 2 dmg to all untis.
 	-(Epic)Cost 9; 3/3; OnDeath: At the end of your turn resummon a FULL copy of this card.
