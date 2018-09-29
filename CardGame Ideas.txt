@@ -80,13 +80,13 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Epic)Cost 4; 4/2; OnDeath: copy this cards text to a minion in hand and give it +4/+2.
 	-(Rare)Cost 2; 3/2; LifeSteal, OnPlay: Give 1 minion in hand: LifeSteal.
 	-(Epic)Cost 2; 2/2; LifeSteal, This minions Cost is increased by 1 per minions in play, OnPlay: Deal 1 dmg to all units.
-	-(Common)Cost 2; 2/2; LifeSteal, When you get healed this minion gets +1/+1.
+	-(Common)Cost 3; 2/2; LifeSteal, When you get healed this minion gets +1/+1.
 	-(Common)Cost 4; 3/5; Taunt, At the start of your turn heal this cards owner by 4.
 	-(Rare)Cost 5; 5/4; OnPlay: Destroy a friendly minion and heal its owner by it's health.
 	-(Rare)Cost 5; 4/3; OnPlay: If you have 2 or more minions deal 6 dmg to target minion.
 	-(Rare)Cost 3; 5/0; Has as much life as the opponent has mana.
-	-(Common)Cost 1; 1/2; OnPlay: Increases or decrease one number on any minion on the board.
-	-(Common)Cost 3; 4/4; OnDeath: Increases or decrease one number on any minion card.
+	-(Common)Cost 1; 1/2; OnPlay: Increases or decrease one number on any minion on the board by one.
+	-(Common)Cost 3; 4/4; OnDeath: Increases or decrease one number on any minion card by one.
 	-(Rare)Cost 6; 1/6; Taunt, OnDeath: Increases or decrease one number on any minion card by this minions attack.
 	-(Epic)Cost 10; 9/6; OnPlay: Double any number on any card in your hand.
 	-(Common)Cost 2; 2/4; OnPlay: Add 2 random common cards into your opponent's deck.*
@@ -98,7 +98,10 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Epic)Cost 9; 4/3; OnPlay: Pick a minion then destroy all other friendly minions on the bord and give the chosen minion the combined stats of the destroyed minions.
 	-(Common)Cost 4; 3/5; At the start of your turn heal this minion to max.
 	-(Rare)Cost 3; 0/7; OnPlay: Get 1 Counter, At the start of your turn remove 1 Counter from this card, If there are no Counters on this card destroy all minions on the board.
-(31 Commons, 31 Rare, 13 Epic)
+	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1: (0/1; OnDeath: Deal 2 damage to the enemy Hero).
+	-(Rare)Cost 8; 10/8; OnPlay and OnDeath: Summon 0 + the number of times you've used your Hero Power: (1/1; Taunt).
+	-(Common)Cost 5; 3/1; When drawn: Summon 2: (0/1; OnDeath: Increases one number on any minion in your hand by one), OnPlay: Destroy all other minions with 1 or less Health.
+(33 Commons, 32 Rare, 13 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 
