@@ -79,7 +79,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 10; 18/18;
 	-(Epic)Cost 4; 4/2; OnDeath: copy this cards text to a minion in hand and give it +4/+2.
 	-(Rare)Cost 2; 3/2; LifeSteal, OnPlay: Give 1 minion in hand: LifeSteal.
-	-(Epic)Cost 2; 2/2; LifeSteal, this minions Cost is increased by 1 per minions in play, OnPlay: Deal 1 dmg to all units.
+	-(Epic)Cost 2; 2/2; LifeSteal, This minions Cost is increased by 1 per minions in play, OnPlay: Deal 1 dmg to all units.
 	-(Common)Cost 2; 2/2; LifeSteal, When you get healed this minion gets +1/+1.
 	-(Common)Cost 4; 3/5; Taunt, At the start of your turn heal this cards owner by 4.
 	-(Rare)Cost 5; 5/4; OnPlay: Destroy a friendly minion and heal its owner by it's health.
