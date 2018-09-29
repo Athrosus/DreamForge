@@ -1,6 +1,6 @@
 (Ass- Ascendent ,Mag- Magus)
 (Hero Powers cost 1 and function like hs Hero Powers)
-Hero Power: -Ass: Increases any number on any card by 1.(including the number of Counters on cards)
+Hero Power: -Ass: Increases any number on any card by 1.( including the number of Counters on cards)
             -Mag: Copy the text of a frendly minion on the bord to another minion card.(in your hand as well)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -12,7 +12,7 @@ Artifacts: 	-(Ass)4 uses a turn; Cost 1 + (number of times used this turn); Do 1
 		-(Ass)Passive; Any card that your opponent overdraws, you draw instead and all cards that didn't start in your opponent's deck Gain: When drawn: Draw a: card.*
 		-(Ass)Passive; HeroPower is replaced by: Decreases any number on any card by 1.
 
-		-(Mag)Passive; All minions cost 2 more, when a minion is played copy it's text to all minions in hand.
+		-(Mag)  Passive; All minions cost 2 more, when a minion is played copy it's text to all minions in hand.
 		-(Mag)Passive; All instences of "OnDeath" are replaced by "OnPlay".
 		-(Mag)1 use a turn; Cost (Cost of chosen minion) - 3; Trigger any OnDeath or OnPlay effect of a minion in hand (as if it was a spell), then discard that card.
 		-(Mag)Passive; Whenever your opponent draws a card that didn't start in their deck you draw it as well.*
