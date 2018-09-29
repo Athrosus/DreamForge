@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62deecb7fd86b3c4695ce7a85e2e1190, type: 3}
+  m_Name: Rose
+  m_EditorClassIdentifier: 
+  cardname: Rose
+  description: Lie Lady
+  artwork: {fileID: 21300000, guid: c6efd1c604d692b459d2f9a3207ebea8, type: 3}
+  manaCost: 9
+  attack: 7
+  health: 12
+  tire: Epic
