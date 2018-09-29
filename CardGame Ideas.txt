@@ -1,7 +1,7 @@
 (Ass- Ascendent ,Mag- Magus)
 (Hero Powers cost 1 and function like hs Hero Powers)
-Hero Power: -Ass: Increases any number on any card by 1.(including the number of Counters on cards)
-            -Mag: Copy the text of a frendly minion on the bord to another minion card.(in your hand as well)
+Hero Power: -Ass: Increases any number on any card by 1. (including the number of Counters on cards)
+            -Mag: Copy the text of a frendly minion on the bord to another minion card. s(in your hand as well)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Artifacts are what makes the heros different not the cards [all cards are shered by all classes], and they can be chosen as a "Gift") 
