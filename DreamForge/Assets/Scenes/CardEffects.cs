@@ -18,11 +18,14 @@ public class CardEffects : MonoBehaviour {
         }
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Snek")
         {
-            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_MoreSnek_Summon);
+            
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_OnPlayAoeDmgEffect);
 
-            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_OnPlayEffect);
+            //gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_MoreSnek_Summon);
 
-            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_MoreSnek_Hand);
+            //gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_OnPlayTargetedDmgEffect);
+
+            //gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_MoreSnek_Hand);
 
 
 
@@ -39,7 +42,7 @@ public class CardEffects : MonoBehaviour {
         }
     }
 
-    public void Snek_OnPlayEffect()
+    public void Snek_OnPlayTargetedDmgEffect()
     {
         if (StartedTargeting == true)
         {
@@ -156,7 +159,33 @@ public class CardEffects : MonoBehaviour {
 
         }
     }
+    public void Snek_OnPlayAoeDmgEffect()
+    {
+        foreach (var card in GameObject.FindGameObjectsWithTag("Player1") )
+        {
+            if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.tag != gameObject.tag)
+            {
+                int TargetHP;
+                int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+                TargetHP = TargetHP - 1;
+                card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
+            }
+        }
 
+        foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
+        {
+            if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.tag != gameObject.tag)
+            {
+                int TargetHP;
+                int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+                TargetHP = TargetHP - 1;
+                card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
+            }
+        }
+
+        StartedTargeting = false;
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+    }
 }
 
 
