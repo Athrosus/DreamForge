@@ -16,7 +16,7 @@ Artifacts: 	-(Ass)4 uses a turn; Cost 1 + (number of times used this turn); Do 1
 		-(Mag)Passive; All instences of "OnDeath" are replaced by "OnPlay".
 		-(Mag)1 use a turn; Cost (Cost of chosen minion) - 3; Trigger any OnDeath or OnPlay effect of a minion in hand (as if it was a spell), then discard that card.
 		-(Mag)Passive; Whenever your opponent draws a card that didn't start in their deck you draw it as well.*
-		-(Mag)Passive; Your Hero Power treats "When drawn:" as "OnPlay and OnDeath:", When a minion is summoned: Heal self by 1.
+		-(Mag)Passive; Your Hero Power treats "When drawn:" as "OnPlay and OnDeath:" as well, When a minion is summoned: Heal self by 1.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
@@ -101,6 +101,8 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1: (0/1; OnDeath: Deal 2 damage to the enemy Hero).
 	-(Rare)Cost 8; 10/8; OnPlay and OnDeath: Summon 0 + the number of times you've used your Hero Power: (1/1; Taunt).
 	-(Common)Cost 5; 3/1; When drawn: Summon 2: (0/1; OnDeath: Increases one number on any minion in your hand by one), OnPlay: Destroy all other minions with 1 or less Health.
+	-(Epic)Cost 7; 6/8; OnPlay: Choose a allyed minion on the bord and Give all minions in your deck it's cardtext.
+	-(Rare)Cost 3; 3/5; OnPlay and OnDeath: Add 1 random Common minion with Cost 2 or less to your deck and Give it: Whend rawn: Play this minion. 
 (33 Commons, 32 Rare, 13 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
