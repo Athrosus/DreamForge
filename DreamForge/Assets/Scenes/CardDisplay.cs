@@ -8,13 +8,14 @@ using UnityEngine.EventSystems;
 public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public delegate void OnPlayEffect();
+    public delegate void OnDeathEffect();
 
     public List<OnPlayEffect> ThisOnPlaySelfBuff = new List<OnPlayEffect>();
     public List<OnPlayEffect> ThisOnPlayEffects = new List<OnPlayEffect>();
+    public List<OnDeathEffect> ThisOnDeathEffects = new List<OnDeathEffect>();
 
-
-    public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, OnPlayTargetFound;
-    int EachOnPlayBuff, EachOnPlayEffect;
+    public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, OnPlayTargetFound, HasDied = false;
+    public int EachOnPlayBuff, EachOnPlayEffect;
 
     public CardStats card;
     public Text nameText;
@@ -69,15 +70,19 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             if (ThisOnPlaySelfBuff !=null) // This was added
             {
                 OnPlaySelfBuffs();
-
             }
-
             WasItPlayed = true;
         }
+
         if (ThisOnPlayEffects != null && WasItPlayed == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
         {
-
             OnPlayEffects();
+        }
+
+        if (healthText.text == "0" && HasDied == false)
+        {
+            OnDeathEffects();
+            HasDied = true;
         }
 
 
@@ -143,14 +148,12 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             ThisOnPlaySelfBuff[EachOnPlayBuff]();
             EachOnPlayBuff++;
-
         }
     }
 
     public void OnPlayEffects()
     {
    
-            Debug.Log("running");
             ThisOnPlayEffects[EachOnPlayEffect]();
 
          if (OnPlayTargetFound == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
@@ -161,7 +164,17 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             EachOnPlayEffect++;
             OnPlayTargetFound = false;
          }
-        
+    }
+
+    public void OnDeathEffects()
+    {
+        int EachOnDeathEffect = 0;
+
+        foreach (OnDeathEffect ondeatheffect in ThisOnDeathEffects)
+        {
+            ThisOnDeathEffects[EachOnDeathEffect]();
+            EachOnDeathEffect++;
+        }
     }
 
 

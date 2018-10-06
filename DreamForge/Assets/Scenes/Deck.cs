@@ -44,21 +44,24 @@ public class Deck : MonoBehaviour {
 
 
 
-
-        for (j = 0; j < DeckCards.Count; j++)
+        if (GameObject.Find("MadeDeck1") != null)
         {
-
-            if (this.tag == "Player1")
+            for (j = 0; j < DeckCards.Count; j++)
             {
-                DeckCards[RanNum[j]].GetComponent<CardDisplay>().card = GameObject.Find("MadeDeck1").GetComponent<DeckList>().CardsInDeck[j];
-            }
-            else
-            {
-                DeckCards[RanNum[j]].GetComponent<CardDisplay>().card = GameObject.Find("MadeDeck2").GetComponent<DeckList>().CardsInDeck[j];
+
+                if (this.tag == "Player1")
+                {
+                    DeckCards[RanNum[j]].GetComponent<CardDisplay>().card = GameObject.Find("MadeDeck1").GetComponent<DeckList>().CardsInDeck[j];
+                }
+                else
+                {
+                    DeckCards[RanNum[j]].GetComponent<CardDisplay>().card = GameObject.Find("MadeDeck2").GetComponent<DeckList>().CardsInDeck[j];
+
+                }
 
             }
-
         }
+        
 
 
         

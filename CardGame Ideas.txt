@@ -92,6 +92,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 2; 2/4; OnPlay: Add 2 random common cards into your opponent's deck.*
 	-(Rare)Cost 5; 4/6; OnPlay: Choose a minion then add 3 copies of it to your and your opponents deck.*
 	-(Epic)Cost 3; 4/1; When drawn: you Draw a: card, OnPlay: Add a copy of this card to your opponent's deck.*
+	-(Rare)Cost 3; 3/5; OnPlay and OnDeath: Add 1 random Common minion with Cost 2 or less to your deck and Give it: When drawn: Play this minion.
 	-(Epic)Cost 7; 5/5; When drawn: Summon a: 1/1, repeat this for each mana you have, OnPlay: Give all minions +1/+1.
 	-(Common)Cost 3; 3/2; When drawn: Give all minions in your hand: +1/+1 and When Damaged: Has Taunt.
 	-(Common)Cost 4; 2/1; When drawn: Summon 1: (2/1; OnDeath: Summon 2: 1/1), OnDeath: Summon 2: 1/1.
@@ -102,8 +103,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 8; 10/8; OnPlay and OnDeath: Summon 0 + the number of times you've used your Hero Power: (1/1; Taunt).
 	-(Common)Cost 5; 3/1; When drawn: Summon 2: (0/1; OnDeath: Increases one number on any minion in your hand by one), OnPlay: Destroy all other minions with 1 or less Health.
 	-(Epic)Cost 7; 6/8; OnPlay: Choose a allyed minion on the bord and Give all minions in your deck it's cardtext.
-	-(Rare)Cost 3; 3/5; OnPlay and OnDeath: Add 1 random Common minion with Cost 2 or less to your deck and Give it: Whend rawn: Play this minion. 
-(33 Commons, 32 Rare, 13 Epic)
+(33 Commons, 33 Rare, 14 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 
