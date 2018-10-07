@@ -102,7 +102,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1: (0/1; OnDeath: Deal 2 damage to the enemy Hero).
 	-(Rare)Cost 8; 10/8; OnPlay and OnDeath: Summon 0 + the number of times you've used your Hero Power: (1/1; Taunt).
 	-(Common)Cost 5; 3/1; When drawn: Summon 2: (0/1; OnDeath: Increases one number on any minion in your hand by one), OnPlay: Destroy all other minions with 1 or less Health.
-	-(Epic)Cost 7; 6/8; OnPlay: Choose a allyed minion on the bord and Give all minions in your deck it's cardtext.
+	-(Epic)Cost 7; 6/8; OnPlay: Choose a allied minion on the bord and Give all minions in your deck it's cardtext.
 (33 Commons, 33 Rare, 14 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 

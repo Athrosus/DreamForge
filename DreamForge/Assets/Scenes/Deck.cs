@@ -83,7 +83,7 @@ public class Deck : MonoBehaviour {
                 DeckCards.RemoveAt(DeckCards.Count-1);
                 Card.transform.SetParent(Hand.transform);
 
-               // Debug.Log(DeckCards.Count);
+                //Debug.Log("You drew "+Card.GetComponent<CardDisplay>().nameText.text + " which is the "+ DeckCards.Count+" card in your deck.");   //Starts at 29
 
                 
             }
