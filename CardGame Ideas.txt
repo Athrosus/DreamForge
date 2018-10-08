@@ -1,6 +1,6 @@
 (Ass- Ascendent ,Mag- Magus)
 (Hero Powers cost 1 and function like hs Hero Powers)
-Hero Power: -Ass: Increases any number on any card by 1.(including the number of Counters on cards)
+Hero Power: -Ass: Increases any number on any card by 1.(including the number of Charges on cards)
             -Mag: Copy the text of a frendly minion on the bord to another minion card.(in your hand as well)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -22,8 +22,8 @@ Artifacts: 	-(Ass)4 uses a turn; Cost 1 + (number of times used this turn); Do 1
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
 (A deck has 30 cards, max 4 Commons, 2 Rare and 1 Epic)
 Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your hand.
-	-(Common)Cost 2; 1/1; Taunt, OnPlay: Gain +2 Health 2 times to this minion.
-	-(Rare)Cost 7; 1/1; Taunt, OnPlay: Gain +3 Health 3 times to this minion.
+	-(Common)Cost 2; 1/1; Taunt, OnPlay: Give +2 Health 2 times to a minion.
+	-(Rare)Cost 7; 1/1; Taunt, OnPlay: Give +3 Health 3 times to a minion.
 	-(Common)Cost 3; 0/6; Taunt, At the start of your turn if this card is damaged: heal it to max and give it +2/+1.
 	-(Rare)Cost 4; 4/2; OnDeath: Deal 2 dmg to all enemy minions and add a (Cost 4; 1/1; OnDeath: Deal 2 dmg to all enemy minions) to your hand.
 	-(Common)Cost 2; 2/3; OnPlay: Deal one dmg to 3 random enemy minions.
@@ -32,7 +32,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 6; 4/5; OnPlay: Swop this cards text with a minion cards text in your hand.
 	-(Common)Cost 2; 2/2; OnDeath: Summon 1: 2/2 minion.
 	-(Epic)Cost 5; 1/8; Aura: All OnDeath effects happon twice.
-	-(Common)Cost 2; 4/4; OnDeath Deal 2 dmg to this cards owner.
+	-(Common)Cost 2; 4/4; OnDeath: Deal 2 dmg to this cards owner.
 	-(Rare)Cost 4; 2/4; Taunt, OnPlay: Summon 1: 2/4 Taunt minion.
 	-(Rare)Cost 6; 3/5; Taunt, OnPlay: Summon 1: 3/5 Taunt minion.
 	-(Common)Cost 1; 2/1; OnPlay: Draw a: card.
@@ -40,7 +40,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 5; 4/4; OnPlay:Draw 1: card with Draw in it's text, OnDeath: Draw 2: cards.
 	-(Epic)Cost 6; 2/4; Draw as much cards this card does dmg.
 	-(Epic)Cost 3; 0/5; OnDeath: Draw 1: card, Your Hero Power costs 0.
-	-(Epic)Cost 2; 0/4; Whenever you use your Hero Power Draw a: card, and heal self by 2;
+	-(Epic)Cost 2; 0/4; Whenever you use your Hero Power Draw a: card and heal self by 2;
 	-(Rare)Cost 3; 1/1; OnPlay: Pick a minion in play and transform it into a 0/3 and when the 0/3 dies this minion dies as well, OnDeath: Resummon a FULL copy of the picked minion if the 0/3 is still alive.
 	-(Common)Cost 4; 4/5; OnPlay: Revert a text alteration/addition from 1 minion in play.
 	-(Rare)Cost 5; 6/5; OnPlay and OnDeath: Deal 3 dmg to all minions with Taunt in their text.
@@ -55,9 +55,9 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 3; 3/2; OnPlay: Give a random minion in your hand: +1/+2 and Taunt.
 	-(Rare)Cost 5; 6/2; OnPlay and OnDeath: Give all minions in hand: +1/+1.
 	-(Common)Cost 5; 3/7; Taunt, This minion cannot be targeted by Hero Powers or Gifts or other minions effects.
-	-(Rare)Cost 7; 7/8; OnPlay: Deal 3 dmg to 3 random enemy units.
+	-(Rare)Cost 7; 7/8; OnPlay: Deal 3 dmg to a random enemy unit then repeat this effect 2 times.
 	-(Rare)Cost 7; 8/5; OnPlay and OnDeath: Deal 3 dmg to all enemy units.
-	-(Epic)Cost 8; 4/8; Taunt,At the end of turn summon a FULL copy of the most expensive card that died this game.
+	-(Epic)Cost 8; 4/8; Taunt, At the end of turn: Summon a: FULL copy of the most expensive card that died this game.
 	-(Common)Cost 10; 10/10; OnPlay and OnDeath: Draw 5: cards.
 	-(Rare)Cost 10; 0/18; Has as much Attack as Health, OnDeath Summon 2: (0/6; Taunt,Has as much Attack as Health).
 	-(Common)Cost 2; 3/2; OnPlay: Give a minion: +3 attack and After this minion deals damage deal that much damage to it and its owner.
@@ -65,13 +65,13 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 6; 4/4; Aura: Gives all other minions: + 1 attack and OnDeath: Summon 2: 1/1 minions.
 	-(Common)Cost 2; 3/3; OnPlay: Deal 1 damage to a minion, Whenever a minion dies deal 1 to all unets.
 	-(Rare)Cost 4; 3/5; Whenever a friendly minion dies deal one damage to your opponent.
-	-(Epic)Cost 5; 6/1; OnPlay: If you have no minions on the board this minion has Charge.
+	-(Epic)Cost 5; 6/1; OnPlay: If you have no minions on the board this minion can attack the turn it was played.
 	-(Common)Cost 3; 5/5; OnDeath: Summon 1: 5/2 minion for your opponent.
 	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 other friendly minion if there are none destry this minion and deal dmg equal to its Attack to its owner.
 	-(Rare)Cost 1; 2/1; OnPlay: Draw 1: 1 cost minion.
 	-(Rare)Cost 4; 1/1; When drawn: Draw a: card.
-	-(Rare)Cost 2; 2/3; When you get healed you Draw a: card.
-	-(Rare)Cost 4; 3/6; OnPlay: Discard 2 random cards from hand then Draw a: card of your choice. 
+	-(Rare)Cost 2; 2/3; OnPlay: If you have more then 20 or less then 60 health Draw a: cards, OnDeath: If you have less then 20 or more then 60 health Draw two: cards.
+	-(Rare)Cost 4; 3/6; OnPlay: Discard 2 random cards from hand then Draw a: card of your choice from your deck. 
 	-(Common)Cost 3; 4/4; While you have a minion in play reduce this cards Cost by 1.
 	-(Common)Cost 2; 4/3;
 	-(Common)Cost 4; 5/6;
@@ -94,16 +94,28 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Epic)Cost 3; 4/1; When drawn: you Draw a: card, OnPlay: Add a copy of this card to your opponent's deck.*
 	-(Rare)Cost 3; 3/5; OnPlay and OnDeath: Add 1 random Common minion with Cost 2 or less to your deck and Give it: When drawn: Play this minion.
 	-(Epic)Cost 7; 5/5; When drawn: Summon a: 1/1, repeat this for each mana you have, OnPlay: Give all minions +1/+1.
-	-(Common)Cost 3; 3/2; When drawn: Give all minions in your hand: +1/+1 and When Damaged: Has Taunt.
+	-(Common)Cost 3; 3/2; When drawn: Give 3 minions in your hand: +1/+1 and When Damaged: Has Taunt.
 	-(Common)Cost 4; 2/1; When drawn: Summon 1: (2/1; OnDeath: Summon 2: 1/1), OnDeath: Summon 2: 1/1.
 	-(Epic)Cost 9; 4/3; OnPlay: Pick a minion then destroy all other friendly minions on the bord and give the chosen minion the combined stats of the destroyed minions.
 	-(Common)Cost 4; 3/5; At the start of your turn heal this minion to max.
-	-(Rare)Cost 3; 0/7; OnPlay: Get 1 Counter, At the start of your turn remove 1 Counter from this card, If there are no Counters on this card destroy all minions on the board.
 	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1: (0/1; OnDeath: Deal 2 damage to the enemy Hero).
-	-(Rare)Cost 8; 10/8; OnPlay and OnDeath: Summon 0 + the number of times you've used your Hero Power: (1/1; Taunt).
-	-(Common)Cost 5; 3/1; When drawn: Summon 2: (0/1; OnDeath: Increases one number on any minion in your hand by one), OnPlay: Destroy all other minions with 1 or less Health.
-	-(Epic)Cost 7; 6/8; OnPlay: Choose a allied minion on the bord and Give all minions in your deck it's cardtext.
-(33 Commons, 33 Rare, 14 Epic)
+	-(Rare)Cost 8; 8/8; OnPlay and OnDeath: Summon 0 + the number of times you've used your Hero Power: (1/1; Taunt).
+	-(Common)Cost 5; 5/5; When drawn: Summon 2: (0/1; OnDeath: Deal 2 damage to the enemy Hero), OnPlay: Destroy all other minions with 1 or less Health.
+	-(Epic)Cost 7; 6/8; OnPlay: Choose a allied minion on the bord and Give all minions in your deck it's text.
+	-(Epic)Cost 0; 1/1; While in hand: Add all stats and card text of cards you play to this ones (including the manacost).
+	-(Common)Cost 3; 4/2; OnPlay: Get 1 Charge, ChargeShild=(When this card would be delt dmg and it has Charges it insted of taking dmg loses a Charge).---------------------------------------------------------
+	-(Common)Cost 6; 4/7; ChargeShild, When this unit is damaget it gets a Charge.
+	-(Common)Cost 1; 1/2; When drawn: Get 2 Charges, OnPlay: Deal dmg to an enemy unit equal to the number of Charges.
+	-(Rare)Cost 4; 3/5; Taunt, OnPlay: Choose a minion, At the end of your turn the chosen minion gets one Charge.
+	-(Rare)Cost 3; 0/7; OnPlay: Get 1 Charge, At the start of your turn remove 1 Charge from this card, If there are no Charges on this card destroy all minions on the board.
+	-(Epic)Cost 6; 4/4; OnPlay: Give all minions in hand ChargeShild, OnDeath: Give all minions in hand 1 Charge.
+	-(Rare)Cost 5; 6/1; OnPlay: Get 2 Charges, ChargeShild ,When this card has no Charges it Gets LifeSteal.
+	-(Rare)Cost 5; 2/8; Taunt, When you draw a card add 1 Charge to this card, When this unit is damaged it heals it's owner by 3 and loses a Charge.
+	-(Common)Cost 5; 7/1; When in hand: Gets 1 Charge whenever you draw, OnPlay: Get +Health equal to the number of Charges.
+	-(Common)Cost 2; 3/3; At the end of turn: Get 1 Charge, OnDeath: Draw 1 card with the Cost equal to the number of Charges.
+	-(Epic)Cost 9; 9/9; When drawn: Get as many Charges as you have cards in hand, OnPlay: Deal 2 times the number of Charges to any target.
+	-(Epic)Cost 10; 5/15; OnPlay: Get all the Charges from all minion cards you own (bord and hand), At the end of turn deal number of Charges dmg to self equal, OnDeath: Deal 2*(number of Charges) to all enemy units
+(39 Commons, 37 Rare, 17 Epic)?
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 
