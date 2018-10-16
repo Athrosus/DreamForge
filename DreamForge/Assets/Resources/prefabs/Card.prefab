@@ -365,7 +365,10 @@ MonoBehaviour:
   WasItPlayed: 0
   IsTaunt: 0
   OnPlayTargetFound: 0
-  card: {fileID: 11400000, guid: 0420b5b34d2d4a047b31d5086c4a08d6, type: 2}
+  HasDied: 0
+  EachOnPlayBuff: 0
+  EachOnPlayEffect: 0
+  card: {fileID: 11400000, guid: 160b71f85ca5a4d4ea235ad418848131, type: 2}
   nameText: {fileID: 114584676485639988}
   descriptionText: {fileID: 114063581742997828}
   artworkImage: {fileID: 114671146400038660}
@@ -772,6 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsTargetFound: 0
   StartedTargeting: 0
+  player1turn: 0
 --- !u!114 &114903679655607054
 MonoBehaviour:
   m_ObjectHideFlags: 1

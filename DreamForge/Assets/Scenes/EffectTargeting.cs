@@ -21,15 +21,5 @@ public class EffectTargeting : MonoBehaviour {
         Vector2 actualMouse = Camera.main.ScreenToWorldPoint(mousePoition);
         Vector2 objePosition = this.transform.position;
         GameObject.Find("EffectArrow(Clone)").transform.position = actualMouse;
-
-        
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && CardBeingTargeted != null)
-        {
-            Cursor.visible = true;
-            CardThatStartedTargeting.GetComponent<CardEffects>().IsTargetFound = true;
-
-        }
-
     }
 }
