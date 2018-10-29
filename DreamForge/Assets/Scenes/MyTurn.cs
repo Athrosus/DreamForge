@@ -56,6 +56,7 @@ public class MyTurn : MonoBehaviour {
             if (item.name == "Card(Clone)")
             {
                 item.GetComponent<CardDisplay>().HasAttackedThisTurn = false;
+                item.GetComponent<CardDisplay>().OnStartOfTurnOnce = false;
             }
 
         }
@@ -64,6 +65,7 @@ public class MyTurn : MonoBehaviour {
             if (item.name == "Card(Clone)")
             {
                 item.GetComponent<CardDisplay>().HasAttackedThisTurn = false;
+                item.GetComponent<CardDisplay>().OnStartOfTurnOnce = false;
             }
 
         }

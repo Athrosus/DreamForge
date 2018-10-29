@@ -366,9 +366,11 @@ MonoBehaviour:
   IsTaunt: 0
   OnPlayTargetFound: 0
   HasDied: 0
+  OnStartOfTurnOnce: 0
   EachOnPlayBuff: 0
   EachOnPlayEffect: 0
-  card: {fileID: 11400000, guid: 160b71f85ca5a4d4ea235ad418848131, type: 2}
+  EachOnDeathEffect: 0
+  card: {fileID: 11400000, guid: b7720c2bbdbad3543bcac2e4f4629ef0, type: 2}
   nameText: {fileID: 114584676485639988}
   descriptionText: {fileID: 114063581742997828}
   artworkImage: {fileID: 114671146400038660}

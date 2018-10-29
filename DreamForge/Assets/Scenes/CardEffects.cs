@@ -11,11 +11,12 @@ public class CardEffects : MonoBehaviour
 
     public void Start()
     {
-
-        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower" || gameObject.GetComponent<CardDisplay>().nameText.text == "Maunten")
+        //    OnPlaySelfBuffs
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower" || gameObject.GetComponent<CardDisplay>().nameText.text == "Maunten" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card2")
         {
-
         }
+        //    OnPlaySelfBuffs
+        //    OnPlayEffects
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlaySelfBuff.Add(Taunt);
@@ -26,6 +27,23 @@ public class CardEffects : MonoBehaviour
             gameObject.GetComponent<CardDisplay>().ThisOnPlaySelfBuff.Add(Taunt);
             gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Maunten_OnPlayEffect);
         }
+        //    OnPlayEffects
+        //    OnStartOfTrunEffects
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card1")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnStartOfTrunEffects.Add(Card1_OnStartOfTurnEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card2")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnStartOfTrunEffects.Add(Card2_OnStartOfTurnEffect);
+        }
+        //    OnStartOfTrunEffects
+        //    OnDeathEffects
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card3")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card3_OnDeathEffect);
+        }
+        //    OnDeathEffects
 
         //if (gameObject.GetComponent<CardDisplay>().nameText.text == "Snek")
         //{
@@ -102,230 +120,292 @@ public class CardEffects : MonoBehaviour
             IsTargetFound = false;
         }
     }
+    public void Card1_OnStartOfTurnEffect()
+    {
+        GetComponent<CardDisplay>().attackText.text = (int.Parse(GetComponent<CardDisplay>().attackText.text) + int.Parse(GetComponent<CardDisplay>().healthText.text)).ToString();
+    }
+    public void Card2_OnStartOfTurnEffect()
+    {
+        if (int.Parse(GetComponent<CardDisplay>().healthText.text)<8)
+        {
+            GetComponent<CardDisplay>().attackText.text = (int.Parse(GetComponent<CardDisplay>().attackText.text) + 2).ToString();
+            GetComponent<CardDisplay>().healthText.text = (int.Parse(GetComponent<CardDisplay>().healthText.text) + 1).ToString();
 
-            //public void Snek_OnPlayTargetedDmgEffect()
-            //{
-            //    if (StartedTargeting == true)
-            //    {
-            //        GameObject EffectArrow = (GameObject)Resources.Load("prefabs/EffectArrow", typeof(GameObject));
-            //        Instantiate(EffectArrow, gameObject.transform);
+        }
+    }
+    public void Card3_OnDeathEffect()
+    {
+        foreach (var card in GameObject.FindGameObjectsWithTag("Player1"))
+        {
+            if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.GetComponent<CardDisplay>().healthText.text != "0")
+            {
+                Debug.Log("Aoe Damage");
+                int TargetHP;
+                int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+                TargetHP = TargetHP - 2;
+                card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
+            }
+        }
 
-            //        GameObject.Find("EndTurn").GetComponent<Button>().interactable = false;
+        foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
+        {
+            if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.GetComponent<CardDisplay>().healthText.text != "0")
+            {
+                Debug.Log("Aoe Damage");
+                int TargetHP;
+                int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+                TargetHP = TargetHP - 2;
+                card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
+            }
+        }
 
+        GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
+        player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
+        if (player1turn == true)
+        {
+            GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP1").transform);
+            New_Snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("prefabs/CardPrefabs", typeof(CardStats));
+            New_snek.GetComponent<drag>().StartParent = GameObject.Find("HandP1").transform;
+            New_snek.GetComponent<CardEffects>().enabled = false;
+            New_snek.tag = "Player1";
 
-            //        StartedTargeting = false;
+        }
+        if (player1turn == false)
+        {
+            GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP2").transform);
+            New_Snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("prefabs/CardPrefabs", typeof(CardStats));
+            New_snek.GetComponent<drag>().StartParent = GameObject.Find("HandP2").transform;
+            New_snek.transform.Rotate(0, 0, -180);
+            New_snek.GetComponent<CardEffects>().enabled = false;
+            New_snek.tag = "Player2";
 
-            //    }
-
-            //    int TargetHP;
-
-            //    if (IsTargetFound == true)
-            //    {
-
-
-            //        int.TryParse(GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text, out TargetHP);
-            //        GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text = (TargetHP - 1).ToString();
-
-            //        GameObject.Find("EndTurn").GetComponent<Button>().interactable = true;
-
-
-            //        Destroy(GameObject.Find("EffectArrow(Clone)"));
-            //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
-            //        IsTargetFound = false;
-            //    }
-
-
-            //}
-
-            //public void Snek_MoreSnek_Hand()
-            //{
-
-
-            //    if (StartedTargeting == true)
-            //    {
-            //        GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
-
-            //        player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
-            //        if (player1turn == true)
-            //        {
-            //            GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP1").transform);
-            //            New_snek.GetComponent<drag>().StartParent = GameObject.Find("HandP1").transform;
-            //            New_snek.GetComponent<CardEffects>().enabled = false;
-            //            New_snek.tag = "Player1";
-
-            //        }
-            //        if (player1turn == false)
-            //        {
-            //            GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP2").transform);
-            //            New_snek.GetComponent<drag>().StartParent = GameObject.Find("HandP2").transform;
-            //            New_snek.transform.Rotate(0, 0, -180);
-            //            New_snek.GetComponent<CardEffects>().enabled = false;
-            //            New_snek.tag = "Player2";
-
-            //        }
-
-            //        gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
-
-            //        StartedTargeting = false;
-            //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
-
-            //    }
-            //}
-
-            //public void Snek_MoreSnek_Summon()
-            //{
+        }
 
 
-            //    if (StartedTargeting == true)
-            //    {
-            //        GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
+    }
+    //public void Snek_OnPlayTargetedDmgEffect()
+    //{
+    //    if (StartedTargeting == true)
+    //    {
+    //        GameObject EffectArrow = (GameObject)Resources.Load("prefabs/EffectArrow", typeof(GameObject));
+    //        Instantiate(EffectArrow, gameObject.transform);
 
-            //        player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
-            //        if (player1turn == true)
-            //        {
-            //            GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
-            //            New_snek.name = "Card(Clone)";
-            //            New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
-            //            New_snek.GetComponent<CardEffects>().enabled = false;
-            //            New_snek.GetComponent<BoxCollider2D>().enabled = false;
-
-            //            //Becaus the first OnPlayEffect is so fast the card doesnt know it'll get a card yet, the second one does so there's an error when I try to add another button
-            //            if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
-            //            {
-            //                Button But = New_snek.gameObject.AddComponent<Button>();
-            //                But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-            //            }
-            //            else
-            //            {
-            //                New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-            //            }
-
-            //            New_snek.tag = "Player1";
-
-            //        }
-            //        if (player1turn == false)
-            //        {
-            //            GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
-            //            New_snek.name = "Card(Clone)";
-            //            New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
-            //            New_snek.GetComponent<CardEffects>().enabled = false;
-            //            New_snek.GetComponent<BoxCollider2D>().enabled = false;
-
-            //            //Becaus the first OnPlayEffect is so fast the card doesnt know it'll get a card yet, the second one does so there's an error when I try to add another button
-            //            if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
-            //            {
-            //                Button But = New_snek.gameObject.AddComponent<Button>();
-            //                But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-            //            }
-            //            else
-            //            {
-            //                New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-            //            }
-
-            //            New_snek.tag = "Player2";
-
-            //        }
-
-            //        gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
-
-            //        StartedTargeting = false;
-            //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
-
-            //    }
-            //}
-            //public void Snek_OnPlayAoeDmgEffect()
-            //{
-            //    foreach (var card in GameObject.FindGameObjectsWithTag("Player1") )
-            //    {
-            //        if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.tag != gameObject.tag)
-            //        {
-            //            int TargetHP;
-            //            int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
-            //            TargetHP = TargetHP - 1;
-            //            card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
-            //        }
-            //    }
-
-            //    foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
-            //    {
-            //        if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.tag != gameObject.tag)
-            //        {
-            //            int TargetHP;
-            //            int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
-            //            TargetHP = TargetHP - 1;
-            //            card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
-            //        }
-            //    }
-
-            //    StartedTargeting = false;
-            //    gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
-            //}
-
-            //// OnDeathEffects
-
-            //public void Snek_OnDeathSummon()
-            //{
-            //    GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
-
-            //    if (gameObject.tag == "Player1")
-            //    {
-            //        Debug.Log("Summon");
-            //        GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
-            //        New_snek.name = "Card(Clone)";
-            //        New_snek.tag = "Player1";
-            //        New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
-            //        New_snek.GetComponent<CardEffects>().enabled = false;
-            //        New_snek.GetComponent<BoxCollider2D>().enabled = false;
-            //        //Button But = New_snek.gameObject.AddComponent<Button>();  //intoresting
-            //        New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+    //        GameObject.Find("EndTurn").GetComponent<Button>().interactable = false;
 
 
-            //    }
-            //    if (gameObject.tag == "Player2")
-            //    {
-            //        Debug.Log("Summon");
-            //        GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
-            //        New_snek.name = "Card(Clone)";
-            //        New_snek.tag = "Player2";
-            //        New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
-            //        New_snek.GetComponent<CardEffects>().enabled = false;
-            //        New_snek.GetComponent<BoxCollider2D>().enabled = false;
-            //        //Button But = New_snek.gameObject.AddComponent<Button>();  //intoresting
-            //        New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+    //        StartedTargeting = false;
+
+    //    }
+
+    //    int TargetHP;
+
+    //    if (IsTargetFound == true)
+    //    {
 
 
-            //    }
+    //        int.TryParse(GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+    //        GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text = (TargetHP - 1).ToString();
 
-            //    gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
-            //}
-            //public void Snek_OnDeathAoeDmgEffect()
-            //{
-            //    foreach (var card in GameObject.FindGameObjectsWithTag("Player1"))
-            //    {
-            //        if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.GetComponent<CardDisplay>().healthText.text != "0" && card.tag != gameObject.tag)
-            //        {
-            //            Debug.Log("Aoe Damage");
-            //            int TargetHP;
-            //            int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
-            //            TargetHP = TargetHP - 1;
-            //            card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
-            //        }
-            //    }
+    //        GameObject.Find("EndTurn").GetComponent<Button>().interactable = true;
 
-            //    foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
-            //    {
-            //        if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.GetComponent<CardDisplay>().healthText.text != "0" && card.tag != gameObject.tag)
-            //        {
-            //            Debug.Log("Aoe Damage");
 
-            //            int TargetHP;
-            //            int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
-            //            TargetHP = TargetHP - 1;
-            //            card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
-            //        }
-            //    }
-            //}
-        
+    //        Destroy(GameObject.Find("EffectArrow(Clone)"));
+    //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+    //        IsTargetFound = false;
+    //    }
+
+
+    //}
+
+    //public void Snek_MoreSnek_Hand()
+    //{
+
+
+    //    if (StartedTargeting == true)
+    //    {
+    //        GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
+
+    //        player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
+    //        if (player1turn == true)
+    //        {
+    //            GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP1").transform);
+    //            New_snek.GetComponent<drag>().StartParent = GameObject.Find("HandP1").transform;
+    //            New_snek.GetComponent<CardEffects>().enabled = false;
+    //            New_snek.tag = "Player1";
+
+    //        }
+    //        if (player1turn == false)
+    //        {
+    //            GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP2").transform);
+    //            New_snek.GetComponent<drag>().StartParent = GameObject.Find("HandP2").transform;
+    //            New_snek.transform.Rotate(0, 0, -180);
+    //            New_snek.GetComponent<CardEffects>().enabled = false;
+    //            New_snek.tag = "Player2";
+
+    //        }
+
+    //        gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
+
+    //        StartedTargeting = false;
+    //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+
+    //    }
+    //}
+
+    //public void Snek_MoreSnek_Summon()
+    //{
+
+
+    //    if (StartedTargeting == true)
+    //    {
+    //        GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
+
+    //        player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
+    //        if (player1turn == true)
+    //        {
+    //            GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
+    //            New_snek.name = "Card(Clone)";
+    //            New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
+    //            New_snek.GetComponent<CardEffects>().enabled = false;
+    //            New_snek.GetComponent<BoxCollider2D>().enabled = false;
+
+    //            //Becaus the first OnPlayEffect is so fast the card doesnt know it'll get a card yet, the second one does so there's an error when I try to add another button
+    //            if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
+    //            {
+    //                Button But = New_snek.gameObject.AddComponent<Button>();
+    //                But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+    //            }
+    //            else
+    //            {
+    //                New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+    //            }
+
+    //            New_snek.tag = "Player1";
+
+    //        }
+    //        if (player1turn == false)
+    //        {
+    //            GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
+    //            New_snek.name = "Card(Clone)";
+    //            New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
+    //            New_snek.GetComponent<CardEffects>().enabled = false;
+    //            New_snek.GetComponent<BoxCollider2D>().enabled = false;
+
+    //            //Becaus the first OnPlayEffect is so fast the card doesnt know it'll get a card yet, the second one does so there's an error when I try to add another button
+    //            if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
+    //            {
+    //                Button But = New_snek.gameObject.AddComponent<Button>();
+    //                But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+    //            }
+    //            else
+    //            {
+    //                New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+    //            }
+
+    //            New_snek.tag = "Player2";
+
+    //        }
+
+    //        gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
+
+    //        StartedTargeting = false;
+    //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+
+    //    }
+    //}
+    //public void Snek_OnPlayAoeDmgEffect()
+    //{
+    //    foreach (var card in GameObject.FindGameObjectsWithTag("Player1") )
+    //    {
+    //        if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.tag != gameObject.tag)
+    //        {
+    //            int TargetHP;
+    //            int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+    //            TargetHP = TargetHP - 1;
+    //            card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
+    //        }
+    //    }
+
+    //    foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
+    //    {
+    //        if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.tag != gameObject.tag)
+    //        {
+    //            int TargetHP;
+    //            int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+    //            TargetHP = TargetHP - 1;
+    //            card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
+    //        }
+    //    }
+
+    //    StartedTargeting = false;
+    //    gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+    //}
+
+    //// OnDeathEffects
+
+    //public void Snek_OnDeathSummon()
+    //{
+    //    GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
+
+    //    if (gameObject.tag == "Player1")
+    //    {
+    //        Debug.Log("Summon");
+    //        GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
+    //        New_snek.name = "Card(Clone)";
+    //        New_snek.tag = "Player1";
+    //        New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
+    //        New_snek.GetComponent<CardEffects>().enabled = false;
+    //        New_snek.GetComponent<BoxCollider2D>().enabled = false;
+    //        //Button But = New_snek.gameObject.AddComponent<Button>();  //intoresting
+    //        New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+
+
+    //    }
+    //    if (gameObject.tag == "Player2")
+    //    {
+    //        Debug.Log("Summon");
+    //        GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
+    //        New_snek.name = "Card(Clone)";
+    //        New_snek.tag = "Player2";
+    //        New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
+    //        New_snek.GetComponent<CardEffects>().enabled = false;
+    //        New_snek.GetComponent<BoxCollider2D>().enabled = false;
+    //        //Button But = New_snek.gameObject.AddComponent<Button>();  //intoresting
+    //        New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+
+
+    //    }
+
+    //    gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
+    //}
+    //public void Snek_OnDeathAoeDmgEffect()
+    //{
+    //    foreach (var card in GameObject.FindGameObjectsWithTag("Player1"))
+    //    {
+    //        if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.GetComponent<CardDisplay>().healthText.text != "0" && card.tag != gameObject.tag)
+    //        {
+    //            Debug.Log("Aoe Damage");
+    //            int TargetHP;
+    //            int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+    //            TargetHP = TargetHP - 1;
+    //            card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
+    //        }
+    //    }
+
+    //    foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
+    //    {
+    //        if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card.GetComponent<CardDisplay>().healthText.text != "0" && card.tag != gameObject.tag)
+    //        {
+    //            Debug.Log("Aoe Damage");
+
+    //            int TargetHP;
+    //            int.TryParse(card.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+    //            TargetHP = TargetHP - 1;
+    //            card.GetComponent<CardDisplay>().healthText.text = (TargetHP).ToString();
+    //        }
+    //    }
+    //}
+
 }
 
 
