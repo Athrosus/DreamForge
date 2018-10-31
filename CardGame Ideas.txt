@@ -21,14 +21,14 @@ Artifacts: 	-(Ass)4 uses a turn; Cost (number of times used this turn); Do 1 dmg
 
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
 (A deck has 30 cards, max 4 Commons, 2 Rare and 1 Epic)
-Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your hand.
+Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your hand.-
 	-(Common)Cost 1; 2/2; At the start of your turn give this minion + Attack equal to it's Health.+
 	-(Common)Cost 2; 1/1; Taunt, OnPlay: Give +2 Health 2 times to a minion.(Ferrarius)+
 	-(Rare)Cost 5; 1/1; Taunt, OnPlay: Give +3 Health 3 times to a minion.(Erus Ferrarius)+
-	-(Common)Cost 5; 0/6; Taunt, At the start of your turn if this card has less then 8 health Give it: +2/+1.
-	-(Rare)Cost 4; 4/2; OnDeath: Deal 2 dmg to all enemy minions and add a (Cost 4; 1/1; OnDeath: Deal 2 dmg to all enemy minions) to your hand.
-	-(Common)Cost 2; 2/3; OnPlay: Deal one dmg to 3 random enemy minions.
-	-(Rare)Cost 4; 2/4; Taunt, OnDeath: Deal 2 dmg to all untis.
+	-(Common)Cost 5; 0/6; Taunt, At the start of your turn if this card has less then 8 health Give it: +2/+1.+
+	-(Rare)Cost 4; 4/2; OnDeath: Deal 2 dmg to all enemy minions and add a (Cost 4; 1/1; OnDeath: Deal 2 dmg to all enemy minions) to your hand.+
+	-(Common)Cost 2; 2/3; OnPlay: Deal one dmg to a random enemy minions 3 times (can overkill).+
+	-(Rare)Cost 4; 2/4; Taunt, OnDeath: Deal 2 dmg to all untis.+
 	-(Epic)Cost 9; 3/3; OnDeath: At the end of your turn resummon a FULL copy of this card.
 	-(Rare)Cost 6; 4/5; OnPlay: Swop this cards text with a minion cards text in your hand.
 	-(Common)Cost 2; 2/2; OnDeath: Summon 1: 2/2 minion.
