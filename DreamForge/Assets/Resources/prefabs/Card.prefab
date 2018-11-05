@@ -370,7 +370,7 @@ MonoBehaviour:
   EachOnPlayBuff: 0
   EachOnPlayEffect: 0
   EachOnDeathEffect: 0
-  card: {fileID: 11400000, guid: b7720c2bbdbad3543bcac2e4f4629ef0, type: 2}
+  card: {fileID: 11400000, guid: 5a430b5f7f4c47d459ac89097995a513, type: 2}
   nameText: {fileID: 114584676485639988}
   descriptionText: {fileID: 114063581742997828}
   artworkImage: {fileID: 114671146400038660}

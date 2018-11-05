@@ -35,16 +35,18 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Use this for initialization
     void Start () {
 
-        nameText.text = card.name;
-        descriptionText.text = card.description;
+        if (card != null)
+        {
+            nameText.text = card.name;
+            descriptionText.text = card.description;
 
-        artworkImage.sprite = card.artwork;
+            artworkImage.sprite = card.artwork;
 
-        manaText.text = card.manaCost.ToString();
-        attackText.text = card.attack.ToString();
-        healthText.text = card.health.ToString();
-        Tire.text = card.tire;
-
+            manaText.text = card.manaCost.ToString();
+            attackText.text = card.attack.ToString();
+            healthText.text = card.health.ToString();
+            Tire.text = card.tire;
+        }
 
     }
 
@@ -103,13 +105,13 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             }
         }
 
-        if (healthText.text == "0" && HasDied == false)
-        {
-            Debug.Log("hmm");
+        //if (healthText.text == "0" && HasDied == false)
+        //{
+        //    Debug.Log("hmm");
 
-            OnDeathEffects();
-            HasDied = true;
-        }
+        //    OnDeathEffects();
+        //    HasDied = true;
+        //}
 
 
         int.TryParse(healthText.text, out health);
@@ -117,6 +119,17 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         if (health <= 0)
         {
+            if (gameObject.tag == "Player1")
+            {
+                GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side--;
+            }
+            if (gameObject.tag == "Player2")
+            {
+                GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side--;
+            }
+            OnDeathEffects();
+            HasDied = true;
+
             Destroy(gameObject);
         }
 

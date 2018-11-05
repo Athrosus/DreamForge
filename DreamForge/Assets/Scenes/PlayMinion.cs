@@ -8,7 +8,7 @@ public class PlayMinion : MonoBehaviour {
     public GameObject Hand = null;
     public GameObject TurnSwitcher;
     public Sprite ArrowIcon;
-    public int j,i,w=0, SelectedCardMana;
+    public int j, i, w = 0, SelectedCardMana;
     public bool IsThereAnEnemyTaunt;
 
     public void Start()
@@ -38,13 +38,8 @@ public class PlayMinion : MonoBehaviour {
             collision.transform.SetParent(this.transform);
             j = 1;
             collision.gameObject.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
-
-
         }
-
-
     }
-
 
     public void OnTriggerStay2D(Collider2D collision)
     {
@@ -58,6 +53,7 @@ public class PlayMinion : MonoBehaviour {
                 collision.GetComponent<BoxCollider2D>().enabled = false;
                 Button But = collision.gameObject.AddComponent<Button>();
                 But.onClick.AddListener(AttackInitiation);
+                GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side++;
                 j = 0;
             }
             else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player2")
@@ -67,6 +63,7 @@ public class PlayMinion : MonoBehaviour {
                 collision.GetComponent<BoxCollider2D>().enabled = false;
                 Button But = collision.gameObject.AddComponent<Button>();
                 But.onClick.AddListener(AttackInitiation);
+                GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side++;
                 j = 0;
             }
             
@@ -102,7 +99,7 @@ public class PlayMinion : MonoBehaviour {
 
     public void FixedUpdate()
     {
-       if (j==1 && Input.GetKeyUp(KeyCode.Mouse0) == true)
+        if (j==1 && Input.GetKeyUp(KeyCode.Mouse0) == true)
         {
             i = 1;
         }

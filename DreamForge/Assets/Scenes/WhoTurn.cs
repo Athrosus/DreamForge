@@ -27,7 +27,7 @@ public class WhoTurn : MonoBehaviour {
     void FixedUpdate () {
 		if(TurnSwitcher.GetComponent<MyTurn>().Player1Turn == true)
         {
-            Debug.Log("It's Player1's turn");
+            //Debug.Log("It's Player1's turn");
             //ItsPTurn = 1;
 
 
@@ -35,7 +35,7 @@ public class WhoTurn : MonoBehaviour {
         }
         else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false)
         {
-            Debug.Log("It's Player2's turn");
+            //Debug.Log("It's Player2's turn");
             //ItsPTurn = 2;
 
 
