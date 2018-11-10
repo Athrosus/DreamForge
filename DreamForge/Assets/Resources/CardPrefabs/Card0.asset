@@ -14,7 +14,7 @@ MonoBehaviour:
   cardname: Card0
   description: 'OnDeath: Return a FULL copy of this card to your hand'
   artwork: {fileID: 21300000, guid: 5a65cdfb15f7be64ab2fc2747943b982, type: 3}
-  manaCost: 5
+  manaCost: 1
   attack: 5
-  health: 5
+  health: 9
   tire: Epic

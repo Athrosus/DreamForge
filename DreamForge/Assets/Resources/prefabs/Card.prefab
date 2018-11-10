@@ -364,13 +364,13 @@ MonoBehaviour:
   HasAttackedThisTurn: 0
   WasItPlayed: 0
   IsTaunt: 0
-  OnPlayTargetFound: 0
   HasDied: 0
   OnStartOfTurnOnce: 0
+  OnPlayTargetFound: 0
   EachOnPlayBuff: 0
   EachOnPlayEffect: 0
   EachOnDeathEffect: 0
-  card: {fileID: 11400000, guid: 5a430b5f7f4c47d459ac89097995a513, type: 2}
+  card: {fileID: 11400000, guid: a0a934b95554a78459153c67602ac7d2, type: 2}
   nameText: {fileID: 114584676485639988}
   descriptionText: {fileID: 114063581742997828}
   artworkImage: {fileID: 114671146400038660}

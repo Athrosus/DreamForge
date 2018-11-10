@@ -17,7 +17,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public List<PassiveEffect> ThisOnStartOfTrunEffects = new List<PassiveEffect>();
 
 
-    public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, OnPlayTargetFound, HasDied = false, OnStartOfTurnOnce = false;
+    public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = false, OnPlayTargetFound;
     public int EachOnPlayBuff, EachOnPlayEffect, EachOnDeathEffect;
 
     public CardStats card;
@@ -70,11 +70,10 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (Input.GetKeyUp(KeyCode.Mouse0) && gameObject.transform.parent.name == "PlayZone" && WasItPlayed == false)
         {
             OnStartOfTurnOnce = false;
-            OnPlayTargetFound = false;
             EachOnPlayBuff = 0;
             EachOnPlayEffect = 0;
             EachOnDeathEffect = 0;
-
+            OnPlayTargetFound = false;
 
             gameObject.GetComponent<CardEffects>().StartedTargeting = true;
 
@@ -85,7 +84,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             WasItPlayed = true;
         }
 
-        if (ThisOnPlayEffects != null && WasItPlayed == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
+        if(ThisOnPlayEffects != null && WasItPlayed == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
         {
             OnPlayEffects();
         }
@@ -191,15 +190,15 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPlayEffects()
     {
-   
-            ThisOnPlayEffects[EachOnPlayEffect]();
 
-         if (OnPlayTargetFound == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
-         {
+        ThisOnPlayEffects[EachOnPlayEffect]();
+
+        if (OnPlayTargetFound == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
+        {
             gameObject.GetComponent<CardEffects>().StartedTargeting = true;
             EachOnPlayEffect++;
             OnPlayTargetFound = false;
-         }
+        }
     }
 
     public void OnStartOfTurnEffects()

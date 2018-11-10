@@ -21,31 +21,31 @@ Artifacts: 	-(Ass)4 uses a turn; Cost (number of times used this turn); Do 1 dmg
 
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
 (A deck has 30 cards, max 4 Commons, 2 Rare and 1 Epic)
-Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your hand.-
-	-(Common)Cost 1; 2/2; At the start of your turn give this minion + Attack equal to it's Health.+
+Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your hand.-/+
+	-(Common)Cost 1; 2/2; At the start of your turn give this minion + Attack equal to it's Health.(Ofhun'Ra)+
 	-(Common)Cost 2; 1/1; Taunt, OnPlay: Give +2 Health 2 times to a minion.(Ferrarius)+
 	-(Rare)Cost 5; 1/1; Taunt, OnPlay: Give +3 Health 3 times to a minion.(Erus Ferrarius)+
-	-(Common)Cost 5; 0/6; Taunt, At the start of your turn if this card has less then 8 health Give it: +2/+1.+
+	-(Common)Cost 5; 0/6; Taunt, At the start of your turn if this card has less then 8 health Give it: +2/+1.(Prof'Ra)+
 	-(Rare)Cost 4; 4/2; OnDeath: Deal 2 dmg to all enemy minions and add a (Cost 4; 1/1; OnDeath: Deal 2 dmg to all enemy minions) to your hand.+
 	-(Common)Cost 2; 2/3; OnPlay: Deal one dmg to a random enemy minions 3 times (can overkill).(Ethereal Swordsman)+
 	-(Rare)Cost 4; 2/4; Taunt, OnDeath: Deal 2 dmg to all untis.+
 	-(Epic)Cost 9; 3/3; OnDeath: At the end of your turn resummon a FULL copy of this card.(Inmo'faseal the Everlasting)
 	-(Rare)Cost 6; 4/5; OnPlay: Swop this cards text with a minion cards text in your hand.
-	-(Common)Cost 2; 2/2; OnDeath: Summon 1: 2/2 minion.
+	-(Common)Cost 2; 2/2; OnDeath: Summon 1: 2/2 minion.+
 	-(Epic)Cost 5; 1/8; Aura: All OnDeath effects happon twice.
-	-(Common)Cost 2; 4/4; OnDeath: Deal 2 dmg to this cards owner.
-	-(Rare)Cost 4; 2/4; Taunt, OnPlay: Summon 1: 2/4 Taunt minion.
-	-(Rare)Cost 6; 3/5; Taunt, OnPlay: Summon 1: 3/5 Taunt minion.
-	-(Common)Cost 1; 2/1; OnPlay: Draw a: card.
-	-(Rare)Cost 3; 2/4; OnDeath: Draw 1: card. 
-	-(Common)Cost 5; 4/4; OnPlay:Draw 1: card with Draw in it's text, OnDeath: Draw 2: cards.
+	-(Common)Cost 2; 4/4; OnDeath: Deal 2 dmg to this cards owner.+
+	-(Rare)Cost 4; 2/4; Taunt, OnPlay: Summon 1: 2/4 Taunt minion.+
+	-(Rare)Cost 6; 3/5; Taunt, OnPlay: Summon 1: 3/5 Taunt minion.+
+	-(Common)Cost 1; 2/1; OnPlay: Draw a: card.+
+	-(Rare)Cost 3; 2/4; OnDeath: Draw 1: card.+
+	-(Common)Cost 5; 4/4; OnPlay: Draw 1: card with Draw in it's text, OnDeath: Draw 2: cards.
 	-(Epic)Cost 6; 2/4; Draw as much cards this card does dmg.
 	-(Epic)Cost 3; 0/5; OnDeath: Draw 1: card, Your Hero Power costs 0.
 	-(Epic)Cost 2; 0/4; Whenever you use your Hero Power Draw a: card and heal self by 2;
-	// -(Rare)Cost 3; 1/1; OnPlay: Pick a minion in play and transform it into a 0/3 and when the 0/3 dies this minion dies as well, OnDeath: Resummon a FULL copy of the picked minion if the 0/3 is still alive. ////
+	//-(Rare)Cost 3; 1/1; OnPlay: Pick a minion in play and transform it into a 0/3 and when the 0/3 dies this minion dies as well, OnDeath: Resummon a FULL copy of the picked minion if the 0/3 is still alive. ////
 	-(Common)Cost 3; 2/4; OnPlay: Set a minions attack to 1;
 	-(Common)Cost 4; 4/5; OnPlay: Revert a text alteration/addition from 1 minion in play.
-	-(Rare)Cost 5; 6/5; OnPlay and OnDeath: Deal 3 dmg to all minions with Taunt in their text.
+	-(Rare)Cost 5; 6/2; OnPlay and OnDeath: Deal 3 dmg to all minions with Taunt.
 	-(Rare)Cost 5; 3/5; OnPlay: Deal dmg to a minion equal to 1 + the number of times you've used your Hero Power.
 	-(Common)Cost 4; 3/6; Aura: Whenever this takes dmg Summon a: 2/1 minion.
 	-(Common)Cost 3; 1/6; When Damaged: Has Taunt, When not Damaged: Has +2 Attack.
@@ -61,7 +61,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 7; 8/5; OnPlay and OnDeath: Deal 3 dmg to all enemy units.
 	-(Epic)Cost 8; 4/8; Taunt, At the end of turn: Summon a: FULL copy of the most expensive card that died this game.
 	-(Common)Cost 10; 10/10; OnPlay and OnDeath: Draw 5: cards.
-	-(Rare)Cost 10; 0/18; Has as much Attack as Health, OnDeath Summon 2: (0/6; Taunt,Has as much Attack as Health).
+	-(Rare)Cost 10; 0/18; Has as much Attack as Health, OnDeath Summon 2: 0/6; Taunt, Has as much Attack as Health.(Kun'Rast)
 	-(Common)Cost 2; 3/2; OnPlay: Give a minion: +3 attack and After this minion deals damage deal that much damage to it and its owner.
 	-(Rare)Cost 5; 3/3; OnPlay: Give all friendly minions: +2 attack and After this minion attacks destroy it.  
 	-(Rare)Cost 6; 4/4; Aura: Gives all other minions: + 1 attack and OnDeath: Summon 2: 1/1 minions.(Scrapomatic)
@@ -84,17 +84,18 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	// -(Common)Cost 6; 8/9;
 	-(Common)Cost 7; 10/10;(StoneGate General)
 	// -(Common)Cost 8; 12/12;
-	// -(Common)Cost 9; 14/15;
-	-(Common)Cost 10; 18/18;(StoneGate Warlord)
+	-(Common)Cost 9; 14/15;(StoneGate Warlord)
+	//-(Common)Cost 10; 18/18;
 
+	-(Epic)Cost 9; 18/18;(Mit'faseal the Mountain)
 	-(Epic)Cost 4; 4/2; OnDeath: copy this cards text to a minion in hand and give it +4/+2.(Telum Viventem)
 	-(Rare)Cost 2; 3/2; LifeSteal, OnPlay: Give 1 minion in hand: LifeSteal.(Flirtatious Vampire)
 	-(Epic)Cost 1; 2/2; LifeSteal, This minions Cost is increased by 1 per minions in play, OnPlay: Deal 1 dmg to all units.(Vampire Countess)
 	-(Common)Cost 3; 2/2; LifeSteal, When you get healed this minion gets +1/+1.(Ravenous Vampire)
 	-(Common)Cost 4; 3/5; Taunt, At the start of your turn heal this cards owner by 4.(StoneGate Priestess)
 	-(Rare)Cost 5; 5/4; OnPlay: Destroy a friendly minion and heal its owner by it's health.
-	-(Rare)Cost 5; 4/3; OnPlay: If you have 2 or more minions deal 6 dmg to target minion.
-	-(Rare)Cost 3; 5/0; Has as much life as the opponent has mana.(Mana Elemental)
+	-(Rare)Cost 5; 5/5; OnPlay: If you have 2 or more minions deal 6 dmg to target minion.
+	-(Rare)Cost 3; 5/0; Has as much life as the opponent has mana.(Eth'Rast)
 	-(Common)Cost 1; 1/2; OnPlay: Increases or decrease one number on any minion on the board by one.(BookBound Echo)
 	-(Common)Cost 3; 4/4; OnDeath: Increases or decrease one number on any minion card by one.(BookBound Spector)
 	-(Rare)Cost 6; 1/6; Taunt, OnDeath: Increases or decrease one number on any minion card by this minions attack.(BookBound Revenant) 
@@ -107,7 +108,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Epic)Cost 7; 5/5; When drawn: Summon a: 1/1 then repeat this for each mana you have, OnPlay: Give all minions +1/+1.(Fractured Obelisc)
 	-(Common)Cost 3; 3/2; When drawn: Give 3 minions in your hand: +1/+1 and When Damaged: Has Taunt.
 	-(Common)Cost 4; 2/1; When drawn: Summon 1: (2/1; OnDeath: Summon 2: 1/1), OnDeath: Summon 2: 1/1.(Crumpling Fightomatic)
-	-(Epic)Cost 9; 4/3; OnPlay: Pick a minion then destroy all other friendly minions on the bord and give the chosen minion the combined stats of the destroyed minions.(Keth'faseal the Generous)
+	-(Epic)Cost 9; 4/3; OnPlay: Pick a minion then destroy all other friendly minions on the board and give it their combined stats.(Keth'faseal the Generous)
 	-(Common)Cost 4; 3/5; At the start of your turn heal this minion to max.(Rogue Potion Thife)
 	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1: (0/1; OnDeath: Deal 2 damage to the enemy Hero).
 	-(Rare)Cost 8; 8/8; OnPlay and OnDeath: Summon 0 + the number of times you've used your Hero Power: (1/1; Taunt).(Inspired Fabromatic)
@@ -118,16 +119,16 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 3; 4/2; OnPlay: Get 1 Charge, ChargeShild=(When this card would be delt dmg and it has Charges it insted of taking dmg loses a Charge).(Charged Tortoise)
 	-(Common)Cost 6; 4/7; ChargeShild, When this unit is damaget it gets a Charge.(Crackling Drake)
 	-(Common)Cost 1; 1/2; When drawn: Get 2 Charges, OnPlay: Deal dmg to an enemy unit equal to the number of Charges.(Thundering Eel)
-	-(Rare)Cost 2; 3/2; When drawn: Get 2 Charges, OnDeath: If this card has Charges remove all of them and add that many FULL copys of this card to your hand.
-	-(Rare)Cost 4; 3/5; Taunt, OnPlay: Choose a minion, At the end of your turn the chosen minion gets one Charge.
-	-(Rare)Cost 3; 0/7; OnPlay: Get 1 Charge, At the start of your turn remove 1 Charge from this card if there are no Charges on this card destroy all minions on the board.
-	-(Epic)Cost 6; 4/4; OnPlay: Give all minions in hand ChargeShild, OnDeath: Give all minions in hand 1 Charge.
-	-(Rare)Cost 5; 6/1; OnPlay: Get 2 Charges, ChargeShild ,When this card has no Charges it Gets LifeSteal.
-	-(Rare)Cost 5; 2/8; Taunt, When you draw a card add 1 Charge to this card, When this unit is damaged it heals it's owner by 3 and loses a Charge.
+	-(Rare)Cost 2; 3/2; When drawn: Get 2 Charges, OnDeath: If this card has Charges remove all of them and add that many FULL copys of this card to your hand.(Charged Hydra Worm)
+	-(Rare)Cost 4; 3/5; Taunt, OnPlay: Choose a minion, At the end of your turn the chosen minion gets one Charge.(StoneGate Thunder Priest)
+	-(Rare)Cost 3; 0/7; OnPlay: Get 1 Charge, At the start of your turn remove 1 Charge from this card if there are no Charges on this card destroy all minions on the board.(Spark Crazed Bloatfish)
+	-(Epic)Cost 6; 4/4; OnPlay: Give all minions in hand ChargeShild, OnDeath: Give all minions in hand 1 Charge.(Rogue SwordSwan Chargomatic)
+	-(Rare)Cost 5; 6/1; OnPlay: Get 2 Charges, ChargeShild ,When this card has no Charges it Gets LifeSteal.(Overloaded Bloodbat)
+	-(Rare)Cost 5; 2/8; Taunt, When you draw a card add 1 Charge to this card, When this unit is damaged it heals it's owner by 3 and loses a Charge.(Rogue Vox Starved Cleric)
 	-(Common)Cost 5; 7/1; When in hand: Gets 1 Charge whenever you draw, OnPlay: Get + Health equal to the number of Charges.(Conductive Bat)
 	-(Common)Cost 2; 3/3; At the end of turn: Get 1 Charge, OnDeath: Draw 1: card with the Cost equal to the number of Charges.(Fluorescent Avian)
-	-(Epic)Cost 9; 9/9; When drawn: Get as many Charges as you have cards in hand, OnPlay: Deal 2 times the number of Charges to any target.(Ele'faseal the Enlightened)
-	-(Epic)Cost 10; 5/15; OnPlay: Get all the Charges from all minion cards you own (bord and hand), At the end of turn deal dmg to self equal to the number of Charges, OnDeath: Deal 2*(number of Charges) to all enemy units.()
+	-(Epic)Cost 9; 9/9; When drawn: Get as many Charges as you have cards in hand, OnPlay: Deal two times the number of Charges to any target.(Ele'faseal the Enlightened)
+	-(Epic)Cost 10; 5/15; OnPlay: Get all the Charges from all minion cards you own (bord and hand), At the end of turn deal dmg to self equal to the number of Charges, OnDeath: Deal two*(number of Charges) to all enemy units.(Demigod Omna'Rastra)
 
 	-(Rare)Cost 3; 2/5; OnPlay: Put a card from your hand into your deck then draw a card.
 	-(Epic)Cost 5; 6/6; Taunt, OnPlay: Lock your maximum Mana to 5, OnDeath: Destroy cards in your hand and deck that Cost more then 5 and draw that many cards.
@@ -136,7 +137,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 3; 3/3; Aura: Every OnDeath effect that triggers gets copied to this minion.
 	-(Rare)Cost 6; 6/4; While in hand every OnPlay effect your cards cast gets copied to this minion.
 
-(40 Commons, 42 Rare, 20 Epic)?
+(40 Commons, 42 Rare, 21 Epic)?
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 

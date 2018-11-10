@@ -31,6 +31,7 @@ public class MyTurn : MonoBehaviour {
             MyTurnJustEndedP2 = true;
             //Player 1 turn started
             MyTurnJustStartedP1 = true;
+            GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(1);
         }
         else
         {
@@ -38,6 +39,7 @@ public class MyTurn : MonoBehaviour {
             MyTurnJustEndedP1 = true;
             //Player 2 turn started
             MyTurnJustStartedP2 = true;
+            GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
         }
 
         if (Player1Turn == true && Player2ManaMax <= 9)

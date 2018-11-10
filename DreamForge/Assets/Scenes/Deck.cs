@@ -13,42 +13,31 @@ public class Deck : MonoBehaviour {
 
     public void Start()
     {
-
         GameObject DrawnCard = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
-
         for (i = 0; i < 30; i++)
         {
-
             DeckCards.Add(Instantiate(DrawnCard));
             DeckCards[i].transform.SetParent(this.transform);
             DeckCards[i].tag = this.tag;
         }
-
         int startNumber = 0;
         int endNumber = 29;
         List<int> numberPot = new List<int>();
         for (int i = startNumber; i < endNumber + 1; i++)
         {
             numberPot.Add(i);
-
         }
-
         while (numberPot.Count > 0)
         {
             int index = Random.Range(0, numberPot.Count);
             int randomNumber = numberPot[index];
             numberPot.RemoveAt(index);
             RanNum.Add(randomNumber);
-
         }
-
-
-
         if (GameObject.Find("MadeDeck1") != null)
         {
             for (j = 0; j < DeckCards.Count; j++)
             {
-
                 if (this.tag == "Player1")
                 {
                     DeckCards[RanNum[j]].GetComponent<CardDisplay>().card = GameObject.Find("MadeDeck1").GetComponent<DeckList>().CardsInDeck[j];
@@ -56,36 +45,28 @@ public class Deck : MonoBehaviour {
                 else
                 {
                     DeckCards[RanNum[j]].GetComponent<CardDisplay>().card = GameObject.Find("MadeDeck2").GetComponent<DeckList>().CardsInDeck[j];
-
                 }
-
             }
         }
-        
-
-
-        
+        DrawACard(4);
     }
-
-    
-
-
-    
     public void OnMouseDown()
     {
-
+        DrawACard(1);
+    }
+    public void DrawACard( int numOfCardsDrawn)
+    {
         if (DeckCards.Count >= 0)
         {
-            
             if (Hand.transform.childCount <= 9)
             {
-                Card = DeckCards[DeckCards.Count - 1];
-                DeckCards.RemoveAt(DeckCards.Count-1);
-                Card.transform.SetParent(Hand.transform);
-
-                //Debug.Log("You drew "+Card.GetComponent<CardDisplay>().nameText.text + " which is the "+ DeckCards.Count+" card in your deck.");   //Starts at 29
-
-                
+                for (int i = 0; i < numOfCardsDrawn; i++)
+                {
+                    Card = DeckCards[DeckCards.Count - 1];
+                    DeckCards.RemoveAt(DeckCards.Count - 1);
+                    Card.transform.SetParent(Hand.transform);
+                    //Debug.Log("You drew "+Card.GetComponent<CardDisplay>().nameText.text + " which is the "+ DeckCards.Count+" card in your deck.");   //Starts at 29
+                }
             }
             else
             {
@@ -97,6 +78,5 @@ public class Deck : MonoBehaviour {
             Debug.Log("U ded");
         }
     }
-    
 }
 

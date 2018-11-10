@@ -143,10 +143,6 @@ public class PlayMinion : MonoBehaviour {
         {
             if (this.tag == "Player1" && TurnSwitcher.GetComponent<MyTurn>().Player1Turn == true)
             {
-
-
-
-
                 foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player2"))
                 {
                     if (item.name == "PlayZone")
@@ -160,22 +156,13 @@ public class PlayMinion : MonoBehaviour {
                             }
                             EnemyPlayZone.transform.GetChild(z).GetComponent<BoxCollider2D>().enabled = true;
                             EnemyPlayZone.transform.GetChild(z).GetComponent<BoxCollider2D>().isTrigger = true;
-
                         }
                     }
                 }
 
-                
-
-
             }
             else if (this.tag == "Player2" && TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false)
             {
-
-
-
-
-
                 foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player1"))
                 {
                     if (item.name == "PlayZone")
@@ -192,11 +179,6 @@ public class PlayMinion : MonoBehaviour {
                         }
                     }
                 }
-
-                
-
-
-
             }
         }
 
