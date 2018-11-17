@@ -48,7 +48,7 @@ public class Deck : MonoBehaviour {
                 }
             }
         }
-        DrawACard(4);
+        //DrawACard(4);
     }
     public void OnMouseDown()
     {

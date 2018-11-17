@@ -303,7 +303,6 @@ public class CardEffects : MonoBehaviour
                 GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP1").transform);
                 New_snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("CardPrefabs/" + gameObject.GetComponent<CardDisplay>().card.name, typeof(CardStats));
                 New_snek.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(New_snek.GetComponent<CardEffects>().Card0_OnDeathEffect);
-                New_snek.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(New_snek.GetComponent<CardEffects>().Card0_OnDeathEffect);
                 New_snek.GetComponent<drag>().StartParent = GameObject.Find("HandP1").transform;
                 New_snek.GetComponent<CardEffects>().enabled = false;
                 New_snek.tag = "Player1";

@@ -39,11 +39,12 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 1; 2/1; OnPlay: Draw a: card.+
 	-(Rare)Cost 3; 2/4; OnDeath: Draw 1: card.+
 	-(Common)Cost 5; 4/4; OnPlay: Draw 1: card with Draw in it's text, OnDeath: Draw 2: cards.
+	-(Rare)Cost 2; 2/10; Taunt, OnPlay: Make your opponent Draw 2: cards, OnKill: Make your opponent Draw a: card, OnDeath: Draw untill you have as many cards as your opponent.
 	-(Epic)Cost 6; 2/4; Draw as much cards this card does dmg.
 	-(Epic)Cost 3; 0/5; OnDeath: Draw 1: card, Your Hero Power costs 0.
 	-(Epic)Cost 2; 0/4; Whenever you use your Hero Power Draw a: card and heal self by 2;
 	//-(Rare)Cost 3; 1/1; OnPlay: Pick a minion in play and transform it into a 0/3 and when the 0/3 dies this minion dies as well, OnDeath: Resummon a FULL copy of the picked minion if the 0/3 is still alive. ////
-	-(Common)Cost 3; 2/4; OnPlay: Set a minions attack to 1;
+	-(Common)Cost 3; 2/4; OnPlay: Set a minions attack to 1;+
 	-(Common)Cost 4; 4/5; OnPlay: Revert a text alteration/addition from 1 minion in play.
 	-(Rare)Cost 5; 6/2; OnPlay and OnDeath: Deal 3 dmg to all minions with Taunt.
 	-(Rare)Cost 5; 3/5; OnPlay: Deal dmg to a minion equal to 1 + the number of times you've used your Hero Power.
@@ -54,7 +55,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 2; 2/2; OnPlay: Add a copy of a friendly minion to your hand.
 	-(Epic)Cost 3; 1/4; Taunt, OnPlay: Add a FULL copy of a friendly minion to your hand.
 	-(Common)Cost 2; 2/2; OnPlay: Give 2 random minions in hand: +1/+1.(Telum Artifex)
-	-(Common)Cost 3; 3/2; OnPlay: Give a random minion in your hand: +1/+2 and Taunt.(Lautus Telum Artifex)
+	-(Common)Cost 3; 3/3; OnPlay: Give a random minion in your hand: +1/+2 and Taunt.(Lautus Telum Artifex)
 	-(Rare)Cost 5; 6/2; OnPlay and OnDeath: Give all minions in hand: +1/+1.(Rogue SwordSwan Artificer)
 	-(Common)Cost 5; 3/7; Taunt, This minion cannot be targeted by Hero Powers or Gifts or other minions effects.
 	-(Rare)Cost 7; 7/8; OnPlay: Deal 3 dmg to a random enemy unit then repeat this effect 2 times.
@@ -69,7 +70,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 4; 3/5; Whenever a friendly minion dies deal one damage to your opponent.(Junk Tosser)
 	-(Epic)Cost 5; 6/1; OnPlay: If you have no minions on the board this minion can attack the turn it was played.
 	-(Common)Cost 3; 5/5; OnDeath: Summon 1: 5/2 minion for your opponent.
-	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 other friendly minion if there are none destry this minion and deal dmg equal to its Attack to its owner.
+	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 other friendly minion(and gain its stats) if there are none destry this minion and deal dmg equal to its Attack to its owner.
 	-(Rare)Cost 1; 2/1; OnPlay: Draw 1: 1 cost minion.
 	-(Rare)Cost 4; 1/1; When drawn: Draw a: card.
 	-(Rare)Cost 2; 2/3; OnPlay: If you have more then 20 or less then 60 health Draw a: cards, OnDeath: If you have less then 20 or more then 60 health Draw two: cards.
@@ -100,13 +101,14 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 3; 4/4; OnDeath: Increases or decrease one number on any minion card by one.(BookBound Spector)
 	-(Rare)Cost 6; 1/6; Taunt, OnDeath: Increases or decrease one number on any minion card by this minions attack.(BookBound Revenant) 
 	-(Epic)Cost 10; 9/6; OnPlay: Double any number on any card in your hand.(Aleyna the BookBound Prodigy)
-	-(Common)Cost 2; 3/4; OnPlay: Add 2 random Common cards into your opponent's deck.*
+	-(Common)Cost 2; 3/4; OnPlay: Add 2 random Common cards into your opponents deck.*
+	-(Common)Cost 4; 3/8; Taunt, OnKill: Add a copy of the killed minion to your opponents deck.*
 	-(Rare)Cost 5; 4/6; OnPlay: Choose a minion then add 3 copies of it to your and your opponents deck.*
 	-(Rare)Cost 3; 4/5; OnPlay: Add 1 random Epic to your deck and it Gets: When drawn: Add 3 copys of this card to your opponents deck.*
 	-(Epic)Cost 3; 4/1; When drawn: Draw a: card, OnPlay: Add a copy of this card to your opponent's deck.*
 	-(Rare)Cost 3; 3/5; OnPlay and OnDeath: Add 1 random Common minion with Cost 2 or less to your deck and Give it: When drawn: Play this minion.
 	-(Epic)Cost 7; 5/5; When drawn: Summon a: 1/1 then repeat this for each mana you have, OnPlay: Give all minions +1/+1.(Fractured Obelisc)
-	-(Common)Cost 3; 3/2; When drawn: Give 3 minions in your hand: +1/+1 and When Damaged: Has Taunt.
+	-(Common)Cost 3; 3/2; When drawn: Give 3 minions in your hand: +1/+1 and When Damaged: Gets Taunt.
 	-(Common)Cost 4; 2/1; When drawn: Summon 1: (2/1; OnDeath: Summon 2: 1/1), OnDeath: Summon 2: 1/1.(Crumpling Fightomatic)
 	-(Epic)Cost 9; 4/3; OnPlay: Pick a minion then destroy all other friendly minions on the board and give it their combined stats.(Keth'faseal the Generous)
 	-(Common)Cost 4; 3/5; At the start of your turn heal this minion to max.(Rogue Potion Thife)
@@ -116,8 +118,9 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Epic)Cost 7; 6/8; OnPlay: Choose a allied minion on the bord and Give all minions in your deck it's text.
 	-(Epic)Cost 0; 1/1; While in hand: Add all stats and card text of cards you play to this ones (including their Cost).
 
-	-(Common)Cost 3; 4/2; OnPlay: Get 1 Charge, ChargeShild=(When this card would be delt dmg and it has Charges it insted of taking dmg loses a Charge).(Charged Tortoise)
+	-(Common)Cost 3; 4/2; OnPlay: Get 1 Charge, ChargeShild=(When this card would be delt dmg and it has Charges it insted of taking dmg loses a Charge).(Shellcharged Tortoise)
 	-(Common)Cost 6; 4/7; ChargeShild, When this unit is damaget it gets a Charge.(Crackling Drake)
+	-(Common)Cost 4; 0/2; Taunt, When drawn: Get 2 Charges, ChatgeShild, Thorns two*(number of Charges).(Voxful Shield Effigy)
 	-(Common)Cost 1; 1/2; When drawn: Get 2 Charges, OnPlay: Deal dmg to an enemy unit equal to the number of Charges.(Thundering Eel)
 	-(Rare)Cost 2; 3/2; When drawn: Get 2 Charges, OnDeath: If this card has Charges remove all of them and add that many FULL copys of this card to your hand.(Charged Hydra Worm)
 	-(Rare)Cost 4; 3/5; Taunt, OnPlay: Choose a minion, At the end of your turn the chosen minion gets one Charge.(StoneGate Thunder Priest)
@@ -127,17 +130,26 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 5; 2/8; Taunt, When you draw a card add 1 Charge to this card, When this unit is damaged it heals it's owner by 3 and loses a Charge.(Rogue Vox Starved Cleric)
 	-(Common)Cost 5; 7/1; When in hand: Gets 1 Charge whenever you draw, OnPlay: Get + Health equal to the number of Charges.(Conductive Bat)
 	-(Common)Cost 2; 3/3; At the end of turn: Get 1 Charge, OnDeath: Draw 1: card with the Cost equal to the number of Charges.(Fluorescent Avian)
+	-(Epic)Cost 5; 7/1; OnPlay: Get 1 Charge, ChargeShild,  OnKill: Can attack again and Get a Charge.(Incrackled Horror)
 	-(Epic)Cost 9; 9/9; When drawn: Get as many Charges as you have cards in hand, OnPlay: Deal two times the number of Charges to any target.(Ele'faseal the Enlightened)
-	-(Epic)Cost 10; 5/15; OnPlay: Get all the Charges from all minion cards you own (bord and hand), At the end of turn deal dmg to self equal to the number of Charges, OnDeath: Deal two*(number of Charges) to all enemy units.(Demigod Omna'Rastra)
-
+	-(Epic)Cost 10; 5/15; OnPlay: Get all the Charges from all cards you own (bord and hand), At the end of turn deal dmg to self equal to the number of Charges, OnDeath: Deal two*(number of Charges) to all enemy units.(Demigod Omna'Rastra)
+	
 	-(Rare)Cost 3; 2/5; OnPlay: Put a card from your hand into your deck then draw a card.
 	-(Epic)Cost 5; 6/6; Taunt, OnPlay: Lock your maximum Mana to 5, OnDeath: Destroy cards in your hand and deck that Cost more then 5 and draw that many cards.
 	-(Epic)Cost 9; 9/9; OnPlay: Destroy all friendly minions then make FULL 1/1 copies of all enemy minions with +1/+1 for each minion you destroyed.(Arom'faseal the Divider)
 	-(Epic)Cost 6; 5/1; OnDeath: Summon all minions killed by this one then give them this effect.(Zombie Vector)
 	-(Rare)Cost 3; 3/3; Aura: Every OnDeath effect that triggers gets copied to this minion.
 	-(Rare)Cost 6; 6/4; While in hand every OnPlay effect your cards cast gets copied to this minion.
+	-(Common)Cost 3; 3/3; OnPlay: Deal 2 Dmg to a minion, OnKill: Get +1/+1.(?Middle Alien?)
+	-(Common)Cost 6; 4/10; OnKill: Can attack again, Cleav=(When this minion attacks deal dmg to the adjacent minions of its target).(?Elite Alien?)
+	-(Epic)Cost 7; 2/6; OnPlay: Deal 3 dmg to chosen minion, OnKill: Deal 2 dmg to all enemy minions and +2/+2.(?Big'ol Chompy Alien?)
+	-(Common)Cost 1; 1/2; OnPlay: Kill a friendly minion, OnKill: Heal owner for the Health of the killed minion.
+	-(Common)Cost 1; 0/3; Thorns 2, OnKill: +1/+1;
+	-(Common)Cost 2; 1/4; Taunt, Thorns 3 =(After this minion is attack the attacker takes 3 dmg).
+	-(Rare)Cost 4; 1/7; Taunt, LifeSteal, Thorns 3.
+	-(Epic)Cost 2; 1/1; Aura: All friendly minions get Thorns +1, OnPlay: Give all minions in your hand and deck: Aura: All friendly minions get Thorns +one.
 
-(40 Commons, 42 Rare, 21 Epic)?
+(47 Commons, 44 Rare, 24 Epic)?
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 

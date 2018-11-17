@@ -14,10 +14,10 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public List<OnPlayEffect> ThisOnPlaySelfBuff = new List<OnPlayEffect>();
     public List<OnPlayEffect> ThisOnPlayEffects = new List<OnPlayEffect>();
     public List<OnDeathEffect> ThisOnDeathEffects = new List<OnDeathEffect>();
-    public List<PassiveEffect> ThisOnStartOfTrunEffects = new List<PassiveEffect>();
+    public List<PassiveEffect> ThisOnStartOfTrunEffects = new List<PassiveEffect>(); // Doesn't work !!! (Player stat turn trigger isnt getting to the cards)
 
 
-    public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = false, OnPlayTargetFound;
+    public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = true, OnPlayTargetFound;
     public int EachOnPlayBuff, EachOnPlayEffect, EachOnDeathEffect;
 
     public CardStats card;
@@ -64,12 +64,10 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         else
         {
             gameObject.GetComponent<Rigidbody2D>().simulated = true;
-
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse0) && gameObject.transform.parent.name == "PlayZone" && WasItPlayed == false)
         {
-            OnStartOfTurnOnce = false;
             EachOnPlayBuff = 0;
             EachOnPlayEffect = 0;
             EachOnDeathEffect = 0;
@@ -82,6 +80,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 OnPlaySelfBuffs();
             }
             WasItPlayed = true;
+            OnStartOfTurnOnce = true;
         }
 
         if(ThisOnPlayEffects != null && WasItPlayed == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
@@ -89,7 +88,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             OnPlayEffects();
         }
 
-        if (this.transform.parent.name == "PlayZone" && ThisOnStartOfTrunEffects != null)
+        if (this.transform.parent.name == "PlayZone" && ThisOnStartOfTrunEffects != null && WasItPlayed == true)
         {
             if (this.tag == "Player1" && TurnButton.GetComponent<MyTurn>().MyTurnJustStartedP1 == true && OnStartOfTurnOnce == false)
             {
@@ -101,6 +100,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 OnStartOfTurnEffects();
                 OnStartOfTurnOnce = true;
+                Debug.Log("hmm");
             }
         }
 

@@ -31,7 +31,9 @@ public class MyTurn : MonoBehaviour {
             MyTurnJustEndedP2 = true;
             //Player 1 turn started
             MyTurnJustStartedP1 = true;
-            GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(1);
+            //GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(1);
+            MyTurnJustStartedP2 = false;
+            MyTurnJustEndedP1 = false;
         }
         else
         {
@@ -39,7 +41,11 @@ public class MyTurn : MonoBehaviour {
             MyTurnJustEndedP1 = true;
             //Player 2 turn started
             MyTurnJustStartedP2 = true;
-            GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
+            //GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
+
+            
+            MyTurnJustStartedP1 = false;
+            MyTurnJustEndedP2 = false;
         }
 
         if (Player1Turn == true && Player2ManaMax <= 9)
@@ -52,46 +58,33 @@ public class MyTurn : MonoBehaviour {
         }
         Player2Mana = Player2ManaMax;
         Player1Mana = Player1ManaMax;
-        
+
         foreach (var item in GameObject.FindGameObjectsWithTag("Player1"))
         {
-            if (item.name == "Card(Clone)")
+            if (item.transform.parent.name == "PlayZone")
             {
                 item.GetComponent<CardDisplay>().HasAttackedThisTurn = false;
                 item.GetComponent<CardDisplay>().OnStartOfTurnOnce = false;
             }
-
         }
         foreach (var item in GameObject.FindGameObjectsWithTag("Player2"))
         {
-            if (item.name == "Card(Clone)")
+            if (item.transform.parent.name == "PlayZone")
             {
                 item.GetComponent<CardDisplay>().HasAttackedThisTurn = false;
                 item.GetComponent<CardDisplay>().OnStartOfTurnOnce = false;
             }
-
         }
-        
     }
-
-
-
     // Update is called once per frame
-    void Update () {
-        MyTurnJustStartedP1 = false;
-        MyTurnJustStartedP2 = false;
-        MyTurnJustEndedP1 = false;
-        MyTurnJustEndedP2 = false;
-
+    void FixedUpdate () {
         if (Player1Turn == true)
         {
             GameObject.Find("Player1").transform.SetAsLastSibling();
-
         }
         if (Player1Turn == false)
         {
             GameObject.Find("Player2").transform.SetAsLastSibling();
-
         }
     }
 }
