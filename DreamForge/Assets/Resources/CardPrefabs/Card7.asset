@@ -15,6 +15,6 @@ MonoBehaviour:
   description: 'OnDeath: Deal 2 dmg to this cards owner'
   artwork: {fileID: 21300000, guid: 5d1fdbaa551b0f641842467fc8e9a8cf, type: 3}
   manaCost: 2
-  attack: 39
+  attack: 4
   health: 4
   tire: Common

@@ -16,5 +16,5 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: f9be61431bf87704ebe11f571d088975, type: 3}
   manaCost: 4
   attack: 2
-  health: 4
+  health: 3
   tire: Rare

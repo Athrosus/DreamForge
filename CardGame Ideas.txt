@@ -34,7 +34,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 2; 2/2; OnDeath: Summon 1: 2/2 minion.+
 	-(Epic)Cost 5; 1/8; Aura: All OnDeath effects happon twice.
 	-(Common)Cost 2; 4/4; OnDeath: Deal 2 dmg to this cards owner.+
-	-(Rare)Cost 4; 2/4; Taunt, OnPlay: Summon 1: 2/4 Taunt minion.+
+	-(Rare)Cost 4; 2/3; Taunt, OnPlay: Summon 1: 2/4 Taunt minion.+
 	-(Rare)Cost 6; 3/5; Taunt, OnPlay: Summon 1: 3/5 Taunt minion.+
 	-(Common)Cost 1; 2/1; OnPlay: Draw a: card.+
 	-(Rare)Cost 3; 2/4; OnDeath: Draw 1: card.+
@@ -78,17 +78,17 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 3; 4/4; While you have a minion in play reduce this cards Cost by 1.
 
 	// -(Common)Cost 1; 3/2;
-	-(Common)Cost 2; 4/3;(StoneGate Knight)
+	-(Common)Cost 2; 4/3;(StoneGate Knight)+
 	// -(Common)Cost 3; 4/5;
-	-(Common)Cost 4; 5/6;(StoneGate Champion)
+	-(Common)Cost 4; 5/6;(StoneGate Champion)+
 	// -(Common)Cost 5; 7/7;
 	// -(Common)Cost 6; 8/9;
-	-(Common)Cost 7; 10/10;(StoneGate General)
+	-(Common)Cost 7; 10/10;(StoneGate General)+
 	// -(Common)Cost 8; 12/12;
-	-(Common)Cost 9; 14/15;(StoneGate Warlord)
+	-(Common)Cost 9; 14/15;(StoneGate Warlord)+
 	//-(Common)Cost 10; 18/18;
 
-	-(Epic)Cost 9; 18/18;(Mit'faseal the Mountain)
+	-(Epic)Cost 9; 18/18;(Mit'faseal the Mountain)+
 	-(Epic)Cost 4; 4/2; OnDeath: copy this cards text to a minion in hand and give it +4/+2.(Telum Viventem)
 	-(Rare)Cost 2; 3/2; LifeSteal, OnPlay: Give 1 minion in hand: LifeSteal.(Flirtatious Vampire)
 	-(Epic)Cost 1; 2/2; LifeSteal, This minions Cost is increased by 1 per minions in play, OnPlay: Deal 1 dmg to all units.(Vampire Countess)
@@ -147,9 +147,14 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 1; 0/3; Thorns 2, OnKill: +1/+1;
 	-(Common)Cost 2; 1/4; Taunt, Thorns 3 =(After this minion is attack the attacker takes 3 dmg).
 	-(Rare)Cost 4; 1/7; Taunt, LifeSteal, Thorns 3.
-	-(Epic)Cost 2; 1/1; Aura: All friendly minions get Thorns +1, OnPlay: Give all minions in your hand and deck: Aura: All friendly minions get Thorns +one.
+	-(Epic)Cost 2; 1/1; Aura: All friendly minions get Thorns 1, OnPlay: Give all minions in your hand and deck: Aura: All friendly minions get Thorns one.
+	-(Common)Cost 1; 2/1; OnPlay: Give your Hero: Thorns 1
+	-(Epic)Cost 10; 1/1; When drawn: Your Hero gains Thorns 1, While in hand: Summon a 1/1 for each Thorns dmg your units deal.
+	-(Rare)Cost 6; 0/10; Taunt, When drawn: Get +1/+0 for each card in your hand.
+	-(Epic)Cost 5; 0/1; Taunt, OnPlay: get +0/+2 for each time you used you've used your Hero Power, OnDeath: Heal owner by 2 for each time you used you've used your Hero Power.
+	-
 
-(47 Commons, 44 Rare, 24 Epic)?
+(48 Commons, 45 Rare, 27 Epic)?
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 

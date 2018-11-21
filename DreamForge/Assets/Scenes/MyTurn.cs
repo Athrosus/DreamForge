@@ -31,7 +31,7 @@ public class MyTurn : MonoBehaviour {
             MyTurnJustEndedP2 = true;
             //Player 1 turn started
             MyTurnJustStartedP1 = true;
-            //GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(1);
+            GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(1);
             MyTurnJustStartedP2 = false;
             MyTurnJustEndedP1 = false;
         }
@@ -41,7 +41,7 @@ public class MyTurn : MonoBehaviour {
             MyTurnJustEndedP1 = true;
             //Player 2 turn started
             MyTurnJustStartedP2 = true;
-            //GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
+            GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
 
             
             MyTurnJustStartedP1 = false;

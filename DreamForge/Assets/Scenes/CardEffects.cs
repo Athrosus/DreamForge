@@ -47,8 +47,6 @@ public class CardEffects : MonoBehaviour
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card12")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card12_OnPlayEffect);
-            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Flower_OnPlayEffect);
-            gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card0_OnDeathEffect);
         }
 
         //    OnPlayEffects
@@ -268,6 +266,8 @@ public class CardEffects : MonoBehaviour
         {
             GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
         }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+        StartedTargeting = false;
     }
     public void Card12_OnPlayEffect()
     {
