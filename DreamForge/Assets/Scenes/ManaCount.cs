@@ -7,9 +7,7 @@ public class ManaCount : MonoBehaviour {
     public GameObject EndTurnButton;
 	// Use this for initialization
 	void Start () {
-		
 	}
-	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(this.tag == "Player1")
@@ -20,6 +18,5 @@ public class ManaCount : MonoBehaviour {
         {
             gameObject.GetComponent<Text>().text = (EndTurnButton.GetComponent<MyTurn>().Player2Mana).ToString();
         }
-
     }
 }

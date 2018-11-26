@@ -412,6 +412,7 @@ public class CardEffects : MonoBehaviour
             New_snek.GetComponent<CardEffects>().enabled = false;
             New_snek.GetComponent<BoxCollider2D>().enabled = false;
             New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+            GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side++;
         }
         if (gameObject.tag == "Player2")
         {
@@ -422,6 +423,7 @@ public class CardEffects : MonoBehaviour
             New_snek.GetComponent<CardEffects>().enabled = false;
             New_snek.GetComponent<BoxCollider2D>().enabled = false;
             New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+            GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side++;
         }
     }
     public void Card7_OnDeathEffect()

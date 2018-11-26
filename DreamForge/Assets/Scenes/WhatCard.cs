@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class WhatCard : MonoBehaviour {
-
     public CardStats ThisCardForRemoval;
     public int NumOfCard =0;
 
@@ -15,7 +14,6 @@ public class WhatCard : MonoBehaviour {
         //Debug.Log(NumOfCard-1);
         NumOfCard = GameObject.Find(ThisCardForRemoval.name).GetComponent<AddCard>().RemovePlateClone.Count;
     }
-
     public void OnButtonPressRemove()
     {
         /* for (int i = 0; i < GameObject.Find("DBList").transform.childCount; i++)
@@ -24,13 +22,9 @@ public class WhatCard : MonoBehaviour {
              {
                  NumOfCard++;
              }
-         }
-         */
-
+         }*/
         Scene CurrentScene = SceneManager.GetActiveScene();
-
         GameObject.Find(ThisCardForRemoval.name).GetComponent<AddCard>().RemovePlateClone.RemoveAt(NumOfCard - 1);
-
         if (CurrentScene.name == "DeckBuilderP1")
         {
             GameObject.Find("MadeDeck1").GetComponent<DeckList>().CardsInDeck.Remove(ThisCardForRemoval);

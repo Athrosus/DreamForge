@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Deck : MonoBehaviour {
-    int i, j;
     GameObject Card;
     public List<GameObject> DeckCards = new List<GameObject>();
     public GameObject FakeCardHand, Hand, EndTurnButton;
@@ -14,11 +13,11 @@ public class Deck : MonoBehaviour {
     public void Start()
     {
         GameObject DrawnCard = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
-        for (i = 0; i < 30; i++)
+        for (int BlankCards = 0; BlankCards < 30; BlankCards++)
         {
             DeckCards.Add(Instantiate(DrawnCard));
-            DeckCards[i].transform.SetParent(this.transform);
-            DeckCards[i].tag = this.tag;
+            DeckCards[BlankCards].transform.SetParent(this.transform);
+            DeckCards[BlankCards].tag = this.tag;
         }
         int startNumber = 0;
         int endNumber = 29;
@@ -36,7 +35,7 @@ public class Deck : MonoBehaviour {
         }
         if (GameObject.Find("MadeDeck1") != null)
         {
-            for (j = 0; j < DeckCards.Count; j++)
+            for (int j = 0; j < DeckCards.Count; j++)
             {
                 if (this.tag == "Player1")
                 {

@@ -6,12 +6,9 @@ using UnityEngine.EventSystems;
 
 public class FaceHealth : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
     int FaceHPp1, FaceHPP2;
-
 	// Use this for initialization
 	void Start () {
-		
 	}
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
@@ -27,14 +24,10 @@ public class FaceHealth : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             GameObject.Find("AttackArrow(Clone)").GetComponent<Attack>().Face = null;
         }
     }
-
     // Update is called once per frame
     void FixedUpdate () {
         int.TryParse(GameObject.Find("FaceHPTextP1").GetComponent<Text>().text, out FaceHPp1);
         int.TryParse(GameObject.Find("FaceHPTextP2").GetComponent<Text>().text, out FaceHPP2);
-
-       
-
         if (FaceHPp1 <= 0)
         {
             Debug.Log("Player 1 has lost");
@@ -43,6 +36,5 @@ public class FaceHealth : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             Debug.Log("Player 2 has lost");
         }
-
 	}
 }

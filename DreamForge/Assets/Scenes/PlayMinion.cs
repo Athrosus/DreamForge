@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayMinion : MonoBehaviour {
+public class PlayMinion : MonoBehaviour
+{
     public GameObject CardAttacking;
     public GameObject Hand = null;
     public GameObject TurnSwitcher;
     public Sprite ArrowIcon;
-    public int j, i, w = 0, SelectedCardMana;
+    public int MinionTryingToBePlayed, IsTheMinionPlayed, IsTheMinionAttacking = 0, SelectedCardMana;
     public bool IsThereAnEnemyTaunt;
 
     public void Start()
@@ -22,92 +23,75 @@ public class PlayMinion : MonoBehaviour {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         int.TryParse(collision.gameObject.GetComponent<CardDisplay>().manaText.text, out SelectedCardMana);
-
         if (SelectedCardMana <= TurnSwitcher.GetComponent<MyTurn>().Player1Mana && TurnSwitcher.GetComponent<MyTurn>().Player1Turn == true && this.tag == "Player1")
         {
             collision.transform.SetParent(this.transform);
-            j = 1;
+            MinionTryingToBePlayed = 1;
             collision.gameObject.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
         }
         else if (SelectedCardMana <= TurnSwitcher.GetComponent<MyTurn>().Player2Mana && TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player2")
         {
             collision.transform.SetParent(this.transform);
-            j = 1;
+            MinionTryingToBePlayed = 1;
             collision.gameObject.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
         }
     }
-
     public void OnTriggerStay2D(Collider2D collision)
     {
-
-        if (i == 1 )
+        if (IsTheMinionPlayed == 1)
         {
             if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == true && this.tag == "Player1")
             {
                 TurnSwitcher.GetComponent<MyTurn>().Player1Mana = TurnSwitcher.GetComponent<MyTurn>().Player1Mana - SelectedCardMana;
-
                 collision.GetComponent<BoxCollider2D>().enabled = false;
                 Button But = collision.gameObject.AddComponent<Button>();
                 But.onClick.AddListener(AttackInitiation);
                 GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side++;
-                j = 0;
+                MinionTryingToBePlayed = 0;
             }
             else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player2")
             {
                 TurnSwitcher.GetComponent<MyTurn>().Player2Mana = TurnSwitcher.GetComponent<MyTurn>().Player2Mana - SelectedCardMana;
-
                 collision.GetComponent<BoxCollider2D>().enabled = false;
                 Button But = collision.gameObject.AddComponent<Button>();
                 But.onClick.AddListener(AttackInitiation);
                 GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side++;
-                j = 0;
+                MinionTryingToBePlayed = 0;
             }
-            
-
         }
-        
     }
-
     public void AttackInitiation()
     {
         GameObject AttackArrow = (GameObject)Resources.Load("prefabs/AttackArrow", typeof(GameObject));
         IsThereAnEnemyTaunt = false;
-        if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == true && this.tag == "Player1" && CardAttacking.GetComponent<CardDisplay>().HasAttackedThisTurn == false )
+        if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == true && this.tag == "Player1" && CardAttacking.GetComponent<CardDisplay>().HasAttackedThisTurn == false)
         {
             Cursor.visible = false;
             Instantiate(AttackArrow, gameObject.GetComponent<PlayMinion>().CardAttacking.transform);
             GameObject.Find("AttackArrow(Clone)").GetComponent<Attack>().CardThatStartedAttack = CardAttacking;
-
-            w = 1;
+            IsTheMinionAttacking = 1;
         }
         else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player2" && CardAttacking.GetComponent<CardDisplay>().HasAttackedThisTurn == false)
         {
             Cursor.visible = false;
             Instantiate(AttackArrow, gameObject.GetComponent<PlayMinion>().CardAttacking.transform);
             GameObject.Find("AttackArrow(Clone)").GetComponent<Attack>().CardThatStartedAttack = CardAttacking;
-
-
-            w = 1;
+            IsTheMinionAttacking = 1;
         }
     }
-    
-
-
     public void FixedUpdate()
     {
-        if (j==1 && Input.GetKeyUp(KeyCode.Mouse0) == true)
+        if (MinionTryingToBePlayed == 1 && Input.GetKeyUp(KeyCode.Mouse0) == true)
         {
-            i = 1;
+            IsTheMinionPlayed = 1;
         }
-       else
+        else
         {
-            i = 0;
+            IsTheMinionPlayed = 0;
         }
-
         if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == true && this.tag == "Player2") // player 1 turn
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -124,8 +108,7 @@ public class PlayMinion : MonoBehaviour {
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
-
-        if (w == 1)
+        if (IsTheMinionAttacking == 1)
         {
             if (GameObject.Find("AttackArrow(Clone)") != null)
             {
@@ -139,7 +122,7 @@ public class PlayMinion : MonoBehaviour {
                 GameObject.Find("AttackArrow(Clone)").transform.eulerAngles = new Vector3(0, 0, angle);
             }
         }
-        if (w == 1)
+        if (IsTheMinionAttacking == 1)
         {
             if (this.tag == "Player1" && TurnSwitcher.GetComponent<MyTurn>().Player1Turn == true)
             {
@@ -150,7 +133,7 @@ public class PlayMinion : MonoBehaviour {
                         GameObject EnemyPlayZone = item;
                         for (int z = 0; z < EnemyPlayZone.transform.childCount; z++)
                         {
-                            if (EnemyPlayZone.transform.GetChild(z).GetComponent <CardDisplay>().IsTaunt == true)
+                            if (EnemyPlayZone.transform.GetChild(z).GetComponent<CardDisplay>().IsTaunt == true)
                             {
                                 IsThereAnEnemyTaunt = true;
                             }
@@ -170,7 +153,7 @@ public class PlayMinion : MonoBehaviour {
                         GameObject EnemyPlayZone = item;
                         for (int z = 0; z < EnemyPlayZone.transform.childCount; z++)
                         {
-                            if(EnemyPlayZone.transform.GetChild(z).GetComponent<CardDisplay>().IsTaunt == true)
+                            if (EnemyPlayZone.transform.GetChild(z).GetComponent<CardDisplay>().IsTaunt == true)
                             {
                                 IsThereAnEnemyTaunt = true;
                             }
@@ -182,12 +165,12 @@ public class PlayMinion : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) == true /*|| Input.GetKeyDown(KeyCode.Mouse0) == true */){
-                if (w == 1 )
-                {
+        if (Input.GetKeyDown(KeyCode.Mouse1) == true /*|| Input.GetKeyDown(KeyCode.Mouse0) == true */)
+        {
+            if (IsTheMinionAttacking == 1)
+            {
                 Cursor.visible = true;
-
-                w = 0;
+                IsTheMinionAttacking = 0;
                 Destroy(GameObject.Find("AttackArrow(Clone)"));
                 foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player2"))
                 {
@@ -213,28 +196,19 @@ public class PlayMinion : MonoBehaviour {
                         }
                     }
                 }
-
-                }
-           
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0) == true)
         {
-            w = 0;
+            IsTheMinionAttacking = 0;
         }
-
     }
-
     public void OnTriggerExit2D(Collider2D collision)
     {
-        j = 0;
-
-        
-
-          collision.transform.SetParent(collision.GetComponent<drag>().StartParent);
-       
+        MinionTryingToBePlayed = 0;
+        collision.transform.SetParent(collision.GetComponent<drag>().StartParent);
     }
     public void OnMouseDown()
     {
-        
     }
 }

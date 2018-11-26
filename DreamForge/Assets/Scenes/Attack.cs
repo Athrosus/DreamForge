@@ -11,13 +11,10 @@ public class Attack : MonoBehaviour {
     void Start () {
         GetComponent<CanvasGroup>().blocksRaycasts = false;
         //CardThatStartedAttack = this.transform.parent.gameObject;
-
     }
-
     // Update is called once per frame
     void FixedUpdate()
     {
-       
         //Which card started the attack
         if (CardThatStartedAttack != null)
         {
@@ -25,41 +22,31 @@ public class Attack : MonoBehaviour {
             int.TryParse(CardThatStartedAttack.GetComponent<CardDisplay>().healthText.text, out StartHP);
             StartTag = CardThatStartedAttack.tag;
         }
-
         if (Face != null && StartTag != Face.tag)
         {
             int.TryParse(Face.GetComponentInChildren<Text>().text, out TargetHP);
             TargetAttack = 0;
-
-
             if (Input.GetKeyDown(KeyCode.Mouse0) && gameObject.transform.parent.gameObject.transform.parent.GetComponent<PlayMinion>().IsThereAnEnemyTaunt == true)
             {
                 Debug.Log("Taunt in the way");
-
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && gameObject.transform.parent.gameObject.transform.parent.GetComponent<PlayMinion>().IsThereAnEnemyTaunt == false)
-
             {
                 Face.GetComponentInChildren<Text>().text = (TargetHP - StartAtt).ToString() ;
                 Cursor.visible = true;
                 CardThatStartedAttack.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
-
             }
         }
-
         //What can you attack and the calculation/return
         if (CardBeingAttacked != null && StartTag != CardBeingAttacked.tag && CardBeingAttacked.transform.parent.name != "HandP1" && CardBeingAttacked.transform.parent.name != "HandP2")
         {
             int.TryParse(CardBeingAttacked.GetComponent<CardDisplay>().attackText.text, out TargetAttack);
             int.TryParse(CardBeingAttacked.GetComponent<CardDisplay>().healthText.text, out TargetHP);
-
             if (Input.GetKeyDown(KeyCode.Mouse0) && CardBeingAttacked.GetComponent<CardDisplay>().IsTaunt == false && gameObject.transform.parent.gameObject.transform.parent.GetComponent<PlayMinion>().IsThereAnEnemyTaunt == true)
             {
                 Debug.Log("Taunt in the way");
-                
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && CardBeingAttacked.GetComponent<CardDisplay>().IsTaunt == true && gameObject.transform.parent.gameObject.transform.parent.GetComponent<PlayMinion>().IsThereAnEnemyTaunt == true)
-
             {
                 CardBeingAttacked.GetComponent<CardDisplay>().healthText.text = (TargetHP - StartAtt).ToString();
                 CardThatStartedAttack.GetComponent<CardDisplay>().healthText.text = (StartHP - TargetAttack).ToString();
@@ -73,13 +60,10 @@ public class Attack : MonoBehaviour {
                 Cursor.visible = true;
                 CardThatStartedAttack.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
             }
-
         }
-
         //Clear all after LMB
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-
             Cursor.visible = true;
             Destroy(GameObject.Find("AttackArrow(Clone)"));
             foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player2"))
@@ -107,8 +91,5 @@ public class Attack : MonoBehaviour {
                 }
             }
         }
-
     }
-
-
 }
