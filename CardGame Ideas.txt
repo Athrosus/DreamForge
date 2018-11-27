@@ -1,22 +1,31 @@
-(Ass- Ascendent ,Mag- Magus)
+(Ass- Ascendent ,Mag- Magus ,Arc- Archivist)
 (Hero Powers cost 1 and function like hs Hero Powers)(Also heros start with 40 life with a max of 999)
 Hero Power: -Ass: Increases any number on any card by 1.(including the number of Charges on cards)
             -Mag: Copy the text of a frendly minion on the bord to another minion card.(in your hand as well)
+	    -Arc: Look at the top 3 cards of your deck then for each card choose its position in your deck.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-(Artifacts are what makes the heros different not the cards [all cards are shered by all classes], and they can be chosen as a "Gift") 
-(Gifts are what defines your deck, besides Artifacts you can choose a single card that you can play at any time [once in a game] as if it were in your hand) 
-Artifacts: 	-(Ass)4 uses a turn; Cost (number of times used this turn); Do 1 dmg.
-		-(Ass)1 use a turn; Cost 1; Flip a minions Attack and Health.
-		-(Ass)Passive; Don't draw at the start of turn, replace Hero Power with "Draw a card", Give all cards in your deck: When drawn: Heal self by 3 and reduce this cards Cost by 1.
-		-(Ass)Passive; Any card that your opponent overdraws you draw instead, all cards that didn't start in your opponents deck Gain: When drawn: Draw a: card.*
-		-(Ass)Passive; HeroPower is replaced by: Decreases any number on any card by 1.
+(Artifacts are what makes the heros different, not the cards [all cards are shered by all classes], and they can be chosen as a "Gift") 
+(Gifts are what defines your deck, you can choose an Artifact or a single card as your Gift. If you choose one card you start the game with it being available as if it were in your hand and your opponent can see it.)
+Artifacts: 	--(Ass)5 uses a turn; Cost (number of times used this turn); Do 1 dmg.
+		+-(Ass)1 use a turn; Cost 1; Flip a minions Attack and Health.
+		+-(Ass)Passive; Don't draw at the start of turn, replace Hero Power with "Draw a card", Give all cards in your deck: When drawn: Heal self by 3 and reduce this cards Cost by 1.
+		+-(Ass)Passive; Whenever your opponent draws a card that didn't start in their deck you draw it as well.*
+		+-(Ass)1 use a turn; Cost 1; Decreases any number on any card by 1.
 
-		-(Mag)Passive; All minions Cost 2 more, when a minion is played copy it's text to all minions in hand.
-		-(Mag)Passive; All instences of "OnDeath" are replaced by "OnPlay".
-		-(Mag)1 use a turn; Cost (Cost of chosen minion) - 3; Trigger any OnDeath or OnPlay effect of a minion in hand (as if it was a spell) then discard that card.
-		-(Mag)Passive; Whenever your opponent draws a card that didn't start in their deck you draw it as well.*
-		-(Mag)Passive; Your Hero Power treats "When drawn:" as "OnPlay and OnDeath:" as well, When a minion is summoned: Heal self by 1.
+		+-(Mag)Passive; All minions Cost 2 more, when a minion is played copy it's text to all minions in hand.
+		+-(Mag)Passive; All instences of "OnDeath" are replaced by "OnPlay".
+		+-(Mag)1 use a turn; Cost (Cost of chosen minion) - 3; Trigger any OnDeath, OnPlay or When drawn effect of a minion in hand (as if it was a spell) then discard that card.
+		+-(Mag)1 use a turn; Use the rest of your mana and summon a random Common minion with Cost equal to what was used.
+		+-(Mag)Passive; Your Hero Power treats "When drawn:" as "OnPlay and OnDeath:" as well, When a minion is summoned: Heal self by 1.
+
+
+		+-(Arc)1 use a turn; Cost 1; Look at the top 5 cards of your deck then for each card choose to destroy it or not.
+		+-(Arc)4 uses a turn; Cost 1+(number of times used this game); Put a card from your hand into your deck then draw a card.
+		+-(Arc)Whenever you draw a card deal 1 dmg to a random enemy unit, if the card didnt start in your deck you also heal for 2.
+		-(Arc)
+		-(Arc)
+		-(Arc)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
@@ -34,7 +43,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 2; 2/2; OnDeath: Summon 1: 2/2 minion.+
 	-(Epic)Cost 5; 1/8; Aura: All OnDeath effects happon twice.
 	-(Common)Cost 2; 4/4; OnDeath: Deal 2 dmg to this cards owner.+
-	-(Rare)Cost 4; 2/3; Taunt, OnPlay: Summon 1: 2/4 Taunt minion.+
+	-(Rare)Cost 4; 2/3; Taunt, OnPlay: Summon 1: 2/3 Taunt minion.+
 	-(Rare)Cost 6; 3/5; Taunt, OnPlay: Summon 1: 3/5 Taunt minion.+
 	-(Common)Cost 1; 2/1; OnPlay: Draw a: card.+
 	-(Rare)Cost 3; 2/4; OnDeath: Draw 1: card.+
@@ -73,6 +82,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 other friendly minion(and gain its stats) if there are none destry this minion and deal dmg equal to its Attack to its owner.
 	-(Rare)Cost 1; 2/1; OnPlay: Draw 1: 1 cost minion.
 	-(Rare)Cost 4; 1/1; When drawn: Draw a: card.
+	-(Rare)Cost 4; 1/1; When drawn: If you have 5 or more cards in your hand heal self by 5 and if you have 5 or less cards in your hand draw a card.
 	-(Rare)Cost 2; 2/3; OnPlay: If you have more then 20 or less then 60 health Draw a: cards, OnDeath: If you have less then 20 or more then 60 health Draw two: cards.
 	-(Rare)Cost 4; 3/6; OnPlay: Discard 2 random cards from hand then Draw a: card of your choice from your deck. 
 	-(Common)Cost 3; 4/4; While you have a minion in play reduce this cards Cost by 1.
@@ -101,7 +111,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Common)Cost 3; 4/4; OnDeath: Increases or decrease one number on any minion card by one.(BookBound Spector)
 	-(Rare)Cost 6; 1/6; Taunt, OnDeath: Increases or decrease one number on any minion card by this minions attack.(BookBound Revenant) 
 	-(Epic)Cost 10; 9/6; OnPlay: Double any number on any card in your hand.(Aleyna the BookBound Prodigy)
-	-(Common)Cost 2; 3/4; OnPlay: Add 2 random Common cards into your opponents deck.*
+	-(Common)Cost 2; 3/4; OnPlay: Add 2 random Common cards into the chosen players deck.*
 	-(Common)Cost 4; 3/8; Taunt, OnKill: Add a copy of the killed minion to your opponents deck.*
 	-(Rare)Cost 5; 4/6; OnPlay: Choose a minion then add 3 copies of it to your and your opponents deck.*
 	-(Rare)Cost 3; 4/5; OnPlay: Add 1 random Epic to your deck and it Gets: When drawn: Add 3 copys of this card to your opponents deck.*
@@ -135,26 +145,29 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Epic)Cost 10; 5/15; OnPlay: Get all the Charges from all cards you own (bord and hand), At the end of turn deal dmg to self equal to the number of Charges, OnDeath: Deal two*(number of Charges) to all enemy units.(Demigod Omna'Rastra)
 	
 	-(Rare)Cost 3; 2/5; OnPlay: Put a card from your hand into your deck then draw a card.
-	-(Epic)Cost 5; 6/6; Taunt, OnPlay: Lock your maximum Mana to 5, OnDeath: Destroy cards in your hand and deck that Cost more then 5 and draw that many cards.
+	-(Epic)Cost 5; 3/6; Taunt, OnDeath: Destroy cards in your hand and deck that Cost more then 5 and draw that many cards.
 	-(Epic)Cost 9; 9/9; OnPlay: Destroy all friendly minions then make FULL 1/1 copies of all enemy minions with +1/+1 for each minion you destroyed.(Arom'faseal the Divider)
 	-(Epic)Cost 6; 5/1; OnDeath: Summon all minions killed by this one then give them this effect.(Zombie Vector)
 	-(Rare)Cost 3; 3/3; Aura: Every OnDeath effect that triggers gets copied to this minion.
-	-(Rare)Cost 6; 6/4; While in hand every OnPlay effect your cards cast gets copied to this minion.
+	-(Rare)Cost 6; 4/4; While in hand every OnPlay effect your cards cast gets copied to this minion.
 	-(Common)Cost 3; 3/3; OnPlay: Deal 2 Dmg to a minion, OnKill: Get +1/+1.(?Middle Alien?)
 	-(Common)Cost 6; 4/10; OnKill: Can attack again, Cleav=(When this minion attacks deal dmg to the adjacent minions of its target).(?Elite Alien?)
 	-(Epic)Cost 7; 2/6; OnPlay: Deal 3 dmg to chosen minion, OnKill: Deal 2 dmg to all enemy minions and +2/+2.(?Big'ol Chompy Alien?)
 	-(Common)Cost 1; 1/2; OnPlay: Kill a friendly minion, OnKill: Heal owner for the Health of the killed minion.
 	-(Common)Cost 1; 0/3; Thorns 2, OnKill: +1/+1;
-	-(Common)Cost 2; 1/4; Taunt, Thorns 3 =(After this minion is attack the attacker takes 3 dmg).
+	-(Common)Cost 2; 1/3; Taunt, Thorns 3 =(After this minion is attack the attacker takes 3 dmg).
 	-(Rare)Cost 4; 1/7; Taunt, LifeSteal, Thorns 3.
 	-(Epic)Cost 2; 1/1; Aura: All friendly minions get Thorns 1, OnPlay: Give all minions in your hand and deck: Aura: All friendly minions get Thorns one.
 	-(Common)Cost 1; 2/1; OnPlay: Give your Hero: Thorns 1
 	-(Epic)Cost 10; 1/1; When drawn: Your Hero gains Thorns 1, While in hand: Summon a 1/1 for each Thorns dmg your units deal.
 	-(Rare)Cost 6; 0/10; Taunt, When drawn: Get +1/+0 for each card in your hand.
-	-(Epic)Cost 5; 0/1; Taunt, OnPlay: get +0/+2 for each time you used you've used your Hero Power, OnDeath: Heal owner by 2 for each time you used you've used your Hero Power.
-	-
+	-(Epic)Cost 5; 0/1; Taunt, OnPlay: get +0/+2 for each time you used you've used your Hero Power, OnDeath: Heal owner by 2 for each time you've used your Hero Power.
+	-(Epic)Cost 7; 6/5; OnStartOfGame: If you have 4 copys of 4 cards and 3 copys of 3 cards and 2 copys of 2 cards in your deck your Hero Power is free.(Fate Breaker)
+	-(Rare)Cost 3; 4/3; OnPlay: Destroy up to 6 random commons from your deck and add 1 random Epic for every 2 destroyed. 
+	-(Rare)Cost 5; 5/5; When drawn: Heal self for the number of cards in your hand.
 
-(48 Commons, 45 Rare, 27 Epic)?
+
+(48 Commons, 48 Rare, 28 Epic)?
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 
