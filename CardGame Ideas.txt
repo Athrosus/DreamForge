@@ -7,16 +7,17 @@ Hero Power: -Ass: Increases any number on any card by 1.(including the number of
 
 (Artifacts are what makes the heros different, not the cards [all cards are shered by all classes], and they can be chosen as a "Gift") 
 (Gifts are what defines your deck, you can choose an Artifact or a single card as your Gift. If you choose one card you start the game with it being available as if it were in your hand and your opponent can see it.)
-Artifacts: 	--(Ass)5 uses a turn; Cost (number of times used this turn); Do 1 dmg.
+Artifacts: 	
+		--(Ass)5 uses a turn; Cost (number of times used this turn); Do 1 dmg.
 		+-(Ass)1 use a turn; Cost 1; Flip a minions Attack and Health.
-		+-(Ass)Passive; Don't draw at the start of turn, replace Hero Power with :"Draw a card", Give all cards in your deck: When drawn: Heal self by 3 and reduce this cards Cost by 1.
+		+-(Ass)Passive; Don't draw at the start of turn, replace Hero Power with :"Draw a card", Give all cards in your deck: When drawn: Heal owner by 3 and reduce this cards Cost by 1.
 		+-(Ass)Passive; Whenever your opponent draws a card that didn't start in their deck you draw it as well.*
 		+-(Ass)1 use a turn; Cost 1; Decreases any number on any card by 1.
 
-		+-(Mag)Passive; All minions Cost 2 more, when a minion is played copy it's text to all minions in hand.
+		+-(Mag)Passive; When a minion is played copy it's text to all minions in hand and increase their Cost by 1.
 		+-(Mag)Passive; All instences of "OnDeath" are replaced by "OnPlay".
 		+-(Mag)1 use a turn; Cost (Cost of chosen minion) - 3; Trigger any OnDeath, OnPlay or When drawn effect of a minion in hand (as if it was a spell) then discard that card.
-		+-(Mag)1 use a turn; Use the rest of your mana and summon a random Common minion with Cost equal to what was used.
+		+-(Mag)1 use a turn; Use the rest of your mana and summon a random Common minion with Cost equal to what was spent.
 		+-(Mag)Passive; Your Hero Power treats "When drawn:" as "OnPlay and OnDeath:" as well, When a minion is summoned: Heal self by 1.
 
 
@@ -30,7 +31,8 @@ Artifacts: 	--(Ass)5 uses a turn; Cost (number of times used this turn); Do 1 dm
 
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
 (A deck has 30 cards, max 4 Commons, 2 Rare and 1 Epic)
-Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your hand.(Primordial Agony)-/+
+Cards :
+	-(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your hand.(Primordial Agony)-/+
 	-(Common)Cost 1; 2/2; At the start of your turn give this minion + Attack equal to it's Health.(Ofhun'Ra)+
 	-(Common)Cost 2; 1/1; Taunt, OnPlay: Give +2 Health 2 times to a minion.(Ferrarius)+
 	-(Rare)Cost 5; 1/1; Taunt, OnPlay: Give +3 Health 3 times to a minion.(Erus Ferrarius)+
@@ -51,8 +53,8 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 2; 2/10; Taunt, OnPlay: Make your opponent Draw 2: cards, OnKill: Make your opponent Draw a: card, OnDeath: Draw untill you have as many cards as your opponent.
 	-(Epic)Cost 6; 2/4; Draw as much cards this card does dmg.
 	-(Epic)Cost 3; 0/5; OnDeath: Draw 1: card, Your Hero Power costs 0.
-	-(Epic)Cost 2; 0/4; Whenever you use your Hero Power Draw a: card and heal self by 2;
-	//-(Rare)Cost 3; 1/1; OnPlay: Pick a minion in play and transform it into a 0/3 and when the 0/3 dies this minion dies as well, OnDeath: Resummon a FULL copy of the picked minion if the 0/3 is still alive. ////
+	-(Epic)Cost 2; 0/4; Aura: Whenever you use your Hero Power Draw a: card and heal self by 2;
+	//-(Rare)Cost 3; 1/1; OnPlay: Pick a minion in play and transform it into a 0/3 and when the 0/3 dies this minion dies as well, OnDeath: Resummon a FULL copy of the picked minion if the 0/3 is still alive.
 	-(Rare)Cost 3; 2/4; OnPlay: Set a minions attack to 1.(Hexing apparition)+
 	-(Common)Cost 4; 4/5; OnPlay: Revert a text alteration/addition from 1 minion in play.(Rogue Purificator)
 	-(Rare)Cost 5; 6/2; OnPlay and OnDeath: Deal 3 dmg to all minions with Taunt.(Meltomatic)
@@ -79,7 +81,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Rare)Cost 4; 3/5; Whenever a friendly minion dies deal one damage to your opponent.(Junk Tosser)
 	-(Epic)Cost 5; 6/1; OnPlay: If you have no minions on the board this minion can attack the turn it was played.
 	-(Common)Cost 3; 5/5; OnDeath: Summon 1: 5/2 minion for your opponent.
-	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 other friendly minion(and gain its stats) if there are none destry this minion and deal dmg equal to its Attack to its owner.
+	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 adjacent friendly minion and gain its stats if there are none destry this minion and deal dmg equal to its Attack to its owner.(Hungering Demon)
 	-(Rare)Cost 1; 2/1; OnPlay: Draw 1: 1 cost minion.
 	-(Rare)Cost 15; 1/1; When drawn: Draw a: card, While in hand Cost gets reduced by 1 for each card drawn.
 	-(Rare)Cost 5; 1/1; When drawn: If you have 5 or more cards in your hand heal self by 5 and if you have 5 or less cards in your hand draw a card.
@@ -133,7 +135,7 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 
 	-(Common)Cost 3; 4/2; OnPlay: Get 1 Charge, ChargeShild=(When this card would be delt dmg and it has Charges it insted of taking dmg loses a Charge).(Shellcharged Tortoise)
 	-(Common)Cost 6; 4/7; ChargeShild, When this unit is damaget it gets a Charge.(Crackling Drake)
-	-(Common)Cost 4; 0/2; Taunt, When drawn: Get 2 Charges, ChatgeShild, Thorns two*(number of Charges).(Voxful Shield Effigy)
+	-(Common)Cost 4; 0/2; Taunt, When drawn: Get 2 Charges, ChatgeShild, Thorns two*(number of Charges).(Empowered Shield Effigy)
 	-(Common)Cost 1; 1/2; When drawn: Get 2 Charges, OnPlay: Deal dmg to an enemy unit equal to the number of Charges.(Thundering Eel)
 	-(Rare)Cost 2; 3/2; When drawn: Get 2 Charges, OnDeath: If this card has Charges remove all of them and add that many FULL copys of this card to your hand.(Charged Hydra Worm)
 	-(Rare)Cost 4; 3/5; Taunt, OnPlay: Choose a minion, At the end of your turn the chosen minion gets one Charge.(StoneGate Thunder Priest)
@@ -168,9 +170,11 @@ Cards : -(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your han
 	-(Epic)Cost 7; 6/5; OnStartOfGame: If you have 4 copys of 4 cards and 3 copys of 3 cards and 2 copys of 2 cards in your deck your Hero Power is free.(Fate Breaker)
 	-(Rare)Cost 3; 4/3; OnPlay: Destroy up to 6 random commons from your deck and add 1 random Epic for every 2 destroyed. 
 	-(Rare)Cost 5; 5/5; When drawn: Heal self for the number of cards in your hand.
+	-(Common)Cost 1; 1/1; OnDeath: Streamline X =(Discard a card with the Cost of 0+X then Draw a card with the Cost of X+1 where X is the number of times this effect was triggered this game).
+	-(Rare)Cost 4; 3/5; OnPlay: Streamline X and Give the card drawn OnPlay: Streamline X.
+	-(Epic)Cost 6; 4/2; OnPlay: Get +X/+X then Streamline X, OnDeath: Summon a 0/X with Taunt.
 	
-
-(48 Commons, 50 Rare, 29 Epic)?
+(49 Commons, 51 Rare, 30 Epic)?
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 
