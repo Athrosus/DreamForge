@@ -49,13 +49,13 @@ Cards :
 	-(Rare)Cost 6; 3/5; Taunt, OnPlay: Summon 1: 3/5 Taunt minion.+(Dun'Rast)
 	-(Common)Cost 1; 2/1; OnPlay: Draw a: card.+
 	-(Rare)Cost 3; 2/4; OnDeath: Draw 1: card.+
-	-(Common)Cost 5; 4/4; OnPlay: Draw 1: card with Draw in it's text, OnDeath: Draw 2: cards.
 	-(Rare)Cost 2; 2/10; Taunt, OnPlay: Make your opponent Draw 2: cards, OnKill: Make your opponent Draw a: card, OnDeath: Draw untill you have as many cards as your opponent.
-	-(Epic)Cost 6; 2/4; Draw as much cards this card does dmg.
+	-(Epic)Cost 6; 2/4; Aura: Draw cards equal to dmg done by thins card.
 	-(Epic)Cost 3; 0/5; OnDeath: Draw 1: card, Your Hero Power costs 0.
 	-(Epic)Cost 2; 0/4; Aura: Whenever you use your Hero Power Draw a: card and heal self by 2;
 	//-(Rare)Cost 3; 1/1; OnPlay: Pick a minion in play and transform it into a 0/3 and when the 0/3 dies this minion dies as well, OnDeath: Resummon a FULL copy of the picked minion if the 0/3 is still alive.
 	-(Rare)Cost 3; 2/4; OnPlay: Set a minions attack to 1.(Hexing apparition)+
+	-(Rare)Cost 3; 4/2; OnPlay: Remove Taunt from a minion.
 	-(Common)Cost 4; 4/5; OnPlay: Revert a text alteration/addition from 1 minion in play.(Rogue Purificator)
 	-(Rare)Cost 5; 6/2; OnPlay and OnDeath: Deal 3 dmg to all minions with Taunt.(Meltomatic)
 	-(Rare)Cost 5; 3/5; OnPlay: Deal dmg to a minion equal to 1 + the number of times you've used your Hero Power.
@@ -77,15 +77,15 @@ Cards :
 	-(Common)Cost 2; 3/2; OnPlay: Give a minion: +3 attack and After this minion deals damage deal that much damage to it and its owner.
 	-(Rare)Cost 5; 3/3; OnPlay: Give all friendly minions: +2 attack and After this minion attacks destroy it.  
 	-(Rare)Cost 6; 4/4; Aura: Gives all other minions: + 1 attack and OnDeath: Summon 2: 1/1 minions.(Scrapomatic)
-	-(Common)Cost 2; 3/3; OnPlay: Deal 1 damage to a minion, Whenever a minion dies deal 1 to all unets.(Trembling Liquamatic)
+	-(Common)Cost 2; 3/3; OnPlay: Deal 1 damage to a minion, Whenever a minion dies deal 1 to all units.(Trembling Liquamatic)
 	-(Rare)Cost 4; 3/5; Whenever a friendly minion dies deal one damage to your opponent.(Junk Tosser)
 	-(Epic)Cost 5; 6/1; OnPlay: If you have no minions on the board this minion can attack the turn it was played.
 	-(Common)Cost 3; 5/5; OnDeath: Summon 1: 5/2 minion for your opponent.
 	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 adjacent friendly minion and gain its stats if there are none destry this minion and deal dmg equal to its Attack to its owner.(Hungering Demon)
-	-(Rare)Cost 1; 2/1; OnPlay: Draw 1: 1 cost minion.
+	-(Rare)Cost 1; 2/1; OnPlay: Draw 1: 1 Cost minion.
 	-(Rare)Cost 15; 1/1; When drawn: Draw a: card, While in hand Cost gets reduced by 1 for each card drawn.
 	-(Rare)Cost 5; 1/1; When drawn: If you have 5 or more cards in your hand heal self by 5 and if you have 5 or less cards in your hand draw a card.
-	-(Rare)Cost 2; 2/3; OnPlay: If you have more then 20 or less then 60 health Draw a: cards, OnDeath: If you have less then 20 or more then 60 health Draw two: cards.
+	-(Rare)Cost 2; 2/3; OnPlay: If you have more then 20 or less then 60 health Draw a: card, OnDeath: If you have less then 20 or more then 60 health Draw two: cards.
 	-(Rare)Cost 4; 3/6; OnPlay: Discard 2 random cards from hand then Draw a: card of your choice from your deck. 
 	-(Common)Cost 3; 4/4; While you have a minion in play reduce this cards Cost by 1.
 
@@ -125,7 +125,7 @@ Cards :
 	-(Epic)Cost 9; 4/3; OnPlay: Pick a minion then destroy all other friendly minions on the board and give it their combined stats.(Keth'faseal the Generous)
 	-(Common)Cost 4; 3/5; At the start of your turn give this minion +0/+2.(Rogue Potion Thife)
 	//-(Common)Cost 0; 0/1; OnDeath: Deal 2 damage to the enemy Hero.(Py'Ra)
-	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1: (0/1; OnDeath: Deal 2 damage to the enemy Hero).(Igna'Ra)
+	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1: (0/1; OnDeath: Deal 2 damage to the enemy Hero).(Lum'Ra)
 	-(Common)Cost 4; 3/3; When drawn: Summon 2 :(0/1; OnDeath: Deal 2 damage to the enemy Hero).(Phum'Ra)
 	-(Rare)Cost 6; 7/7; When drawn: Summon 2 :(0/1; OnDeath: Deal 2 damage to the enemy Hero),OnPlay and OnDeath: Deal 1 dmg to all minions, OnKill :Summon a :(0/1; OnDeath: Deal 2 damage to the enemy Hero).(Py'Rast)
 	-(Epic)Cost 8; 2/15; Taunt, LifeSteal, When drawn: Summon 2 :(0/1; OnDeath: Deal 2 damage to the enemy Hero), OnPlay: Destroy all minions with 1 or less attack and combine them with this one.(Cobna'Rastra)
@@ -158,23 +158,29 @@ Cards :
 	-(Common)Cost 3; 3/3; OnPlay: Deal 2 Dmg to a minion, OnKill: Get +1/+1.(?Middle Alien?)
 	-(Common)Cost 6; 4/10; OnKill: Can attack again, Cleav=(When this minion attacks deal dmg to the adjacent minions of its target).(?Elite Alien?)
 	-(Epic)Cost 7; 2/6; OnPlay: Deal 3 dmg to chosen minion, OnKill: Deal 2 dmg to all enemy minions and +2/+2.(?Big'ol Chompy Alien?)
-	-(Common)Cost 1; 1/2; OnPlay: Kill a friendly minion, OnKill: Heal owner for the Health of the killed minion.
+	-(Common)Cost 2; 2/2; OnPlay: Kill a friendly minion, OnKill: Heal owner for the Health of the killed minion.
 	-(Common)Cost 1; 0/3; Thorns 2, OnKill: +1/+1;
 	-(Common)Cost 2; 1/3; Taunt, Thorns 3 =(After this minion is attack the attacker takes 3 dmg).
 	-(Rare)Cost 4; 1/7; Taunt, LifeSteal, Thorns 3.
-	-(Epic)Cost 2; 1/1; Aura: All friendly minions get Thorns 1, OnPlay: Give all minions in your hand and deck: Aura: All friendly minions get Thorns one.
+	-(Rare)Cost 5; 2/10; Aura: Give your Hero Thorns 2.
+	-(Epic)Cost 6; 3/7; Aura: All friendly minions get Thorns 1, OnPlay: Give all minions in your hand and deck: Aura: All friendly minions get Thorns one.
 	-(Common)Cost 1; 2/1; OnPlay: Give your Hero: Thorns 1
-	-(Epic)Cost 10; 1/1; When drawn: Your Hero gains Thorns 1, While in hand: Summon a 1/1 for each Thorns dmg your units deal.
+	-(Epic)Cost 4; 3/3; When drawn: Your Hero gets LifeSteal, OnPlay and OnDeath: Your Hero gets Thorns 1.
 	-(Rare)Cost 6; 0/10; Taunt, When drawn: Get +1/+0 for each card in your hand.
 	-(Epic)Cost 5; 0/1; Taunt, OnPlay: get +0/+2 for each time you used you've used your Hero Power, OnDeath: Heal owner by 2 for each time you've used your Hero Power.
 	-(Epic)Cost 7; 6/5; OnStartOfGame: If you have 4 copys of 4 cards and 3 copys of 3 cards and 2 copys of 2 cards in your deck your Hero Power is free.(Fate Breaker)
 	-(Rare)Cost 3; 4/3; OnPlay: Destroy up to 6 random commons from your deck and add 1 random Epic for every 2 destroyed. 
 	-(Rare)Cost 5; 5/5; When drawn: Heal self for the number of cards in your hand.
-	-(Common)Cost 1; 1/1; OnDeath: Streamline X =(Discard a card with the Cost of 0+X then Draw a card with the Cost of X+1 where X is the number of times this effect was triggered this game).
-	-(Rare)Cost 4; 3/5; OnPlay: Streamline X and Give the card drawn OnPlay: Streamline X.
-	-(Epic)Cost 6; 4/2; OnPlay: Get +X/+X then Streamline X, OnDeath: Summon a 0/X with Taunt.
+	-(Common)Cost 1; 1/1; OnDeath: Streamline X =(Discard a card with the Cost of X then Draw a card with the Cost of X+1 where X is the number of times this effect was triggered this game).(Form of Vision)
+	-(Rare)Cost 4; 3/5; OnPlay: Streamline X and Give the card drawn OnPlay: Streamline X.(Form of Edict)
+	-(Epic)Cost 6; 4/2; OnPlay: Get +X/+X then Streamline X, OnDeath: Summon a 0/X with Taunt.(Form of Law)
+	-(Rare)Cost 3; 5/4; OnPlay: Choose a deck then reshuffle a FULL copy of a random rare in the deck and give the original and the copy When drawn: Deal 2 dmg to owner and Draw a card.
+	-(Epic)Cost 10; 1/1; OnStartOfGame: Give the 3 highest Cost cards in deck "OnDeath: Exsanguinate=(Add the base stats and card text of this card to Exsanguanoes)", When drawn: If you have cards in the deck Draw a card then reshuffle this card, OnPlay: Set owners max mana to 5.(Exsanguanoes)
+	-(Rare)Cost 4; 4/6; When damaged: Destroy 2 lowest Cost cards in deck.
+	-(Rare)Cost 3; 5/4; OnKill: Exsanguinate killed card.(Zealot of the Mass)
+	-(Epic)Cost 10; 2/2; OnStartOfGame: The stats and card text of this card, 1 Common, 1 Rare and 1 Epic from your deck combine and their Costs become 10.(Unspeakable Terror)
 	
-(49 Commons, 51 Rare, 30 Epic)?
+(50 Common, 54 Rare, 34 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 
