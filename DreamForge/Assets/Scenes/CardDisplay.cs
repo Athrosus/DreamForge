@@ -15,8 +15,9 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public List<OnPlayEffect> ThisOnPlayEffects = new List<OnPlayEffect>();
     public List<OnDeathEffect> ThisOnDeathEffects = new List<OnDeathEffect>();
     public List<PassiveEffect> ThisOnStartOfTrunEffects = new List<PassiveEffect>();
+    public List<PassiveEffect> ThisOnEndOfTrunEffects = new List<PassiveEffect>();
 
-    public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = true, OnPlayTargetFound;
+    public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = true, OnPlayTargetFound, OnEndOfTurnOnce = true;
     public int EachOnPlayBuff, EachOnPlayEffect, EachOnDeathEffect;
 
     public CardStats card;
@@ -66,23 +67,39 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             }
             WasItPlayed = true;
             OnStartOfTurnOnce = true;
+            OnEndOfTurnOnce = true;
         }
         if(ThisOnPlayEffects != null && WasItPlayed == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
         {
             OnPlayEffects();
         }
-        if (this.transform.parent.name == "PlayZone" && ThisOnStartOfTrunEffects != null && WasItPlayed == true)
+        if (this.transform.parent.name == "PlayZone" && ThisOnStartOfTrunEffects.Count != 0 && WasItPlayed == true)
         {
             if (this.tag == "Player1" && TurnButton.GetComponent<MyTurn>().MyTurnJustStartedP1 == true && OnStartOfTurnOnce == false)
             {
                 OnStartOfTurnEffects();
+                Debug.Log(OnStartOfTurnOnce);
                 OnStartOfTurnOnce = true;
-                Debug.Log("hmm");
             }
             else if (this.tag == "Player2" && TurnButton.GetComponent<MyTurn>().MyTurnJustStartedP2 == true && OnStartOfTurnOnce == false)
             {
                 OnStartOfTurnEffects();
+                Debug.Log(OnStartOfTurnOnce);
                 OnStartOfTurnOnce = true;
+            }
+        }
+        if (this.transform.parent.name == "PlayZone" && ThisOnEndOfTrunEffects.Count != 0 && WasItPlayed == true)
+        {
+            if (this.tag == "Player1" && TurnButton.GetComponent<MyTurn>().MyTurnJustStartedP2 == true && OnEndOfTurnOnce == false)
+            {
+                OnEndOfTurnEffects();
+                OnEndOfTurnOnce = true;
+                Debug.Log("hmm");
+            }
+            else if (this.tag == "Player2" && TurnButton.GetComponent<MyTurn>().MyTurnJustStartedP1 == true && OnEndOfTurnOnce == false)
+            {
+                OnEndOfTurnEffects();
+                OnEndOfTurnOnce = true;
                 Debug.Log("hmm");
             }
         }
@@ -169,6 +186,15 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             ThisOnStartOfTrunEffects[EachOnStartOfTurnEffect]();
             EachOnStartOfTurnEffect++;
+        }
+    }
+    public void OnEndOfTurnEffects()
+    {
+        int EachOnEndOfTurnEffect = 0;
+        foreach (PassiveEffect onendofturneffect in ThisOnEndOfTrunEffects)
+        {
+            ThisOnEndOfTrunEffects[EachOnEndOfTurnEffect]();
+            EachOnEndOfTurnEffect++;
         }
     }
     public void OnDeathEffects()

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62deecb7fd86b3c4695ce7a85e2e1190, type: 3}
+  m_Name: Hungering Demon
+  m_EditorClassIdentifier: 
+  cardname: Hungering Demon
+  description: At the end of your turn destroy 1 other friendly minion and gain its
+    stats if there are none destry this minion and deal dmg equal to its Attack to
+    its owner.
+  artwork: {fileID: 21300000, guid: cc9ed050edff93341a88c4cf756cbfba, type: 3}
+  manaCost: 1
+  attack: 7
+  health: 7
+  tire: Rare

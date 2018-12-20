@@ -60,6 +60,8 @@ public class MyTurn : MonoBehaviour {
             {
                 item.GetComponent<CardDisplay>().HasAttackedThisTurn = false;
                 item.GetComponent<CardDisplay>().OnStartOfTurnOnce = false;
+                item.GetComponent<CardDisplay>().OnEndOfTurnOnce = false;
+
             }
         }
         foreach (var item in GameObject.FindGameObjectsWithTag("Player2"))
@@ -68,6 +70,7 @@ public class MyTurn : MonoBehaviour {
             {
                 item.GetComponent<CardDisplay>().HasAttackedThisTurn = false;
                 item.GetComponent<CardDisplay>().OnStartOfTurnOnce = false;
+                item.GetComponent<CardDisplay>().OnEndOfTurnOnce = false;
             }
         }
     }
