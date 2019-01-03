@@ -98,7 +98,7 @@ Cards:
 	
 	-(Common)Cost 3; 4/2; OnPlay: Get 1 Charge, ChargeShild=(When this card would be delt damage and it has Charges it instead of taking damage loses a Charge).(Shellcharged Tortoise)
 	-(Common)Cost 6; 4/7; ChargeShild, When this unit is damaget it gets a Charge.(Crackling Drake)
-	-(Common)Cost 4; 0/2; Taunt, When drawn: Get 2 Charges, ChatgeShild, Thorns two*(number of Charges).(Empowered Shield Effigy)
+	-(Common)Cost 4; 3/2; Taunt, When drawn: Get 2 Charges, ChatgeShild, LifeBloom 2*(number of Charges).(Empowered Shield Effigy)
 	-(Common)Cost 1; 1/2; When drawn: Get 2 Charges, OnPlay: Deal damage to an enemy unit equal to the number of Charges.(Thundering Eel)
 	-(Rare)Cost 2; 3/2; When drawn: Get 2 Charges, OnDeath: If this card has Charges remove all of them and add that many FULL copys of this card to your hand.(Charged Hydra Worm)
 	-(Rare)Cost 4; 3/5; Taunt, OnPlay: Choose a minion, At the end of your turn the chosen minion gets one Charge.(StoneGate Thunder Priest)
@@ -137,12 +137,12 @@ Cards:
 	-(Rare)Cost 3; 2/5; OnPlay: Reshuffle a card from your hand then draw a card.(Archiveomatic)
 	-(Common)Cost 10; 10/10; OnPlay and OnDeath: Draw 5 cards.
 	
+	-(Common)Cost 2; 1/3; Taunt, LifeBloom 3 =(After this unit is attack the heal your Hero by 3).
+	-(Common)Cost 1; 2/1; OnPlay: Give your Hero: LifeBloom 1
+	-(Rare)Cost 5; 2/10; Aura: Give your Hero LifeBloom 4.
 	-(Common)Cost 1; 0/3; Thorns 2, OnKill: +1/+1;
-	-(Common)Cost 2; 1/3; Taunt, Thorns 3 =(After this minion is attack the attacker takes 3 damage).
 	-(Rare)Cost 4; 1/7; Taunt, LifeSteal, Thorns 3.
-	-(Rare)Cost 5; 2/10; Aura: Give your Hero Thorns 2.
 	-(Epic)Cost 6; 3/7; Aura: All friendly minions get Thorns 1, OnPlay: Give all minions in your hand and deck: Aura: All friendly minions get Thorns one.
-	-(Common)Cost 1; 2/1; OnPlay: Give your Hero: Thorns 1
 	-(Epic)Cost 4; 3/3; When drawn: Your Hero gets LifeSteal, OnPlay and OnDeath: Your Hero gets Thorns 1.
 	
 	-(Rare)Cost 3; 2/4; OnPlay: Set a minions attack to 1.(Hexing apparition)+
