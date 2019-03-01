@@ -1,8 +1,9 @@
-(Ass- Ascendent ,Mag- Magus ,Arc- Archivist)
+(Ass- Ascendent ,Mag- Magus ,Arc- Archivist, Cou- Countess)
 (Hero Powers Cost 1)(Max number of minions on your bord is 10)(Heros start with 40 life with a max of 999)(Hand size is 10, insted of drawing the 11th card(overdraw) you take damage equal to 1*(Number of times you've overdrawn this game))
 Hero Power: -Ass: Increases any number on any card by 1.(including the number of Charges on cards)
             -Mag: Copy the text of a frendly minion on the bord to another minion card.(in your hand as well)
 			-Arc: Look at the top 3 cards of your deck then for each card choose its position in your deck.
+			-Cou: Draw 2 cards, they get While in hand: At the end of your turn discard this card then remove this effect. 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Artifacts are what makes the heros different, not the cards [all cards are shered by all classes], and they can be chosen as a "Gift") 
@@ -23,10 +24,16 @@ Artifacts:
 
 		--(Arc)1 use a turn; Cost 1; Look at the top 5 cards of your deck then for each card choose to destroy it or not.
 		+-(Arc)4 uses a turn; Cost 1+(number of times used this game); Put a card from your hand into your deck then draw a card.
-		+-(Arc)Passive; Whenever you draw a card deal 1 damage to a random enemy unit, if the card didnt start in your deck you also heal for 2.
+		+-(Arc)Passive; You see your opponents hand and the top card of their deck.
 		+-(Arc)Passive; Replace Hero Power with: Look at the top 3 cards of your deck then for each card choose if you want to combine it with other cards chosen this way (stats, card text and cost).
 		+-(Arc)Passive; Whenever a player draws a card that was added to their deck they draw another card.
 		+-(Arc)Passive; Copy all "When drawn" effects from cards you draw to the next card in your deck as an "OnPlay" effect.
+		
+		--(Cou)Passive; All damage done to the enemy Hero is healing for you.
+		+-(Cou)Passive; Sacrifice a card to draw another one and take 3 dmg.
+		+-(Cou)Passive; Sacrifice a card to get 1 mana and destroy 2 cards from you deck.
+		+-(Cou)1 use per game; Combine(Stats,Text,Cost) 2 random cards from your deck into one as long as their combined Cost is less then 11, repeat this untill there arent any viable combinations. 
+		+-(Cou)Passive; Whenever you draw a card deal 1 damage to a random enemy unit, if the card didnt start in your deck you also heal for 2.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
@@ -91,7 +98,6 @@ Cards:
 	-(Rare)Cost 10; 0/16; Has as much Attack as Health, OnDeath Summon 2 (0/6; Taunt, Has as much Attack as Health).(Kun'Rast)
 	-(Rare)Cost 6; 0/10; Taunt, When drawn: Get +1 Attack for each card in your hand.
 	
-	
 	-(Common)Cost 2; 2/2; OnPlay: Give 2 random minions in your hand: +1/+1.(Telum Artifex)
 	-(Common)Cost 3; 2/2; When drawn: Give 3 minions in your hand: +1/+1 and When Damaged: Gets Taunt.
 	-(Common)Cost 3; 3/3; OnPlay: Give a random minion in your hand: +1/+2 and Taunt.(Lautus Telum Artifex)
@@ -140,14 +146,17 @@ Cards:
 	-(Epic)Cost 6; 4/2; OnPlay: Get +X/+X then Streamline X, OnDeath: Summon a 0/X with Taunt.(Form of Law)
 	-(Rare)Cost 3; 2/5; OnPlay: Reshuffle a card from your hand then draw a card.(Archiveomatic)
 	-(Common)Cost 10; 10/10; OnPlay and OnDeath: Draw 5 cards.
+	-(Common)Cost 4; 4/3; OnPlay: Choose one card from your deck and destroy it, OnDeath: Add the chosen card to your hand.
+	-(Rare)Cost 4; 0/10; OnPlay: Destroy the top 3 card from your deck, OnDeath: Add the destroyed cards to your hand.
+	-(Epic)Cost 7; 7/5; OnPlay: Choose 3 cards from your deck then destroy them, OnDeath: Combine(Stats,Text,Cost) them and add the combined card to your hand.
 	
-	-(Common)Cost 1; 2/1; OnPlay: Give your Hero: LifeBloom 1=(After this unit is attacked heal your Hero by 1).
+	-(Common)Cost 1; 2/2; OnPlay: Choose 1 card from your deck and destroy them, OnDeath: Give your Hero: LifeBloom 1=(After this unit is attacked heal your Hero by 1).
 	-(Common)Cost 2; 1/3; Taunt, LifeBloom 3.
 	-(Common)Cost 3; 0/10; Aura: Give all friendly units LifeBloom 2.
-	-(Common)Cost 4; 1/8; Taunt, LifeBloom 3.
+	-(Common)Cost 4; 3/7; OnPlay: Choose 2 card from your deck and destroy them, OnDeath: Give your Hero: LifeBloom 2.
 	-(Rare)Cost 5; 2/10; Aura: Give your Hero LifeBloom 4.
-	-(Epic)Cost 6; 5/6; OnPlay: If your Hero has more then LifeBloom 4 give all friendly units +5 Health then if he has more then LifeBloom 6 give all friendly units LifeBloom 1.
-	-(Epic)Cost 7; 0/14; Taunt, OnPlay: Remove all LifeBloom from your Hero and do double that as dmg to all enemy units, OnKill: Give self LifeBloom 1.
+	-(Epic)Cost 6; 5/6; OnPlay: If your Hero has more then LifeBloom 4 give all friendly units +5 Health then if he has more then LifeBloom 6 give all friendly units LifeBloom 2.
+	-(Epic)Cost 7; 0/14; Taunt, OnPlay: Remove all LifeBloom from your Hero and do double that as dmg to all enemy units, OnKill: Give this card LifeBloom 1.
 	
 	-(Rare)Cost 3; 2/4; OnPlay: Set a minions attack to 1.(Hexing apparition)+
 	-(Rare)Cost 3; 4/2; OnPlay: Remove Taunt from a minion.
@@ -191,8 +200,8 @@ Cards:
 	-(Epic)Cost 10; 9/6; OnPlay: Double any number on any card in your hand.(Aleyna the BookBound Prodigy)
 	
 	-(Common)Cost 2; 2/2; OnPlay: Copy the text of a minion on the bord to this one.
-	-(Common)Cost 5; 4/3; OnPlay: Copy the text of a frendly minion on the bord to a minion card.
-	-(Common)Cost 7; 6/5; OnPlay: Copy the text of a frendly minion on the bord to this one and to another minion card .
+	-(Common)Cost 5; 4/3; OnPlay: Copy the text of a minion on the bord to a frendly minion card.
+	-(Common)Cost 7; 6/5; OnPlay: Copy the text of a minion on the bord to a frendly minion card and this one.
 	
 	// -(Common)Cost 1; 2/2;						++
 	-(Common)Cost 2; 4/3;(StoneGate Knight)+		+	
@@ -205,8 +214,8 @@ Cards:
 	-(Common)Cost 9; 14/14;(StoneGate Warlord)+		+
 	//-(Common)Cost 10; 16/16;						++
 	
-(63 Common, 55 Rare, 35 Epic)
+(64 Common, 56 Rare, 36 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
-
+Ranked consists of 32 or 64 man tournament
 
