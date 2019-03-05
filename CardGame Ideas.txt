@@ -1,7 +1,7 @@
 (Ass- Ascendent ,Mag- Magus ,Arc- Archivist, Cou- Countess)
 (Hero Powers Cost 1)(Max number of minions on your bord is 10)(Heros start with 40 life with a max of 999)(Hand size is 10, insted of drawing the 11th card(overdraw) you take damage equal to 1*(Number of times you've overdrawn this game))
 Hero Power: -Ass: Increases any number on any card by 1.(including the number of Charges on cards)
-            -Mag: Copy the text of a frendly minion on the bord to another minion card.(in your hand as well)
+            -Mag: Copy the text of a friendly minion on the bord to another minion card.(in your hand as well)
 			-Arc: Look at the top 3 cards of your deck then for each card choose its position in your deck.
 			-Cou: Draw 2 cards, they get While in hand: At the end of your turn discard this card then remove this effect. 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -10,7 +10,7 @@ Hero Power: -Ass: Increases any number on any card by 1.(including the number of
 (Gifts are what defines your deck, you can choose an Artifact or a single card as your Gift. If you choose one card you start the game with it being available as if it were in your hand and your opponent can see it.)
 Artifacts: 	
 		--(Ass)5 uses a turn; Cost (number of times used this turn); Do 1 damage.
-		--(Ass)1 use a turn; Cost 1; Flip a minions Attack and Health.
+		+-(Ass)1 use a turn; Cost 1; Flip a minions Attack and Health.
 		+-(Ass)Passive; Don't draw at the start of turn, replace Hero Power with :"Draw a card", Give all cards in your deck: When drawn: Heal owner by 3 and reduce this cards Cost by 1.
 		+-(Ass)Passive; Whenever your opponent draws a card that was added to their deck you draw it as well.*
 		+-(Ass)1 use a turn; Cost 1; Decreases any number on any card by 1.
@@ -82,21 +82,29 @@ Cards:
 	-(Rare)Cost 3; 5/2; OnPlay: Get + Health equal to your opponents current mana.(Eth'Rast)
 	-(Common)Cost 2; 1/1; Taunt, OnPlay: Give +2 Health 2 times to a minion.(Ferrarius)+
 	-(Rare)Cost 5; 1/1; Taunt, OnPlay: Give +3 Health 3 times to a minion.(Erus Ferrarius)+
-	-(Common)Cost 5; 0/6; Taunt, At the start of your turn if this card has less then 8 health Give it: +2/+1.(Prof'Ra)+
 	-(Common)Cost 2; 2/2; OnDeath: Summon 1 2/2 minion.+(Rusted Intromatic)
 	-(Common)Cost 2; 4/4; OnDeath: Deal 2 damage to this cards owner.+(Spiteful Undead)
 	-(Rare)Cost 4; 2/3; Taunt, OnPlay: Summon 1 2/3 Taunt minion.+(Val'Rast)
 	-(Rare)Cost 6; 3/5; Taunt, OnPlay: Summon 1 3/5 Taunt minion.+(Dun'Rast)
 	-(Common)Cost 5; 3/7; Taunt, This minion cannot be targeted by Hero Powers or Gifts or other minions effects.
+	-(Common)Cost 5; 0/6; Taunt, At the start of your turn if this card has less then 8 health Give it: +2/+1.(Prof'Ra)+
 	-(Common)Cost 3; 5/5; OnDeath: Summon 1 5/1 minion for your opponent.
 	-(Epic)Cost 9; 16/16;(Mit'faseal the Mountain)+
-	-(Common)Cost 4; 4/5; At the start of your turn give this minion +0/+2.(Rogue Potion Thife)
 	-(Common)Cost 3; 4/4; While you have a minion in play reduce this cards Cost by 1.
-	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 adjacent friendly minion and Combine(Stats) it with this one if there are none destry this minion and deal damage equal to its Attack to its owner.(Hungering Demon)
 	-(Rare)Cost 8; 5/6; OnPlay and OnDeath: Summon (number of times you've used your Hero Power): (1/1; Taunt).(Inspired Fabromatic)
+	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 adjacent friendly minion and Combine(Stats) it with this one if there are none destry this minion and deal damage equal to its Attack to its owner.(Hungering Demon)+
 	-(Common)Cost 6; 4/10; OnKill: Can attack again, When this minion attacks deal damage to minions adjacent to its targe.(?Elite Alien?)
 	-(Rare)Cost 10; 0/16; Has as much Attack as Health, OnDeath Summon 2 (0/6; Taunt, Has as much Attack as Health).(Kun'Rast)
 	-(Rare)Cost 6; 0/10; Taunt, When drawn: Get +1 Attack for each card in your hand.
+	
+	-(Epic)Cost 1; 0/1; Upgrade one, OnDeath: Combine(text) this card with another friendly minion on the board.(Alph0s)
+	-(Rare)Cost 3; 1/1; Aura: Whenever a friendly minion dies give thins minion Upgrade 1, OnDeath: Summon two 1/1 minions.(Kapp0s)
+	-(Common)Cost 3; 3/3; After attacking give all friendly minions Upgrade 1=(Add +1 to every number on a card).(Zet0s)
+	-(Rare)Cost 4; 3/1; OnPlay: Give all cards in your hand Upgrade 1.(Pi0s)
+	-(Common)Cost 4; 4/5; At the start of your turn give this minion Upgrade 1.(Et0s)
+	-(Rare)Cost 7; 0/20; At the end of your turn Summon a 3/3 with Taunt, At the start of your turn give all other friendly minions Upgrade 2.(Xi0s)
+	-(Epic)Cost 0; 2/1; When drawn: Upgrade 2, OnPlay: Deal two damage to a random enemy unit 1 time.(Sigm0s)
+	-(Epic)Cost 10; 7/5; Taunt, At start of game: All minions in deck get OnDeath: "Omeg0s" gets Upgrade 1, When drawn: Reduce Cost by 2, While in hand: If this cards Cost goes over 10 it is reshuffled into your deck.(Omeg0s) 
 	
 	-(Common)Cost 2; 2/2; OnPlay: Give 2 random minions in your hand: +1/+1.(Telum Artifex)
 	-(Common)Cost 3; 2/2; When drawn: Give 3 minions in your hand: +1/+1 and When Damaged: Gets Taunt.
@@ -200,8 +208,8 @@ Cards:
 	-(Epic)Cost 10; 9/6; OnPlay: Double any number on any card in your hand.(Aleyna the BookBound Prodigy)
 	
 	-(Common)Cost 2; 2/2; OnPlay: Copy the text of a minion on the bord to this one.
-	-(Common)Cost 5; 4/3; OnPlay: Copy the text of a minion on the bord to a frendly minion card.
-	-(Common)Cost 7; 6/5; OnPlay: Copy the text of a minion on the bord to a frendly minion card and this one.
+	-(Common)Cost 5; 4/3; OnPlay: Copy the text of a minion on the bord to a friendly minion card.
+	-(Common)Cost 7; 6/5; OnPlay: Copy the text of a minion on the bord to a friendly minion card and this one.
 	
 	// -(Common)Cost 1; 2/2;						++
 	-(Common)Cost 2; 4/3;(StoneGate Knight)+		+	
@@ -214,7 +222,7 @@ Cards:
 	-(Common)Cost 9; 14/14;(StoneGate Warlord)+		+
 	//-(Common)Cost 10; 16/16;						++
 	
-(64 Common, 56 Rare, 36 Epic)
+(66 Common, 59 Rare, 38 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 Ranked consists of 32 or 64 man tournament
