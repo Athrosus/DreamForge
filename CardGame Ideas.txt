@@ -3,7 +3,7 @@
 Hero Power: -Ass: Increases any number on any card by 1.(including the number of Charges on cards)
             -Mag: Copy the text of a friendly minion on the bord to another minion card.(in your hand as well)
 			-Arc: Look at the top 3 cards of your deck then for each card choose its position in your deck.
-			-Cou: Draw 2 cards, they get While in hand: At the end of your turn discard this card then remove this effect. 
+			-Cou: Draw 2 cards, they get While in hand: At the end of your turn discard this card. 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Artifacts are what makes the heros different, not the cards [all cards are shered by all classes], and they can be chosen as a "Gift") 
@@ -29,7 +29,7 @@ Artifacts:
 		+-(Arc)Passive; Whenever a player draws a card that was added to their deck they draw another card.
 		+-(Arc)Passive; Copy all "When drawn" effects from cards you draw to the next card in your deck as an "OnPlay" effect.
 		
-		--(Cou)Passive; All damage done to the enemy Hero is healing for you.
+		+-(Cou)1 use a turn; Force a friendly minion to attack another minion of your choice(can be friendly).
 		+-(Cou)Passive; Sacrifice a card to draw another one and take 3 dmg.
 		+-(Cou)Passive; Sacrifice a card to get 1 mana and destroy 2 cards from you deck.
 		+-(Cou)1 use per game; Combine(Stats,Text,Cost) 2 random cards from your deck into one as long as their combined Cost is less then 11, repeat this untill there arent any viable combinations. 
@@ -75,6 +75,15 @@ Cards:
 	-(Common)Cost 4; 3/6; Aura: Whenever this takes damage Summon a 2/1 minion.(Brood Bearer)
 	-(Common)Cost 9; 8/4; When drawn: Draw a 1 Cost card, OnPlay: Summon one 1 Cost, two 2 Cost and three 3 Cost minions.
 	
+	//-(Common)Cost 0; 0/1; Alien, OnDeath: Summon 2 1/1 Alien minions for the enemy.(?Alien Egg)
+	-(Common)Cost 1; 1/1; OnPlay: Summon 2 "Alien Egg" minions for the opponent. 
+	-(Common)Cost 3; 3/3; Alien, OnPlay: Deal 2 damage to a minion, OnKill: Get +1/+1 if it's an Alien get +2/+2.(?Middle Alien)
+	-(Common)Cost 6; 4/10; Alien, OnKill: Can attack again, When this minion attacks deal damage to minions adjacent to its targe.(?Elite Alien)
+	-(Rare)Cost 3; 2/5; Alien, OnPlay: Summon 1 "Alien Egg" for the opponent, OnKill: Summon a "Alien Egg" for the opponent.
+	-(Rare)Cost 4; 4/3; Alien, OnPlay: Destroy up to 3 Aliens, OnKill: If killed minion was an Alien give all friendly Aliens +1/+1.
+	-(Epic)Cost 5; 3/8; OnPlay: Summon 2 "Alien Egg" minions for the opponent, Whenever an Alien leaves the board give all friendly Aliens +2/+1.
+	-(Epic)Cost 7; 2/6; Alien, OnPlay: Deal 3 damage to chosen minion, OnKill: Deal 2 damage to all enemy minions and +2/+2.(?Big'ol Chompy Alien)
+	
 	-(Common)Cost 3; 1/6; When Damaged: Has Taunt, When not Damaged: Has +2 Attack.(Warangutan)
 	-(Rare)Cost 2; 1/3; When Damamged: Has + 4 health, When not Damaged: Has + 3 attack.(Soldier Chimp)
 	-(Common)Cost 4; 2/3; OnPlay: Summon 2 2/3 minions.
@@ -93,7 +102,6 @@ Cards:
 	-(Common)Cost 3; 4/4; While you have a minion in play reduce this cards Cost by 1.
 	-(Rare)Cost 8; 5/6; OnPlay and OnDeath: Summon (number of times you've used your Hero Power): (1/1; Taunt).(Inspired Fabromatic)
 	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 adjacent friendly minion and Combine(Stats) it with this one if there are none destry this minion and deal damage equal to its Attack to its owner.(Hungering Demon)+
-	-(Common)Cost 6; 4/10; OnKill: Can attack again, When this minion attacks deal damage to minions adjacent to its targe.(?Elite Alien?)
 	-(Rare)Cost 10; 0/16; Has as much Attack as Health, OnDeath Summon 2 (0/6; Taunt, Has as much Attack as Health).(Kun'Rast)
 	-(Rare)Cost 6; 0/10; Taunt, When drawn: Get +1 Attack for each card in your hand.
 	
@@ -175,8 +183,6 @@ Cards:
 	-(Rare)Cost 4; 4/2; OnDeath: Deal 2 damage to all enemy minions and add a (Cost 4; 1/1; OnDeath: Deal 2 damage to all enemy minions) to your hand.(Turbi Miles)+
 	-(Common)Cost 2; 2/3; OnPlay: Deal one damage to a random enemy minion 3 times (can overkill).(Ethereal Swordsman)+
 	-(Rare)Cost 4; 2/4; Taunt, OnDeath: Deal 2 damage to all untis.(StoneGate Marter)+
-	-(Common)Cost 3; 3/3; OnPlay: Deal 2 damage to a minion, OnKill: Get +1/+1.(?Middle Alien?)
-	-(Epic)Cost 7; 2/6; OnPlay: Deal 3 damage to chosen minion, OnKill: Deal 2 damage to all enemy minions and +2/+2.(?Big'ol Chompy Alien?)
 	-(Rare)Cost 7; 6/8; OnPlay: Deal 3 damage to a random enemy unit then repeat this effect 2 times.
 	-(Rare)Cost 7; 8/5; OnPlay and OnDeath: Deal 3 damage to all enemy units.
 	-(Common)Cost 8; 7/9; Aura: When the enemy playes a minion attack it.
