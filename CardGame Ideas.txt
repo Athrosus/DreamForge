@@ -21,9 +21,7 @@ Artifacts:
 		+-(Mag)1 use a turn; Use the rest of your mana and Summon a random Common minion with Cost equal to what was spent.
 		+-(Mag)Passive; Your Hero Power treats "When drawn:" as "OnPlay and OnDeath:" as well, When a minion is summoned: Heal self by 1.
 
-
-		--(Arc)1 use a turn; Cost 1; Look at the top 5 cards of your deck then for each card choose to destroy it or not.
-		+-(Arc)4 uses a turn; Cost 1+(number of times used this game); Put a card from your hand into your deck then draw a card.
+		+-(Arc)4 uses a turn; Cost 1+(number of times used this game); Draw a card then reshuffle a card from your hand.
 		+-(Arc)Passive; You see your opponents hand and the top card of their deck.
 		+-(Arc)Passive; Replace Hero Power with: Look at the top 3 cards of your deck then for each card choose if you want to combine it with other cards chosen this way (stats, card text and cost).
 		+-(Arc)Passive; Whenever a player draws a card that was added to their deck they draw another card.
@@ -41,7 +39,7 @@ Artifacts:
 Cards:
 	-(Common)Cost 2; 3/4; OnPlay: Add 2 random Common cards into the chosen players deck.*
 	-(Common)Cost 4; 3/8; Taunt, OnKill: Add a copy of the killed minion to your opponents deck.*
-	-(Rare)Cost 5; 4/6; OnPlay: Choose a minion then add 3 copies of it to your and your opponents deck.*
+	-(Rare)Cost 4; 5/4; OnPlay: Choose a minion then add 3 copies of it to your and your opponents deck.*
 	-(Rare)Cost 3; 4/5; OnPlay: Add 1 random Epic to your deck and it Gets: When drawn: Add 3 copys of this card to your opponents deck.*
 	-(Epic)Cost 3; 4/1; When drawn: Draw a card, OnPlay: Add a copy of this card to your opponent's deck.*
 	-(Rare)Cost 3; 5/4; OnPlay: Choose a deck then reshuffle a FULL copy of a random rare in the deck then give the original and the copy When drawn: Deal 2 damage to owner and Draw a card.
@@ -50,13 +48,15 @@ Cards:
 	-(Rare)Cost 6; 5/12; Taunt, OnPlay: Make your opponent Draw untill he has as many cards as you.
 	-(Common)Cost 2; 3/3; OnPlay: 2 random cards in your opponents deck Get: "OnPlay: Deal 2 damage to owner".
 	-(Common)Cost 4; 4/7; Taunt, When drawn: a random cards in your opponents deck Get: "OnPlay: Deal 3 damage to owner", OnPlay and OnDeath: Make your opponent Draw a card.
-	-(Rare)Cost 3; 3/3; OnPlay and OnDeath: Add 1 random Common minion with Cost 2 or less to your deck and Give it: When drawn: Play this minion.
+	-(Rare)Cost 3; 3/3; OnPlay and OnDeath: Add 1 random Common 1 Cost minion to your deck and Give it: When drawn: Play this minion.
 	
-	//-(Common)Cost 0; 0/1; OnDeath: Deal 2 damage to the enemy Hero.(Py'Ra)
-	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1 "Py'Ra".(Lum'Ra)
-	-(Common)Cost 4; 3/3; When drawn: Summon 2 "Py'Ra".(Phum'Ra)
-	-(Rare)Cost 6; 7/7; When drawn: Summon 2 "Py'Ra", OnPlay and OnDeath: Deal 1 damage to all minions, OnKill: Summon a "Py'Ra".(Py'Rast)
-	-(Epic)Cost 8; 2/15; Taunt, LifeSteal, When drawn: Summon 2 "Py'Ra", OnPlay: Destroy all minions with 1 or less attack and Combine(Stats,text) them with this one.(Cobna'Rastra)
+	//-(Common)Cost 0; 0/1; OnDeath: Deal 2 damage to your Hero.(Py'Ra)
+	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1 "Py'Ra" for your opponent.(Lum'Ra)
+	-(Common)Cost 4; 3/3; When drawn: Summon 2 "Py'Ra" for your opponent.(Phum'Ra)
+	-(Rare)Cost 6; 7/7; When drawn: Summon 2 "Py'Ra" for your opponent, OnPlay and OnDeath: Deal 1 damage to all minions, OnKill: Summon a "Py'Ra" for your opponent.(Py'Rast)
+	-(Epic)Cost 8; 2/15; Taunt, LifeSteal, When drawn: Summon 2 "Py'Ra" for your opponent, OnPlay: Destroy all minions with 1 or less attack and Combine(Stats,text) them with this one.(Cobna'Rastra)
+	-(Common)Cost 1; 2/1; OnPlay: Choose 2 units then deal one damage to each, OnDeath: Deal 1 damage to the enemy Hero.(Spark Finger)
+	-(Rare)Cost 3; 3/3; Every time the enemy Hero gets damaged attack a random enemy minion, OnKill: Give this card +3 Health.
 	
 	-(Common)Cost 2; 3/2; OnPlay: Give a minion: +3 Attack and After this minion attacks destroy it.
 	-(Common)Cost 1; 2/2; At the start of your turn give this minion + Attack equal to it's Health.(Ofhun'Ra)+
@@ -68,13 +68,12 @@ Cards:
 	-(Common)Cost 2; 3/3; OnPlay: Deal 1 damage to a minion, Whenever a minion dies deal 1 to all units.(Trembling Liquamatic)
 	-(Rare)Cost 4; 3/5; Whenever a friendly minion dies deal one damage to your opponent.(Junk Tosser)
 	-(Common)Cost 4; 2/1; When drawn: Summon 1 FULL copy of this card, OnDeath: Summon 2 1/1.(Crumpling Fightomatic)
-	-(Common)Cost 2; 2/4; Every time the enemy Hero gets damaged get +1 Attack.
-	-(Rare)Cost 5; 2/6; Every time the enemy Hero gets damaged Summon a 2/1.
 	-(Epic)Cost 9; 4/3; OnPlay: Pick a minion then destroy all other friendly minions and Combine(Stats) them with the chosen one.(Keth'faseal the Generous)
 	-(Epic)Cost 5; 6/1; OnPlay: If you have no minions on the board this minion can attack the turn it was played.
 	-(Common)Cost 4; 3/6; Aura: Whenever this takes damage Summon a 2/1 minion.(Brood Bearer)
 	-(Common)Cost 9; 8/4; When drawn: Draw a 1 Cost card, OnPlay: Summon one 1 Cost, two 2 Cost and three 3 Cost minions.
-	
+	-(Rare)Cost 5; 5/12; Taunt, Every time the enemy Hero gets damaged Summon 1 2/4 Taunt for the opponent.
+		
 	//-(Common)Cost 0; 0/1; Alien, OnDeath: Summon 2 1/1 Alien minions for the enemy.(?Alien Egg)
 	-(Common)Cost 1; 1/1; OnPlay: Summon 2 "Alien Egg" minions for the opponent. 
 	-(Common)Cost 3; 3/3; Alien, OnPlay: Deal 2 damage to a minion, OnKill: Get +1/+1 if it's an Alien get +2/+2.(?Middle Alien)
@@ -85,7 +84,7 @@ Cards:
 	-(Epic)Cost 7; 2/6; Alien, OnPlay: Deal 3 damage to chosen minion, OnKill: Deal 2 damage to all enemy minions and +2/+2.(?Big'ol Chompy Alien)
 	
 	-(Common)Cost 3; 1/6; When Damaged: Has Taunt, When not Damaged: Has +2 Attack.(Warangutan)
-	-(Rare)Cost 2; 1/3; When Damamged: Has + 4 health, When not Damaged: Has + 3 attack.(Soldier Chimp)
+	-(Rare)Cost 2; 1/3; When Damamged: Has + 4 health, When not Damaged: Has + 3 Attack.(Soldier Chimp)
 	-(Common)Cost 4; 2/3; OnPlay: Summon 2 2/3 minions.
 	-(Rare)Cost 2; 2/3; OnPlay: Summon 2 1/1 minions.
 	-(Rare)Cost 3; 5/2; OnPlay: Get + Health equal to your opponents current mana.(Eth'Rast)
@@ -106,13 +105,14 @@ Cards:
 	-(Rare)Cost 6; 0/10; Taunt, When drawn: Get +1 Attack for each card in your hand.
 	
 	-(Epic)Cost 1; 0/1; Upgrade one, OnDeath: Combine(text) this card with another friendly minion on the board.(Alph0s)
-	-(Rare)Cost 3; 1/1; Aura: Whenever a friendly minion dies give thins minion Upgrade 1, OnDeath: Summon two 1/1 minions.(Kapp0s)
-	-(Common)Cost 3; 3/3; After attacking give all friendly minions Upgrade 1=(Add +1 to every number on a card).(Zet0s)
+	-(Rare)Cost 1; 1/2; OnPlay: Heal owner by 1, Aura: Whenever you play a card return this card to your hand and give it Upgrade one.(Lambd0s)
+	-(Rare)Cost 3; 1/1; Aura: Whenever a friendly minion dies give this minion Upgrade one, OnDeath: Summon two 1/1 minions.(Kapp0s)
+	-(Common)Cost 3; 3/2; After attacking give all friendly minions Upgrade 1=(Add +1 to every number on a card).(Zet0s)
 	-(Rare)Cost 4; 3/1; OnPlay: Give all cards in your hand Upgrade 1.(Pi0s)
 	-(Common)Cost 4; 4/5; At the start of your turn give this minion Upgrade 1.(Et0s)
 	-(Rare)Cost 7; 0/20; At the end of your turn Summon a 3/3 with Taunt, At the start of your turn give all other friendly minions Upgrade 2.(Xi0s)
 	-(Epic)Cost 0; 2/1; When drawn: Upgrade 2, OnPlay: Deal two damage to a random enemy unit 1 time.(Sigm0s)
-	-(Epic)Cost 10; 7/5; Taunt, At start of game: All minions in deck get OnDeath: "Omeg0s" gets Upgrade 1, When drawn: Reduce Cost by 2, While in hand: If this cards Cost goes over 10 it is reshuffled into your deck.(Omeg0s) 
+	-(Epic)Cost 10; 7/5; Taunt, At start of game: All minions in deck get OnDeath: "Omeg0s" gets Upgrade 1, When drawn: Reduce Cost by 1, While in hand: If this cards Cost goes over 10 it is reshuffled into your deck.(Omeg0s) 
 	
 	-(Common)Cost 2; 2/2; OnPlay: Give 2 random minions in your hand: +1/+1.(Telum Artifex)
 	-(Common)Cost 3; 2/2; When drawn: Give 3 minions in your hand: +1/+1 and When Damaged: Gets Taunt.
@@ -157,22 +157,22 @@ Cards:
 	-(Rare)Cost 5; 1/1; When drawn: If you have 5 or more cards in your hand heal self by 5 and if you have 5 or less cards in your hand draw a card.
 	-(Rare)Cost 2; 2/3; OnPlay: If you have more then 20 or less then 60 health Draw a card, OnDeath: If you have less then 20 or more then 60 health Draw two: cards.
 	-(Rare)Cost 4; 3/6; OnPlay: Discard 2 random cards from hand then Draw a card of your choice from your deck. 
-	-(Common)Cost 1; 1/1; OnDeath: Streamline X =(Discard a card with the Cost of X then Draw a card with the Cost of X+1 where X is the number of times this effect was triggered this game).(Form of Vision)
-	-(Rare)Cost 4; 3/5; OnPlay: Streamline X and Give the card drawn OnPlay: Streamline X.(Form of Edict)
-	-(Epic)Cost 6; 4/2; OnPlay: Get +X/+X then Streamline X, OnDeath: Summon a 0/X with Taunt.(Form of Law)
-	-(Rare)Cost 3; 2/5; OnPlay: Reshuffle a card from your hand then draw a card.(Archiveomatic)
+	-(Rare)Cost 3; 2/5; OnPlay: Draw a card then choose a card from your hand to reshuffle.(Archiveomatic)
 	-(Common)Cost 10; 10/10; OnPlay and OnDeath: Draw 5 cards.
-	-(Common)Cost 4; 4/3; OnPlay: Choose one card from your deck and destroy it, OnDeath: Add the chosen card to your hand.
-	-(Rare)Cost 4; 0/10; OnPlay: Destroy the top 3 card from your deck, OnDeath: Add the destroyed cards to your hand.
+	-(Common)Cost 4; 4/3; OnPlay: Choose one card from your deck and destroy it then add that card to your hand after 3 turns.
+	-(Rare)Cost 4; 0/6; OnPlay: Destroy the top 3 card from your deck, OnDeath: Add the destroyed cards to your hand.
 	-(Epic)Cost 7; 7/5; OnPlay: Choose 3 cards from your deck then destroy them, OnDeath: Combine(Stats,Text,Cost) them and add the combined card to your hand.
-	
-	-(Common)Cost 1; 2/2; OnPlay: Choose 1 card from your deck and destroy them, OnDeath: Give your Hero: LifeBloom 1=(After this unit is attacked heal your Hero by 1).
+	-(Common)Cost 1; 1/1; OnPlay: If you can afford it you can play any card from your deck with Cost 2 or less.(Form of Vision)
+	-(Rare)Cost 4; 4/3; OnPlay: If you can afford it you can play any card from your deck with Cost 6 or less.(Form of Law)
+	-(Epic)Cost 8; 4/4; OnPlay: Set your Mana to 4 then if you can afford it you can play any cards from your deck for this turn, Aura: If you play the same card two times in one turn get 3 Mana and if you play the same card three times in one turn get 5 mana.(Form of Edict) 
+
+	-(Common)Cost 1; 2/2; OnPlay: Choose 1 card from your deck and destroy the chosen card, OnDeath: Give your Hero: LifeBloom 1=(After this unit is attacked heal your Hero by 1).
 	-(Common)Cost 2; 1/3; Taunt, LifeBloom 3.
 	-(Common)Cost 3; 0/10; Aura: Give all friendly units LifeBloom 2.
 	-(Common)Cost 4; 3/7; OnPlay: Choose 2 card from your deck and destroy them, OnDeath: Give your Hero: LifeBloom 2.
 	-(Rare)Cost 5; 2/10; Aura: Give your Hero LifeBloom 4.
 	-(Epic)Cost 6; 5/6; OnPlay: If your Hero has more then LifeBloom 4 give all friendly units +5 Health then if he has more then LifeBloom 6 give all friendly units LifeBloom 2.
-	-(Epic)Cost 7; 0/14; Taunt, OnPlay: Remove all LifeBloom from your Hero and do double that as dmg to all enemy units, OnKill: Give this card LifeBloom 1.
+	-(Epic)Cost 7; 10/5; OnPlay: Summon X X/X Taunt minions where X is the number of LifeBloom your Hero has then remove all LifeBloom from your Hero.
 	
 	-(Rare)Cost 3; 2/4; OnPlay: Set a minions attack to 1.(Hexing apparition)+
 	-(Rare)Cost 3; 4/2; OnPlay: Remove Taunt from a minion.
@@ -181,7 +181,7 @@ Cards:
 	-(Rare)Cost 5; 5/5; OnPlay: If you have 2 or more minions deal 6 damage to target minion.(Frightened Whelpling)
 	-(Rare)Cost 5; 3/5; OnPlay: Deal damage to a minion equal to 1 + the number of times you've used your Hero Power.
 	-(Rare)Cost 4; 4/2; OnDeath: Deal 2 damage to all enemy minions and add a (Cost 4; 1/1; OnDeath: Deal 2 damage to all enemy minions) to your hand.(Turbi Miles)+
-	-(Common)Cost 2; 2/3; OnPlay: Deal one damage to a random enemy minion 3 times (can overkill).(Ethereal Swordsman)+
+	-(Common)Cost 2; 2/3; OnPlay: Deal one damage to 3 random enemy minions {can hit same target, can overkill}.(Ethereal Swordsman)+
 	-(Rare)Cost 4; 2/4; Taunt, OnDeath: Deal 2 damage to all untis.(StoneGate Marter)+
 	-(Rare)Cost 7; 6/8; OnPlay: Deal 3 damage to a random enemy unit then repeat this effect 2 times.
 	-(Rare)Cost 7; 8/5; OnPlay and OnDeath: Deal 3 damage to all enemy units.
@@ -194,18 +194,18 @@ Cards:
 	-(Rare)Cost 2; 2/2; OnPlay: Add a copy of a friendly minion to your hand.
 	-(Epic)Cost 3; 1/4; Taunt, OnPlay: Add a FULL copy of a friendly minion to your hand.
 	-(Epic)Cost 7; 6/8; OnPlay: Choose a allied minion on the bord then Give all minions in your deck it's text.(Roubed Archmage)
-	-(Epic)Cost 0; 1/1; While in hand: Combine(Stats,Text,Cost) minions you play with this one.(Eldritch Amalgam)
 	-(Epic)Cost 9; 9/9; OnPlay: Destroy all friendly minions then make FULL 1/1 copies of all enemy minions with +1/+1 for each friendly minion destroyed.(Arom'faseal the Divider)
 	-(Epic)Cost 6; 5/1; OnDeath: Summon all minions killed by this one then give them this effect.(Zombie Vector)
 	-(Rare)Cost 3; 3/3; Aura: Every OnDeath effect that triggers gets copied to this minion.(Phantom of Remembrance)
-	-(Rare)Cost 6; 4/4; While in hand: every OnPlay effect your cards cast gets copied to this minion.(Mourning Wraith)
-	-(Rare)Cost 0; 0/0; While in hand: every OnDeath effect your cards cast gets copied to this minion, While in hand: get +1/+1 and +1 Cost for each friendly minion that dies.(Depraved Wraith)
+	-(Rare)Cost 6; 4/4; While in hand: every OnPlay effect your cards cast get copied to this minion.(Mourning Wraith)
+	-(Rare)Cost 0; 0/0; While in hand: every OnDeath effect your cards cast get copied to this minion, While in hand: get +1/+1 and +1 Cost for each friendly minion that dies.(Depraved Wraith)
+	-(Epic)Cost 0; 1/1; While in hand: Combine(Stats,Text,Cost) minions you play with this one.(Lindra the Wraith of Envy)
 	-(Epic)Cost 8; 4/8; Taunt, At the end of turn: Summon a FULL copy of the most expensive minion that died this game.
 	-(Epic)Cost 7; 12/8; OnStartOfGame: If you have 4 copys of 4 cards and 3 copys of 3 cards and 2 copys of 2 cards in your deck your Hero Power is free.(Fate Breaker)
 	-(Rare)Cost 3; 4/3; OnPlay: Destroy up to 6 random Commons from your deck and add 1 random Epic for every 2 destroyed. 
 	-(Epic)Cost 10; 1/1; OnStartOfGame: The 3 highest Cost cards in deck get: OnDeath: Combine(Stats,Text) this card with "Exsanguanoes", When drawn: If you have cards in the deck Draw a card then reshuffle this card, OnPlay: Set owners max mana to 5.(Exsanguanoes)
-	-(Rare)Cost 4; 4/6; When damaged: Destroy 2 lowest Cost cards in deck.
 	-(Rare)Cost 3; 5/4; OnKill: Add the base stats and text of killed minion to "Exsanguanoes".(Zealot of the Mass)
+	-(Rare)Cost 4; 4/6; When damaged: Destroy 2 lowest Cost cards in deck.
 	-(Epic)Cost 10; 2/2; OnStartOfGame: The stats and card text of this card, 1 Common, 1 Rare and 1 Epic from your deck combine and their Costs become 10.(Unspeakable Corruption)
 	
 	-(Common)Cost 1; 1/2; OnPlay: Increases or decrease one number on any minion on the board by one.(BookBound Echo)
@@ -228,7 +228,7 @@ Cards:
 	-(Common)Cost 9; 14/14;(StoneGate Warlord)+		+
 	//-(Common)Cost 10; 16/16;						++
 	
-(66 Common, 59 Rare, 38 Epic)
+(67 Common, 63 Rare, 39 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 Ranked consists of 32 or 64 man tournament
