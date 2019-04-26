@@ -61,7 +61,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             EachOnDeathEffect = 0;
             OnPlayTargetFound = false;
             gameObject.GetComponent<CardEffects>().StartedTargeting = true;
-            if (ThisOnPlaySelfBuff !=null) // This was added
+            if (ThisOnPlaySelfBuff != null) // This was added || and idk why it's here now
             {
                 OnPlaySelfBuffs();
             }
@@ -69,7 +69,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             OnStartOfTurnOnce = true;
             OnEndOfTurnOnce = true;
         }
-        if(ThisOnPlayEffects != null && WasItPlayed == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
+        if (ThisOnPlayEffects != null && WasItPlayed == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
         {
             OnPlayEffects();
         }
@@ -78,13 +78,11 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             if (this.tag == "Player1" && TurnButton.GetComponent<MyTurn>().MyTurnJustStartedP1 == true && OnStartOfTurnOnce == false)
             {
                 OnStartOfTurnEffects();
-                Debug.Log(OnStartOfTurnOnce);
                 OnStartOfTurnOnce = true;
             }
             else if (this.tag == "Player2" && TurnButton.GetComponent<MyTurn>().MyTurnJustStartedP2 == true && OnStartOfTurnOnce == false)
             {
                 OnStartOfTurnEffects();
-                Debug.Log(OnStartOfTurnOnce);
                 OnStartOfTurnOnce = true;
             }
         }
@@ -94,13 +92,11 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 OnEndOfTurnEffects();
                 OnEndOfTurnOnce = true;
-                Debug.Log("hmm");
             }
             else if (this.tag == "Player2" && TurnButton.GetComponent<MyTurn>().MyTurnJustStartedP1 == true && OnEndOfTurnOnce == false)
             {
                 OnEndOfTurnEffects();
                 OnEndOfTurnOnce = true;
-                Debug.Log("hmm");
             }
         }
         int.TryParse(healthText.text, out health);

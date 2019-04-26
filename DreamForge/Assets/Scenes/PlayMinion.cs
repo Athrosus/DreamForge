@@ -18,7 +18,7 @@ public class PlayMinion : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
-        else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player1") // player 1 turn
+        else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player1") // player 2 turn
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
@@ -100,11 +100,11 @@ public class PlayMinion : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
-        else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player1") // player 1 turn
+        else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player1") // player 2 turn
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
-        else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player2") // player 1 turn
+        else if (TurnSwitcher.GetComponent<MyTurn>().Player1Turn == false && this.tag == "Player2") // player 2 turn
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }

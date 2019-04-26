@@ -8,7 +8,7 @@ public class CardEffects : MonoBehaviour
     public delegate void OnPlayEffect();
     public delegate void OnDeathEffect();
     public delegate void PassiveEffect();
-    public bool IsTargetFound, StartedTargeting, player1turn;
+    public bool IsTargetFound, StartedTargeting = false, player1turn;
     public GameObject PlayZone1, PlayZone2;
 
     public void Start()
@@ -28,7 +28,7 @@ public class CardEffects : MonoBehaviour
             }
         }
         //    OnPlaySelfBuffs
-        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower" || gameObject.GetComponent<CardDisplay>().nameText.text == "Maunten" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card2" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card5" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card9")
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower" || gameObject.GetComponent<CardDisplay>().nameText.text == "Maunten" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card2" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card5" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8_Spawn" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card9")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlaySelfBuff.Add(Taunt);
         }
@@ -62,7 +62,10 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card12_OnPlayEffect);
         }
-
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Lum'ra")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Lum_ra_OnPlayEffect);
+        }
         //    OnPlayEffects
         //    OnStartOfTrunEffects
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card1")
@@ -113,6 +116,15 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Inmo_faseal_the_Everlasting_OnDeathEffect);
         }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Py'ra")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Py_ra_OnDeathEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Lum'ra")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Lum_ra_OnDeathEffect);
+        }
+
         //    OnDeathEffects
 
         //if (gameObject.GetComponent<CardDisplay>().nameText.text == "Snek")
@@ -130,7 +142,7 @@ public class CardEffects : MonoBehaviour
         //    //gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Snek_MoreSnek_Summon);
         //}
     }
-    
+
     //OnPlaySelfBuffs
 
     public void Taunt()
@@ -232,56 +244,10 @@ public class CardEffects : MonoBehaviour
             }
         }
         gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
-        StartedTargeting = false;
     }
     public void Card8_OnPlayEffect()
     {
-        if (StartedTargeting == true)
-        {
-            player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
-            if (player1turn == true)
-            {
-                GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
-                New_snek.name = "Card(Clone)";
-                New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
-                New_snek.GetComponent<CardEffects>().enabled = false;
-                New_snek.GetComponent<BoxCollider2D>().enabled = false;
-                New_snek.GetComponent<CardDisplay>().ThisOnPlaySelfBuff.Add(Taunt);
-                //Becaus the first OnPlayEffect is so fast the card doesnt know it'll get a card yet, the second one does so there's an error when I try to add another button
-                if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
-                {
-                    Button But = New_snek.gameObject.AddComponent<Button>();
-                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-                }
-                else
-                {
-                    New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-                }
-                New_snek.tag = "Player1";
-            }
-            if (player1turn == false)
-            {
-                GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
-                New_snek.name = "Card(Clone)";
-                New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
-                New_snek.GetComponent<CardEffects>().enabled = false;
-                New_snek.GetComponent<BoxCollider2D>().enabled = false;
-                New_snek.GetComponent<CardDisplay>().ThisOnPlaySelfBuff.Add(Taunt);
-                //Becaus the first OnPlayEffect is so fast the card doesnt know it'll get a card yet, the second one does so there's an error when I try to add another button
-                if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
-                {
-                    Button But = New_snek.gameObject.AddComponent<Button>();
-                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-                }
-                else
-                {
-                    New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-                }
-                New_snek.tag = "Player2";
-            }
-            gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
-            StartedTargeting = false;
-        }
+        GameObject new_Card = SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Card8_Spawn", typeof(CardStats)), gameObject.transform.parent);
     }
     public void Card10_OnPlayEffect()
     {
@@ -294,7 +260,6 @@ public class CardEffects : MonoBehaviour
             GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
         }
         gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
-        StartedTargeting = false;
     }
     public void Card12_OnPlayEffect()
     {
@@ -314,6 +279,19 @@ public class CardEffects : MonoBehaviour
             Destroy(GameObject.Find("EffectArrow(Clone)"));
             gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
             IsTargetFound = false;
+        }
+    }
+    public void Lum_ra_OnPlayEffect() //The spawns are for the Wrond owner and you cant attack with them 
+    {
+        if (tag == "Player1")
+        {
+            GameObject new_Card = SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone2.transform);
+            new_Card.tag = "Player2";
+        }
+        else if (tag == "Player2")
+        {
+            GameObject new_Card = SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone1.transform);
+            new_Card.tag = "Player1";
         }
     }
 
@@ -430,28 +408,7 @@ public class CardEffects : MonoBehaviour
     }
     public void Card6_OnDeathEffect()
     {
-        if (gameObject.tag == "Player1")
-        {
-            GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
-            New_snek.name = "Card(Clone)";
-            New_snek.tag = "Player1";
-            New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
-            New_snek.GetComponent<CardEffects>().enabled = false;
-            New_snek.GetComponent<BoxCollider2D>().enabled = false;
-            New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-            GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side++;
-        }
-        if (gameObject.tag == "Player2")
-        {
-            GameObject New_snek = Instantiate(gameObject, gameObject.transform.parent);
-            New_snek.name = "Card(Clone)";
-            New_snek.tag = "Player2";
-            New_snek.GetComponent<LayoutElement>().ignoreLayout = false;
-            New_snek.GetComponent<CardEffects>().enabled = false;
-            New_snek.GetComponent<BoxCollider2D>().enabled = false;
-            New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-            GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side++;
-        }
+        GameObject new_Card = SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Card6_Spawn", typeof(CardStats)), gameObject.transform.parent);
     }
     public void Card7_OnDeathEffect()
     {
@@ -489,7 +446,7 @@ public class CardEffects : MonoBehaviour
             New_snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("CardPrefabs/" + gameObject.GetComponent<CardDisplay>().card.name, typeof(CardStats));
             New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
             New_snek.tag = "Player1";
-        } 
+        }
         if (gameObject.tag == "Player2")
         {
             GameObject New_snek = Instantiate(gameObject, PlayZone2.transform);
@@ -501,9 +458,32 @@ public class CardEffects : MonoBehaviour
             New_snek.tag = "Player2";
         }
         gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
-        StartedTargeting = false;
     } //Not a true copy FULL card
-
+    public void Py_ra_OnDeathEffect()
+    {
+        int FirstNum = 2;
+        if (gameObject.transform.parent.tag == "Player1")
+        {
+            GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) - FirstNum).ToString();
+        }
+        if (gameObject.transform.parent.tag == "Player2")
+        {
+            GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) - FirstNum).ToString();
+        }
+    }
+    public void Lum_ra_OnDeathEffect() //The spawns are for the Wrond owner and you cant attack with them
+    {
+        if (tag == "Player1")
+        {
+            GameObject new_Card = SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone2.transform);
+            new_Card.tag = "Player2";
+        }
+        else if (tag == "Player2")
+        {
+            GameObject new_Card = SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone1.transform);
+            new_Card.tag = "Player1";
+        }
+    }
 
     //PassiveEffects
     public void Card1_OnStartOfTurnEffect()
@@ -525,7 +505,7 @@ public class CardEffects : MonoBehaviour
             if (this.tag == "Player1" && GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side > 1)
             {
                 //if (this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1) != null)
-                try{
+                try {
                     this.GetComponent<CardDisplay>().healthText.text = (int.Parse(this.GetComponent<CardDisplay>().healthText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text)).ToString();
                     this.GetComponent<CardDisplay>().attackText.text = (int.Parse(this.GetComponent<CardDisplay>().attackText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().attackText.text)).ToString();
                     this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text = "0";
@@ -540,13 +520,13 @@ public class CardEffects : MonoBehaviour
             else if (this.tag == "Player2" && GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side > 1)
             {
                 //if (this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1) != null)
-                try{
+                try {
                     this.GetComponent<CardDisplay>().healthText.text = (int.Parse(this.GetComponent<CardDisplay>().healthText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().healthText.text)).ToString();
                     this.GetComponent<CardDisplay>().attackText.text = (int.Parse(this.GetComponent<CardDisplay>().attackText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().attackText.text)).ToString();
                     this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().healthText.text = "0";
                 }
                 //else
-                catch{
+                catch {
                     this.GetComponent<CardDisplay>().healthText.text = (int.Parse(this.GetComponent<CardDisplay>().healthText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text)).ToString();
                     this.GetComponent<CardDisplay>().attackText.text = (int.Parse(this.GetComponent<CardDisplay>().attackText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().attackText.text)).ToString();
                     this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text = "0";
@@ -578,6 +558,7 @@ public class CardEffects : MonoBehaviour
         //    gameObject.transform.SetParent(PlayZone2.transform);
         //}
     }
+
     //public void Snek_OnPlayTargetedDmgEffect()
     //{
     //    if (StartedTargeting == true)
@@ -641,7 +622,6 @@ public class CardEffects : MonoBehaviour
 
     //        gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
 
-    //        StartedTargeting = false;
     //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
 
     //    }
@@ -703,7 +683,6 @@ public class CardEffects : MonoBehaviour
 
     //        gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
 
-    //        StartedTargeting = false;
     //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
 
     //    }
@@ -801,6 +780,154 @@ public class CardEffects : MonoBehaviour
     //    }
     //}
 
+    public GameObject Summon(string ByWhatEffect, GameObject WhatCard, Transform ToWhere)
+    {
+        player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
+        GameObject New_card = Instantiate(WhatCard, ToWhere);
+        if (StartedTargeting == true)
+        {
+            if (ByWhatEffect == "OnPlay")
+            {
+                if (player1turn == true)
+                {
+                    New_card.name = "Card(Clone)";
+                    New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                    New_card.GetComponent<CardEffects>().enabled = false;
+                    New_card.GetComponent<BoxCollider2D>().enabled = false;
+                    New_card.tag = "Player1";
+                    //Becaus the first OnPlayEffect is so fast the card doesnt know it'll get a card yet, the second one does so there's an error when I try to add another button
+                    if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
+                    {
+                        Button But = New_card.gameObject.AddComponent<Button>();
+                        But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    }
+                    else
+                    {
+                        New_card.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    }
+                }
+                if (player1turn == false)
+                {
+                    New_card.name = "Card(Clone)";
+                    New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                    New_card.GetComponent<CardEffects>().enabled = false;
+                    New_card.GetComponent<BoxCollider2D>().enabled = false;
+                    New_card.tag = "Player2";
+                    if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
+                    {
+                        Button But = New_card.gameObject.AddComponent<Button>();
+                        But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    }
+                    else
+                    {
+                        New_card.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    }
+                }
+            }
+            if (ByWhatEffect == "OnDeath")
+            {
+                if (gameObject.tag == "Player1")
+                {
+                    New_card.name = "Card(Clone)";
+                    New_card.tag = "Player1";
+                    New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                    New_card.GetComponent<CardEffects>().enabled = false;
+                    New_card.GetComponent<BoxCollider2D>().enabled = false;
+                    New_card.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side++;
+                }
+                if (gameObject.tag == "Player2")
+                {
+                    New_card.name = "Card(Clone)";
+                    New_card.tag = "Player2";
+                    New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                    New_card.GetComponent<CardEffects>().enabled = false;
+                    New_card.GetComponent<BoxCollider2D>().enabled = false;
+                    New_card.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side++;
+                }
+            }
+        }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+        return New_card;
+    }
+    public GameObject SummonNEW(string ByWhatEffect, CardStats WhatCard, Transform ToWhere)
+    {
+        player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
+        GameObject New_card = Instantiate((GameObject)Resources.Load("prefabs/Card", typeof(GameObject)), ToWhere);
+        New_card.GetComponent<CardDisplay>().card = WhatCard;
+        if (StartedTargeting == true)
+        {
+            if (ByWhatEffect == "OnPlay")
+            {
+                if (player1turn == true)
+                {
+                    New_card.name = "Card(Clone)";
+                    New_card.tag = "Player1";
+                    New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                    //New_card.GetComponent<CardEffects>().enabled = false;
+                    New_card.GetComponent<BoxCollider2D>().enabled = false;
+                    New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
+                    Button But = New_card.gameObject.AddComponent<Button>();
+                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
 
+                    //Becaus the first OnPlayEffect is so fast the card doesnt know it'll get a card yet, the second one does so there's an error when I try to add another button
+                    //if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
+                    //{
+                    //Button But = New_card.gameObject.AddComponent<Button>();
+                    //But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    //}
+                    //else
+                    //{
+                    //    New_card.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    //}
+
+                }
+                if (player1turn == false)
+                {
+                    New_card.name = "Card(Clone)";
+                    New_card.tag = "Player2";
+                    New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                    //New_card.GetComponent<CardEffects>().enabled = false;
+                    New_card.GetComponent<BoxCollider2D>().enabled = false;
+                    New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
+                    New_card.transform.Rotate(0, 0, 180);
+                    Button But = New_card.gameObject.AddComponent<Button>();
+                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                }
+                //gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+            }
+            if (ByWhatEffect == "OnDeath")
+            {
+                if (gameObject.tag == "Player1")
+                {
+                    New_card.name = "Card(Clone)";
+                    New_card.tag = "Player1";
+                    New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                    //New_card.GetComponent<CardEffects>().enabled = false;
+                    New_card.GetComponent<BoxCollider2D>().enabled = false;
+                    New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
+                    Button But = New_card.gameObject.AddComponent<Button>();
+                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side++;
+                }
+                if (gameObject.tag == "Player2")
+                {
+                    New_card.name = "Card(Clone)";
+                    New_card.tag = "Player2";
+                    New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                    //New_card.GetComponent<CardEffects>().enabled = false;
+                    New_card.GetComponent<BoxCollider2D>().enabled = false;
+                    New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
+                    New_card.transform.Rotate(0, 0, 180);
+                    Button But = New_card.gameObject.AddComponent<Button>();
+                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side++;
+                }
+            }
+        }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+        return New_card;
+    }
 }
 
