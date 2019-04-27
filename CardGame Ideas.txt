@@ -1,25 +1,25 @@
-(Ass- Ascendent ,Mag- Magus ,Arc- Archivist, Cou- Countess)
+(Ass- Ascendent ,Mag- Magus ,Arc- Archivist, Cou- Countess,Nut- Neutral)
 (Hero Powers Cost 1)(Max number of minions on your bord is 10)(Heros start with 40 life with a max of 999)(Hand size is 10, insted of drawing the 11th card(overdraw) you take damage equal to 1*(Number of times you've overdrawn this game))
 Hero Power: -Ass: Increases any number on any card by 1.(including the number of Charges on cards)
             -Mag: Copy the text of a friendly minion on the bord to another minion card.(in your hand as well)
 			-Arc: Look at the top 3 cards of your deck then for each card choose its position in your deck.
-			-Cou: Draw 2 cards, they get While in hand: At the end of your turn discard this card. 
+			-Cou: Draw 2 cards, they get While in hand: At the end of your turn destroy this card. 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Artifacts are what makes the heros different, not the cards [all cards are shered by all classes], and they can be chosen as a "Gift") 
 (Gifts are what defines your deck, you can choose an Artifact or a single card as your Gift. If you choose one card you start the game with it being available as if it were in your hand and your opponent can see it.)
 Artifacts: 	
-		--(Ass)5 uses a turn; Cost (number of times used this turn); Do 1 damage.
-		+-(Ass)1 use a turn; Cost 1; Flip a minions Attack and Health.
+		+-(Ass)1 use a turn; Cost 1; Decreases any number on any card by 1.
 		+-(Ass)Passive; Don't draw at the start of turn, replace Hero Power with :"Draw a card", Give all cards in your deck: When drawn: Heal owner by 3 and reduce this cards Cost by 1.
 		+-(Ass)Passive; Whenever your opponent draws a card that was added to their deck you draw it as well.*
-		+-(Ass)1 use a turn; Cost 1; Decreases any number on any card by 1.
+		+-(Ass)Passive; All of your minions have -2/+2 stats and "Taunt, Aura: This minion can't attack the opponent's hero directly".
+		+-(Ass)Passive; Choose 2 Neutral Artifacts but your Hero Power is disabled.
 
 		+-(Mag)Passive; When a minion is played copy it's text to all minions in hand and increase their Cost by 1.
 		+-(Mag)Passive; All instences of "OnDeath" are replaced by "OnPlay".
 		+-(Mag)1 use a turn; Cost (Cost of chosen minion) - 3; Trigger any OnDeath, OnPlay or When drawn effect of a minion in hand (as if it was a spell) then discard that card.
-		+-(Mag)1 use a turn; Use the rest of your mana and Summon a random Common minion with Cost equal to what was spent.
 		+-(Mag)Passive; Your Hero Power treats "When drawn:" as "OnPlay and OnDeath:" as well, When a minion is summoned: Heal self by 1.
+		+-(Mag)On the end of your 9th turn; Add a FULL copy of every card in your deck to your deck then half(rounded down) the Cost and Stats of every card in your deck.
 
 		+-(Arc)4 uses a turn; Cost 1+(number of times used this game); Draw a card then reshuffle a card from your hand.
 		+-(Arc)Passive; You see your opponents hand and the top card of their deck.
@@ -31,7 +31,13 @@ Artifacts:
 		+-(Cou)Passive; Sacrifice a card to draw another one and take 3 dmg.
 		+-(Cou)Passive; Sacrifice a card to get 1 mana and destroy 2 cards from you deck.
 		+-(Cou)1 use per game; Combine(Stats,Text,Cost) 2 random cards from your deck into one as long as their combined Cost is less then 11, repeat this untill there arent any viable combinations. 
-		+-(Cou)Passive; Whenever you draw a card deal 1 damage to a random enemy unit, if the card didnt start in your deck you also heal for 2.
+		+-(Cou)Passive; Whenever you destroy a card from your hand or deck it gets added to the bottom of your deck.
+		
+		+-(Nut)5 uses a turn; Cost (number of times used this turn); Do 1 damage to any unit or Flip a minions Attack and Health.
+		+-(Nut)Passive; At the start of the game choose a card from your deck then reveal it to your opponent and draw it.
+		+-(Nut)Passive; Whenever you draw a card deal 1 damage to a random enemy unit, if the card didnt start in your deck you also heal for 2.
+		+-(Nut)1 use a turn; Use the rest of your mana and Summon a random Common minion with Cost equal to what was spent.
+		+-(Nut)Passive; As long as you have less cards in hand then your opponent draw and extra card, as long as you have more cards in your deck then your opponent drwa an extra card.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
@@ -47,7 +53,7 @@ Cards:
 	-(Rare)Cost 2; 2/9; Taunt, OnPlay: Make your opponent Draw 2 cards, OnKill: Make your opponent Draw 1 card, OnDeath: Draw untill you have as many cards as your opponent.
 	-(Rare)Cost 6; 5/12; Taunt, OnPlay: Make your opponent Draw untill he has as many cards as you.
 	-(Common)Cost 2; 3/3; OnPlay: 2 random cards in your opponents deck Get: "OnPlay: Deal 2 damage to owner".
-	-(Common)Cost 4; 4/7; Taunt, When drawn: a random cards in your opponents deck Get: "OnPlay: Deal 3 damage to owner", OnPlay and OnDeath: Make your opponent Draw a card.
+	-(Common)Cost 4; 4/7; Taunt, When drawn: a random card in your opponents deck Gets: "OnPlay: Deal 3 damage to owner", OnPlay and OnDeath: Make your opponent Draw a card.
 	-(Common)Cost 3; 3/2; OnPlay: If you have less cards in your deck then your opponent add 2 FULL copies of this card with "When drawn: This minions Cost is 0 next turn and draw a card" to your deck.
 	-(Rare)Cost 3; 3/3; OnPlay and OnDeath: Add 1 random Common 1 Cost minion to your deck and Give it: "When drawn: Play this minion and draw a card".
 	
@@ -74,7 +80,7 @@ Cards:
 	-(Common)Cost 4; 3/6; Aura: Whenever this takes damage Summon a 2/1 minion.(Brood Bearer)
 	-(Common)Cost 9; 8/4; When drawn: Draw a 1 Cost card, OnPlay: Summon one 1 Cost, two 2 Cost and three 3 Cost minions.
 	-(Rare)Cost 5; 4/12; Taunt, Every time the enemy Hero gets damaged Summon 1 2/4 Taunt for the opponent.
-		
+	
 	//-(Common)Cost 0; 0/1; Alien, OnDeath: Summon 2 1/1 Alien minions for the enemy.(?Alien Egg)
 	-(Common)Cost 1; 1/1; OnPlay: Summon 2 "Alien Egg" minions for the opponent. 
 	-(Common)Cost 3; 3/3; Alien, OnPlay: Deal 2 damage to a minion, OnKill: Get +1/+1 if it's an Alien get +2/+2.(?Middle Alien)
@@ -90,7 +96,7 @@ Cards:
 	-(Common)Cost 3; 2/2; OnPlay: If you have more cards in your deck then your opponent Summon two 2/2 minion.
 	-(Common)Cost 4; 1/1; OnPlay: Summon 3 2/2 minions.
 	-(Rare)Cost 4; 2/3; Taunt, OnPlay: Summon 1 2/3 Taunt minion.+(Val'Rast)
-	-(Rare)Cost 6; 3/5; Taunt, OnPlay: Summon 1 3/5 Taunt minion.+(Dun'Rast)
+	-(Rare)Cost 6; 3/5; Taunt, OnPlay: Summon 1 3/5 Taunt minion.+?(Dun'Rast)
 	-(Common)Cost 3; 1/6; When Damaged: Has Taunt, When not Damaged: Has +2 Attack.(Warangutan)
 	-(Rare)Cost 2; 1/3; When Damamged: Has + 4 health, When not Damaged: Has + 3 Attack.(Soldier Chimp)
 	-(Rare)Cost 3; 5/2; OnPlay: Get + Health equal to your opponents current mana.(Eth'Rast)
@@ -150,7 +156,7 @@ Cards:
 	-(Common)Cost 9; 8/10; Aura: All damage owner takes this minion takes instead, OnDeath: If owners life is abole 30 heal owner by 5 then if it's over 40 heal owner by 10 then if it's 70 deal damage equal this minions Attack to all enemy units. 
 	
 	-(Common)Cost 1; 2/1; OnPlay: Draw a card.+
-	-(Rare)Cost 3; 2/4; OnDeath: Draw 1 card.+
+	-(Rare)Cost 3; 3/4; OnDeath: Draw 1 card.+
 	-(Epic)Cost 5; 3/5; Aura: Draw cards equal to damage done by thins card.
 	-(Epic)Cost 3; 0/5; OnDeath: Draw 1 card, Aura: Your Hero Power costs 0.
 	-(Epic)Cost 2; 0/4; Aura: Whenever you use your Hero Power Draw a card and heal self by 2.
@@ -158,7 +164,7 @@ Cards:
 	-(Rare)Cost 15; 5/6; When drawn: Draw a card from the bottom of your deck, While in hand: Cost reduced by 1 for each card drawn.
 	-(Rare)Cost 5; 1/1; When drawn: If you have 5 or more cards in your hand heal self by 5 and if you have 5 or less cards in your hand draw a card.
 	-(Rare)Cost 2; 2/3; OnPlay: If you have more then 20 or less then 60 health Draw a card, OnDeath: If you have less then 20 or more then 60 health Draw two: cards.
-	-(Rare)Cost 4; 3/6; OnPlay: Discard 2 random cards from hand then Draw a card of your choice from your deck. 
+	-(Rare)Cost 4; 5/4; OnPlay: Discard 2 random cards from hand then Draw a card of your choice from your deck. 
 	-(Common)Cost 10; 10/10; OnPlay and OnDeath: Draw 5 cards.
 	-(Common)Cost 4; 4/3; OnPlay: Choose one card from your deck and destroy it then add that card to your hand after 3 turns.
 	-(Rare)Cost 4; 0/6; OnPlay: Destroy the top 3 card from your deck, OnDeath: Add the destroyed cards to your hand.
@@ -169,7 +175,7 @@ Cards:
 	-(Rare)Cost 3; 2/5; OnPlay: Draw a card then choose a card from your hand to reshuffle.(Archiveomatic)
 	-(Epic)Cost 6; 6/5; Taunt, OnPlay: Put all cards from your and your opponents hands to the bottom of your respective decks then you both draw that many cards.(Archiveotron)
 
-	-(Common)Cost 1; 2/2; OnPlay: Choose 1 card from your deck and destroy the chosen card, OnDeath: Give your Hero: LifeBloom 1=(After this unit is attacked heal your Hero by 1).
+	-(Common)Cost 1; 2/1; OnPlay: Choose 1 card from your deck and destroy the chosen card, OnDeath: Give your Hero: LifeBloom 1=(After this unit is attacked heal your Hero by 1).
 	-(Common)Cost 2; 1/3; Taunt, LifeBloom 3.
 	-(Common)Cost 3; 0/10; Aura: Give all friendly units LifeBloom 2.
 	-(Common)Cost 4; 3/7; OnPlay: Choose 2 card from your deck and destroy them, OnDeath: Give your Hero: LifeBloom 2.
@@ -203,6 +209,7 @@ Cards:
 	-(Rare)Cost 6; 4/4; While in hand: every OnPlay effect your cards cast get copied to this minion.(Mourning Wraith)
 	-(Rare)Cost 0; 0/0; While in hand: every OnDeath effect your cards cast get copied to this minion, While in hand: get +1/+1 and +1 Cost for each friendly minion that dies.(Depraved Wraith)
 	-(Epic)Cost 0; 1/1; While in hand: Combine(Stats,Text,Cost) minions you play with this one.(Lindra the Wraith of Envy)
+	-(Epic)Cost 8; 9/7; OnPlay: Add 1 (Cost 0; 1/1; While in hand: This cards text becomes the same as the last card you played) to your hand.
 	-(Epic)Cost 8; 4/8; Taunt, At the end of turn: Summon a FULL copy of the most expensive minion that died this game.
 	-(Epic)Cost 7; 12/8; OnStartOfGame: If you have 4 copys of 4 cards and 3 copys of 3 cards and 2 copys of 2 cards in your deck your Hero Power is free.(Fate Breaker)
 	-(Rare)Cost 3; 4/3; OnPlay: Destroy up to 6 random Commons from your deck and add 1 random Epic for every 2 destroyed. 
@@ -214,12 +221,12 @@ Cards:
 	-(Common)Cost 1; 1/2; OnPlay: Increases or decrease one number on any minion on the board by one.(BookBound Echo)
 	-(Common)Cost 3; 3/4; OnPlay: Increases or decrease one number on any minion card by one.(BookBound Spector)
 	-(Rare)Cost 6; 2/8; Taunt, OnPlay: Increases or decrease one number on any minion card by this minions attack.(BookBound Revenant) 
-	-(Epic)Cost 10; 9/6; OnPlay: Double any number on any card in your hand.(Aleyna the BookBound Prodigy)
+	-(Epic)Cost 10; 9/6; OnPlay: Double any number on any card.(Aleyna the BookBound Prodigy)
 	
 	-(Common)Cost 2; 2/2; OnPlay: Copy the text of a minion on the bord to this one.
 	-(Common)Cost 7; 6/5; OnPlay: Copy the text of a minion on the bord to a friendly minion card and this one.
 	-(Rare)Cost 5; 4/3; OnPlay: Copy the text of a minion on the bord to a friendly minion card.
-	-(Epic)Cost 10: 5/5; OnPlay: Choose a minion then Combine(Stats,Text) all friendly minions with the chosen one.
+	-(Epic)Cost 10: 6/9; OnPlay: Choose a minion card then Combine(Stats,Text) all minion cards in your hand with the chosen one.
 	
 	// -(Common)Cost 1; 2/2;						++
 	-(Common)Cost 2; 4/3;(StoneGate Knight)+		+	
@@ -232,7 +239,7 @@ Cards:
 	-(Common)Cost 9; 14/14;(StoneGate Warlord)+		+
 	//-(Common)Cost 10; 16/16;						++
 	
-(68 Common, 64 Rare, 41 Epic)
+(68 Common, 64 Rare, 42 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 Ranked consists of 32 or 64 man tournament
