@@ -10,6 +10,7 @@ public class CardEffects : MonoBehaviour
     public delegate void PassiveEffect();
     public bool IsTargetFound, StartedTargeting = false, player1turn;
     public GameObject PlayZone1, PlayZone2;
+    public int NumberOfTargets=0;
 
     public void Start()
     {
@@ -66,11 +67,26 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Lum_ra_OnPlayEffect);
         }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Spark Finger")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Spark_Finger_OnPlayEffect);
+        }
         //    OnPlayEffects
+        //    WhenDrawnEffects
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Repairatron")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisWhenDrawnEffects.Add(Repairatron_WhenDrawnEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Phum'Ra")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisWhenDrawnEffects.Add(Phum_ra_WhenDrawnEffect);
+        }
+        //    WhenDrawnEffects
         //    OnStartOfTrunEffects
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card1")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnStartOfTrunEffects.Add(Card1_OnStartOfTurnEffect);
+
         }
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card2")
         {
@@ -124,6 +140,10 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Lum_ra_OnDeathEffect);
         }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Spark Finger")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Spark_Finger_OnDeathEffect);
+        }
 
         //    OnDeathEffects
 
@@ -147,7 +167,6 @@ public class CardEffects : MonoBehaviour
 
     public void Taunt()
     {
-        Debug.Log("Am Taunting");
         if (gameObject.GetComponent<CardDisplay>() != null)
         {
             gameObject.GetComponent<CardDisplay>().IsTaunt = true;
@@ -247,7 +266,7 @@ public class CardEffects : MonoBehaviour
     }
     public void Card8_OnPlayEffect()
     {
-        GameObject new_Card = SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Card8_Spawn", typeof(CardStats)), gameObject.transform.parent);
+        SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Card8_Spawn", typeof(CardStats)), gameObject.transform.parent);
     }
     public void Card10_OnPlayEffect()
     {
@@ -281,20 +300,56 @@ public class CardEffects : MonoBehaviour
             IsTargetFound = false;
         }
     }
-    public void Lum_ra_OnPlayEffect() //The spawns are for the Wrond owner and you cant attack with them 
+    public void Lum_ra_OnPlayEffect()
     {
         if (tag == "Player1")
         {
-            GameObject new_Card = SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone2.transform);
-            new_Card.tag = "Player2";
+            SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone2.transform);
         }
         else if (tag == "Player2")
         {
-            GameObject new_Card = SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone1.transform);
-            new_Card.tag = "Player1";
+            SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone1.transform);
         }
     }
+    public void Spark_Finger_OnPlayEffect()
+    {
+        int FirstNum = 2;
+        int TargetHP;
+        if (StartedTargeting == true)
+        {
+            GameObject EffectArrow = (GameObject)Resources.Load("prefabs/EffectArrow", typeof(GameObject));
+            Instantiate(EffectArrow, gameObject.transform);
+            GameObject.Find("EndTurn").GetComponent<Button>().interactable = false;
+            StartedTargeting = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0) && GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted != null && GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.transform.parent.name == "PlayZone")
+        {
+            Cursor.visible = true;
+            IsTargetFound = true;
+            int.TryParse(GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text, out TargetHP);
+            GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text = (TargetHP - 1).ToString();
+            GameObject.Find("EndTurn").GetComponent<Button>().interactable = true;
+            Destroy(GameObject.Find("EffectArrow(Clone)"));
+            NumberOfTargets++;
+            StartedTargeting = true;
+            if (NumberOfTargets == FirstNum)
+            {
+                gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+                IsTargetFound = false;
+                return;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            Cursor.visible = true;
+            IsTargetFound = true;
+            GameObject.Find("EndTurn").GetComponent<Button>().interactable = true;
+            Destroy(GameObject.Find("EffectArrow(Clone)"));
+            gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+            IsTargetFound = false;
+        }
 
+    }
     //OnDeathEffects
 
     public void Card0_OnDeathEffect()
@@ -408,7 +463,7 @@ public class CardEffects : MonoBehaviour
     }
     public void Card6_OnDeathEffect()
     {
-        GameObject new_Card = SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Card6_Spawn", typeof(CardStats)), gameObject.transform.parent);
+        SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Card6_Spawn", typeof(CardStats)), gameObject.transform.parent);
     }
     public void Card7_OnDeathEffect()
     {
@@ -471,17 +526,27 @@ public class CardEffects : MonoBehaviour
             GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) - FirstNum).ToString();
         }
     }
-    public void Lum_ra_OnDeathEffect() //The spawns are for the Wrond owner and you cant attack with them
+    public void Lum_ra_OnDeathEffect()
     {
         if (tag == "Player1")
         {
-            GameObject new_Card = SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone2.transform);
-            new_Card.tag = "Player2";
+            SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone2.transform);
         }
         else if (tag == "Player2")
         {
-            GameObject new_Card = SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone1.transform);
-            new_Card.tag = "Player1";
+            SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone1.transform);
+        }
+    }
+    public void Spark_Finger_OnDeathEffect()
+    {
+        int FirstNum = 1;
+        if (tag == "Player1")
+        {
+            GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) - FirstNum).ToString();
+        }
+        else
+        {
+            GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) - FirstNum).ToString();
         }
     }
 
@@ -558,6 +623,30 @@ public class CardEffects : MonoBehaviour
         //    gameObject.transform.SetParent(PlayZone2.transform);
         //}
     }
+    public void Repairatron_WhenDrawnEffect()
+    {
+        if (tag == "Player1")
+        {
+            GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) + GameObject.Find("HandP1").transform.childCount).ToString();
+        }
+        else
+        {
+            GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) + GameObject.Find("HandP2").transform.childCount).ToString();
+        }
+    }
+    public void Phum_ra_WhenDrawnEffect()
+    {
+        if (tag == "Player1")
+        {
+            SummonNEW("WhenDrawn", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone2.transform);
+            SummonNEW("WhenDrawn", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone2.transform);
+        }
+        else if (tag == "Player2")
+        {
+            SummonNEW("WhenDrawn", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone1.transform);
+            SummonNEW("WhenDrawn", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone1.transform);
+        }
+    }
 
     //public void Snek_OnPlayTargetedDmgEffect()
     //{
@@ -565,38 +654,23 @@ public class CardEffects : MonoBehaviour
     //    {
     //        GameObject EffectArrow = (GameObject)Resources.Load("prefabs/EffectArrow", typeof(GameObject));
     //        Instantiate(EffectArrow, gameObject.transform);
-
     //        GameObject.Find("EndTurn").GetComponent<Button>().interactable = false;
-
-
     //        StartedTargeting = false;
-
     //    }
-
     //    int TargetHP;
-
     //    if (IsTargetFound == true)
     //    {
-
-
     //        int.TryParse(GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text, out TargetHP);
     //        GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text = (TargetHP - 1).ToString();
-
     //        GameObject.Find("EndTurn").GetComponent<Button>().interactable = true;
-
-
     //        Destroy(GameObject.Find("EffectArrow(Clone)"));
     //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
     //        IsTargetFound = false;
     //    }
-
-
     //}
 
     //public void Snek_MoreSnek_Hand()
     //{
-
-
     //    if (StartedTargeting == true)
     //    {
     //        GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
@@ -629,8 +703,6 @@ public class CardEffects : MonoBehaviour
 
     //public void Snek_MoreSnek_Summon()
     //{
-
-
     //    if (StartedTargeting == true)
     //    {
     //        GameObject New_Snek = (GameObject)Resources.Load("prefabs/Card", typeof(GameObject));
@@ -676,13 +748,9 @@ public class CardEffects : MonoBehaviour
     //            {
     //                New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
     //            }
-
     //            New_snek.tag = "Player2";
-
     //        }
-
     //        gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
-
     //        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
 
     //    }
@@ -732,8 +800,6 @@ public class CardEffects : MonoBehaviour
     //        New_snek.GetComponent<BoxCollider2D>().enabled = false;
     //        //Button But = New_snek.gameObject.AddComponent<Button>();  //intoresting
     //        New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-
-
     //    }
     //    if (gameObject.tag == "Player2")
     //    {
@@ -746,8 +812,6 @@ public class CardEffects : MonoBehaviour
     //        New_snek.GetComponent<BoxCollider2D>().enabled = false;
     //        //Button But = New_snek.gameObject.AddComponent<Button>();  //intoresting
     //        New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-
-
     //    }
 
     //    gameObject.GetComponent<CardDisplay>().card = New_Snek.GetComponent<CardDisplay>().card;
@@ -860,7 +924,7 @@ public class CardEffects : MonoBehaviour
         {
             if (ByWhatEffect == "OnPlay")
             {
-                if (player1turn == true)
+                if (ToWhere.tag == "Player1")
                 {
                     New_card.name = "Card(Clone)";
                     New_card.tag = "Player1";
@@ -869,7 +933,7 @@ public class CardEffects : MonoBehaviour
                     New_card.GetComponent<BoxCollider2D>().enabled = false;
                     New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
                     Button But = New_card.gameObject.AddComponent<Button>();
-                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    But.onClick.AddListener(PlayZone1.GetComponent<PlayMinion>().AttackInitiation);
 
                     //Becaus the first OnPlayEffect is so fast the card doesnt know it'll get a card yet, the second one does so there's an error when I try to add another button
                     //if (gameObject.GetComponent<CardDisplay>().EachOnPlayEffect == 0)
@@ -883,7 +947,7 @@ public class CardEffects : MonoBehaviour
                     //}
 
                 }
-                if (player1turn == false)
+                if (ToWhere.tag == "Player2")
                 {
                     New_card.name = "Card(Clone)";
                     New_card.tag = "Player2";
@@ -893,13 +957,13 @@ public class CardEffects : MonoBehaviour
                     New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
                     New_card.transform.Rotate(0, 0, 180);
                     Button But = New_card.gameObject.AddComponent<Button>();
-                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    But.onClick.AddListener(PlayZone2.GetComponent<PlayMinion>().AttackInitiation);
                 }
                 //gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
             }
             if (ByWhatEffect == "OnDeath")
             {
-                if (gameObject.tag == "Player1")
+                if (ToWhere.tag == "Player1")
                 {
                     New_card.name = "Card(Clone)";
                     New_card.tag = "Player1";
@@ -908,10 +972,10 @@ public class CardEffects : MonoBehaviour
                     New_card.GetComponent<BoxCollider2D>().enabled = false;
                     New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
                     Button But = New_card.gameObject.AddComponent<Button>();
-                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    But.onClick.AddListener(PlayZone1.GetComponent<PlayMinion>().AttackInitiation);
                     GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side++;
                 }
-                if (gameObject.tag == "Player2")
+                if (ToWhere.tag == "Player2")
                 {
                     New_card.name = "Card(Clone)";
                     New_card.tag = "Player2";
@@ -921,9 +985,37 @@ public class CardEffects : MonoBehaviour
                     New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
                     New_card.transform.Rotate(0, 0, 180);
                     Button But = New_card.gameObject.AddComponent<Button>();
-                    But.onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+                    But.onClick.AddListener(PlayZone2.GetComponent<PlayMinion>().AttackInitiation);
                     GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side++;
                 }
+            }
+        }
+        if (ByWhatEffect == "WhenDrawn")
+        {
+            if (ToWhere.tag == "Player1")
+            {
+                New_card.name = "Card(Clone)";
+                New_card.tag = "Player1";
+                New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                //New_card.GetComponent<CardEffects>().enabled = false;
+                New_card.GetComponent<BoxCollider2D>().enabled = false;
+                New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
+                Button But = New_card.gameObject.AddComponent<Button>();
+                But.onClick.AddListener(PlayZone1.GetComponent<PlayMinion>().AttackInitiation);
+                GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side++;
+            }
+            if (ToWhere.tag == "Player2")
+            {
+                New_card.name = "Card(Clone)";
+                New_card.tag = "Player2";
+                New_card.GetComponent<LayoutElement>().ignoreLayout = false;
+                //New_card.GetComponent<CardEffects>().enabled = false;
+                New_card.GetComponent<BoxCollider2D>().enabled = false;
+                New_card.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
+                New_card.transform.Rotate(0, 0, 180);
+                Button But = New_card.gameObject.AddComponent<Button>();
+                But.onClick.AddListener(PlayZone2.GetComponent<PlayMinion>().AttackInitiation);
+                GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side++;
             }
         }
         gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;

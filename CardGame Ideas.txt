@@ -11,13 +11,13 @@ Hero Power: -Ass: Increases any number on any card by 1.(including the number of
 Artifacts: 	
 		+-(Ass)1 use a turn; Cost 1; Decreases any number on any card by 1.
 		+-(Ass)Passive; Don't draw at the start of turn, replace Hero Power with :"Draw a card", Give all cards in your deck: When drawn: Heal owner by 3 and reduce this cards Cost by 1.
-		+-(Ass)Passive; Whenever your opponent draws a card that was added to their deck you draw it as well.*
+		+-(Ass)1 use a turn; Cost (Cost of chosen minion) - 3; Trigger any OnDeath, OnPlay or When drawn effect of a minion in hand (as if it was a spell) then discard that card.
 		+-(Ass)Passive; All of your minions have -2/+2 stats and "Taunt, Aura: This minion can't attack the opponent's hero directly".
 		+-(Ass)Passive; Choose 2 Neutral Artifacts but your Hero Power is disabled.
 
 		+-(Mag)Passive; When a minion is played copy it's text to all minions in hand and increase their Cost by 1.
 		+-(Mag)Passive; All instences of "OnDeath" are replaced by "OnPlay".
-		+-(Mag)1 use a turn; Cost (Cost of chosen minion) - 3; Trigger any OnDeath, OnPlay or When drawn effect of a minion in hand (as if it was a spell) then discard that card.
+		+-(Mag)Passive; Whenever your opponent draws a card that was added to their deck you draw it as well.*
 		+-(Mag)Passive; Your Hero Power treats "When drawn:" as "OnPlay and OnDeath:" as well, When a minion is summoned: Heal self by 1.
 		+-(Mag)On the end of your 9th turn; Add a FULL copy of every card in your deck to your deck then half(rounded down) the Cost and Stats of every card in your deck.
 
@@ -57,13 +57,11 @@ Cards:
 	-(Common)Cost 3; 3/2; OnPlay: If you have less cards in your deck then your opponent add 2 FULL copies of this card with "When drawn: This minions Cost is 0 next turn and draw a card" to your deck.
 	-(Rare)Cost 3; 3/3; OnPlay and OnDeath: Add 1 random Common 1 Cost minion to your deck and Give it: "When drawn: Play this minion and draw a card".
 	
-	//-(Common)Cost 0; 0/1; OnDeath: Deal 2 damage to your Hero.(Py'Ra)
-	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1 "Py'Ra" for your opponent.(Lum'Ra)
-	-(Common)Cost 4; 3/3; When drawn: Summon 2 "Py'Ra" for your opponent.(Phum'Ra)
+	//-(Common)Cost 0; 0/1; OnDeath: Deal 2 damage to your Hero.+(Py'Ra)
+	-(Common)Cost 2; 2/2; OnPlay and OnDeath: Summon 1 "Py'Ra" for your opponent.+(Lum'Ra)
+	-(Common)Cost 4; 3/3; When drawn: Summon 2 "Py'Ra" for your opponent.+(Phum'Ra)
 	-(Rare)Cost 6; 7/7; When drawn: Summon 2 "Py'Ra" for your opponent, OnPlay and OnDeath: Deal 1 damage to all minions, OnKill: Summon a "Py'Ra" for your opponent.(Py'Rast)
 	-(Epic)Cost 8; 2/15; Taunt, LifeSteal, When drawn: Summon 2 "Py'Ra" for your opponent, OnPlay: Destroy all minions with 1 or less attack and Combine(Stats,text) them with this one.(Cobna'Rastra)
-	-(Common)Cost 1; 2/1; OnPlay: Choose 2 units then deal one damage to each, OnDeath: Deal 1 damage to the enemy Hero.(Spark Finger)
-	-(Rare)Cost 3; 3/3; Every time the enemy Hero gets damaged attack a random enemy minion, OnKill: Give this card +3 Health.
 	
 	-(Common)Cost 2; 3/2; OnPlay: Give a minion: +3 Attack and After this minion attacks destroy it.
 	-(Common)Cost 1; 2/2; At the start of your turn give this minion + Attack equal to it's Health.(Ofhun'Ra)+
@@ -80,6 +78,8 @@ Cards:
 	-(Common)Cost 4; 3/6; Aura: Whenever this takes damage Summon a 2/1 minion.(Brood Bearer)
 	-(Common)Cost 9; 8/4; When drawn: Draw a 1 Cost card, OnPlay: Summon one 1 Cost, two 2 Cost and three 3 Cost minions.
 	-(Rare)Cost 5; 4/12; Taunt, Every time the enemy Hero gets damaged Summon 1 2/4 Taunt for the opponent.
+	-(Rare)Cost 13; 5/4; While in hand: Cost is reduced by 1 for each minion that died this turn, OnPlay: Deal two dmg to the enemy hero for each minion that died this turn.
+	-(Rare)Cost 3; 3/3; Every time the enemy Hero gets damaged attack a random enemy minion, OnKill: Give this card +3 Health.
 	
 	//-(Common)Cost 0; 0/1; Alien, OnDeath: Summon 2 1/1 Alien minions for the enemy.(?Alien Egg)
 	-(Common)Cost 1; 1/1; OnPlay: Summon 2 "Alien Egg" minions for the opponent. 
@@ -111,6 +111,7 @@ Cards:
 	-(Rare)Cost 5; 7/7; At the end of your turn destroy 1 adjacent friendly minion and Combine(Stats) it with this one if there are none destry this minion and deal damage equal to its Attack to its owner.(Hungering Demon)+
 	-(Rare)Cost 10; 0/16; Has as much Attack as Health, OnDeath Summon 2 (0/6; Taunt, Has as much Attack as Health).(Kun'Rast)
 	-(Rare)Cost 6; 0/9; Taunt, When drawn: Get +1 Attack for each card in your hand.
+	-(Rare)Cost 3; 5/1; OnPlay: Destroy a friendly minion then summon two copies of it for the enemy and give them "OnDeath: Summon 2 copies of this card to the enemy".
 	
 	-(Epic)Cost 1; 0/1; Upgrade one=(Add +1 to every number on a card), OnDeath: Combine(text) this card with another friendly minion on the board.(Alph0s)
 	-(Rare)Cost 1; 1/2; OnPlay: Heal owner by 1, Aura: Whenever you play a card return this card to your hand and give it Upgrade one.(Lambd0s)
@@ -133,7 +134,7 @@ Cards:
 	-(Common)Cost 6; 4/7; ChargeShild, When this unit is damaget it gets a Charge.(Crackling Drake)
 	-(Common)Cost 4; 3/2; Taunt, When drawn: Get 2 Charges, ChatgeShild, LifeBloom 2*(number of Charges).(Empowered Shield Effigy)
 	-(Common)Cost 1; 1/2; When drawn: Get 2 Charges, OnPlay: Deal damage to an enemy unit equal to the number of Charges.(Thundering Eel)
-	-(Rare)Cost 2; 3/2; When drawn: Get 2 Charges, OnDeath: If this card has Charges remove all of them and add that many FULL copys of this card to your hand.(Charged Hydra Worm)
+	-(Rare)Cost 2; 3/2; When drawn: Get 2 Charges, OnDeath: If this card has Charges remove all of them and add that many FULL copies of this card to your hand.(Charged Hydra Worm)
 	-(Rare)Cost 4; 3/5; Taunt, OnPlay: Choose a minion, At the end of your turn the chosen minion gets one Charge.(StoneGate Thunder Priest)
 	-(Rare)Cost 3; 0/7; OnPlay: Get 1 Charge, At the start of your turn remove 1 Charge from this card , At the end of your turn if there are no Charges on this card destroy all minions on the board.(Spark Crazed Bloatfish)
 	-(Epic)Cost 6; 4/4; OnPlay: Give all minions in hand ChargeShild, OnDeath: Give all minions in hand 1 Charge.(Rogue SwordSwan Chargomatic)
@@ -151,7 +152,7 @@ Cards:
 	-(Common)Cost 4; 3/5; Taunt, At the end of your turn heal this cards owner by 3.(StoneGate Priestess)
 	-(Common)Cost 2; 2/2; OnPlay: Kill a friendly minion, OnKill: Heal owner for the Health of the killed minion.(Demonic Bloodsucker)
 	-(Epic)Cost 5; 0/1; Taunt, OnPlay: get +0/+2 for each time you used you've used your Hero Power, OnDeath: Heal owner by 2 for each time you've used your Hero Power.
-	-(Rare)Cost 5; 4/5; When drawn: Heal self for the number of cards in your hand.
+	-(Rare)Cost 5; 4/5; When drawn: Heal self for the number of cards in your hand.+(Repairatron)
 	-(Common)Cost 8; 6/13; Taunt, LifeSteal.
 	-(Common)Cost 9; 8/10; Aura: All damage owner takes this minion takes instead, OnDeath: If owners life is abole 30 heal owner by 5 then if it's over 40 heal owner by 10 then if it's 70 deal damage equal this minions Attack to all enemy units. 
 	
@@ -195,6 +196,8 @@ Cards:
 	-(Rare)Cost 7; 6/8; OnPlay: Deal 3 * 2 damage split randomly across all enemy unit.
 	-(Rare)Cost 7; 8/5; OnPlay and OnDeath: Deal 3 damage to all enemy units.
 	-(Common)Cost 8; 7/9; Aura: When the enemy playes a minion attack it.
+	-(Rare)Cost 2; 0/2; OnDeath: Deal 7 dmg split amongst enemys.
+	-(Common)Cost 1; 2/1; OnPlay: Choose 2 units then deal one damage to each, OnDeath: Deal 1 damage to the enemy Hero.(Spark Finger)
 	
 	-(Epic)Cost 5; 5/5; OnDeath: Return a FULL copy of this card to your hand.(Primordial Agony)-/+
 	-(Epic)Cost 9; 3/3; OnDeath: At the end of your turn resummon a FULL copy of this card.(Inmo'faseal the Everlasting)
@@ -239,7 +242,7 @@ Cards:
 	-(Common)Cost 9; 14/14;(StoneGate Warlord)+		+
 	//-(Common)Cost 10; 16/16;						++
 	
-(68 Common, 64 Rare, 42 Epic)
+(68 Common, 67 Rare, 42 Epic)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 Ranked consists of 32 or 64 man tournament

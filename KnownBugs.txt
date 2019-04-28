@@ -1,3 +1,3 @@
 OnDeath has a timing quirk, for example if "OnDeath: Deal 2 dmg to this cards owner" triggers at the same time for both players and wuld kill both the 1st player ALLWAYS loses.
 Hungering Demon - Kinda buggy with more of the same effect happons at once, probably will get fixed when ordering is added !
-Inmo'faseal - UI bug while dead
+Inmo'faseal - UI bug while dead , when he revives at the end of turn the uses effects on start of turn as well

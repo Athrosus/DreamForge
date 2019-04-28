@@ -16,9 +16,10 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public List<OnDeathEffect> ThisOnDeathEffects = new List<OnDeathEffect>();
     public List<PassiveEffect> ThisOnStartOfTrunEffects = new List<PassiveEffect>();
     public List<PassiveEffect> ThisOnEndOfTrunEffects = new List<PassiveEffect>();
+    public List<PassiveEffect> ThisWhenDrawnEffects = new List<PassiveEffect>();
 
     public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = true, OnPlayTargetFound, OnEndOfTurnOnce = true;
-    public int EachOnPlayBuff, EachOnPlayEffect, EachOnDeathEffect;
+    public int EachOnPlayBuff, EachOnPlayEffect, EachOnDeathEffect, EachWhenDrawnEffect;
 
     public CardStats card;
     public Text nameText;
@@ -61,6 +62,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             EachOnDeathEffect = 0;
             OnPlayTargetFound = false;
             gameObject.GetComponent<CardEffects>().StartedTargeting = true;
+            gameObject.GetComponent<CardEffects>().NumberOfTargets = 0;
             if (ThisOnPlaySelfBuff != null) // This was added || and idk why it's here now
             {
                 OnPlaySelfBuffs();
@@ -69,6 +71,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             OnStartOfTurnOnce = true;
             OnEndOfTurnOnce = true;
         }
+
         if (ThisOnPlayEffects != null && WasItPlayed == true && EachOnPlayEffect < ThisOnPlayEffects.Count)
         {
             OnPlayEffects();
@@ -114,7 +117,9 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             HasDied = true;
             Destroy(gameObject);
         }
+
     }
+
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         if (gameObject.tag == "Player1" )
@@ -157,6 +162,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted = null;
         }
     }
+
     public void OnPlaySelfBuffs()
     {
         foreach (OnPlayEffect Onplaybuff in ThisOnPlaySelfBuff)
@@ -199,6 +205,14 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             ThisOnDeathEffects[EachOnDeathEffect]();
             EachOnDeathEffect++;
+        }
+    }
+    public void WhenDrwanEffects()
+    {
+        foreach (PassiveEffect whendrawneffects in ThisWhenDrawnEffects)
+        {
+            ThisWhenDrawnEffects[EachWhenDrawnEffect]();
+            EachWhenDrawnEffect++;
         }
     }
 }

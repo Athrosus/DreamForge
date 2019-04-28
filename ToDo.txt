@@ -1,0 +1,4 @@
+Add Lifesteal
+Add OnKill
+Add Effect Oreder
+Add Combine/FULL copy
