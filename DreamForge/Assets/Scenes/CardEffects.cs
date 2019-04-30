@@ -9,11 +9,25 @@ public class CardEffects : MonoBehaviour
     public delegate void OnDeathEffect();
     public delegate void PassiveEffect();
     public bool IsTargetFound, StartedTargeting = false, player1turn;
-    public GameObject PlayZone1, PlayZone2;
+    public GameObject PlayZone1, PlayZone2, DeckP1, DeckP2;
     public int NumberOfTargets=0;
 
     public void Start()
     {
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player1"))
+        {
+            if (item.name == "Deck")
+            {
+                DeckP1 = item;
+            }
+        }
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player2"))
+        {
+            if (item.name == "Deck")
+            {
+                DeckP2 = item;
+            }
+        }
         foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player1"))
         {
             if (item.name == "PlayZone")
@@ -28,8 +42,9 @@ public class CardEffects : MonoBehaviour
                 PlayZone2 = item;
             }
         }
+
         //    OnPlaySelfBuffs
-        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower" || gameObject.GetComponent<CardDisplay>().nameText.text == "Maunten" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card2" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card5" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8_Spawn" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card9")
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower" || gameObject.GetComponent<CardDisplay>().nameText.text == "Dun_Rast_Spawn" || gameObject.GetComponent<CardDisplay>().nameText.text == "Dun'Rast" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card18" || gameObject.GetComponent<CardDisplay>().nameText.text == "StoneGate Priestess" || gameObject.GetComponent<CardDisplay>().nameText.text == "Maunten" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card2" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card5" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8_Spawn" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card9")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlaySelfBuff.Add(Taunt);
         }
@@ -71,6 +86,43 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Spark_Finger_OnPlayEffect);
         }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card16")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card16_OnPlayEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card17")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card17_OnPlayEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card18")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card18_OnPlayEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Fractured Obelisc")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Fractured_Obelisc_OnPlayEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Keth'faseal the Generous")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Keth_faseal_OnPlayEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card19")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card19_OnPlayEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card20")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card20_OnPlayEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card21")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card21_OnPlayEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Dun'Rast")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Dun_Rast_OnPlayEffect);
+        }
+
         //    OnPlayEffects
         //    WhenDrawnEffects
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Repairatron")
@@ -80,6 +132,14 @@ public class CardEffects : MonoBehaviour
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Phum'Ra")
         {
             gameObject.GetComponent<CardDisplay>().ThisWhenDrawnEffects.Add(Phum_ra_WhenDrawnEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card15")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisWhenDrawnEffects.Add(Card15_WhenDrawnEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Fractured Obelisc")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisWhenDrawnEffects.Add(Fractured_Obelisc_WhenDrawnEffect);
         }
         //    WhenDrawnEffects
         //    OnStartOfTrunEffects
@@ -102,6 +162,11 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnEndOfTrunEffects.Add(Inmo_faseal_the_Everlasting_OnEndOfTurnEffect);
         }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "StoneGate Priestess")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnEndOfTrunEffects.Add(StoneGate_Priestess_OnEndOfTurnEffect);
+        }
+        
         //    OnEndOfTurnEffects
         //    OnDeathEffects
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card0")
@@ -144,6 +209,15 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Spark_Finger_OnDeathEffect);
         }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card16")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card16_OnDeathEffect);
+        }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card17")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card17_OnDeathEffect);
+        }
+
 
         //    OnDeathEffects
 
@@ -266,7 +340,11 @@ public class CardEffects : MonoBehaviour
     }
     public void Card8_OnPlayEffect()
     {
-        SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Card8_Spawn", typeof(CardStats)), gameObject.transform.parent);
+        int FirstNum = 1;
+        for (int i = 0; i < FirstNum; i++)
+        {
+            SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Card8_Spawn", typeof(CardStats)), gameObject.transform.parent);
+        }
     }
     public void Card10_OnPlayEffect()
     {
@@ -350,6 +428,194 @@ public class CardEffects : MonoBehaviour
         }
 
     }
+    public void Card16_OnPlayEffect()
+    {
+        int FirstNum = 20, SecondNum = 60;
+        if (tag == "Player1")
+        {
+            if (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) > FirstNum && int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) < SecondNum)
+            {
+                GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(1);
+            }
+        }
+        else
+        {
+            if (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) > FirstNum && int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) < SecondNum)
+            {
+                GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
+            }
+        }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+    }
+    public void Card17_OnPlayEffect()
+    {
+        int FirstNum = 5;
+        if (this.tag == "Player1")
+        {
+            GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(FirstNum);
+        }
+        else
+        {
+            GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(FirstNum);
+        }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+
+    }
+    public void Card18_OnPlayEffect()
+    {
+        if (this.tag == "Player1")
+        {
+            GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(GameObject.Find("HandP1").transform.childCount - GameObject.Find("HandP2").transform.childCount);
+        }
+        else
+        {
+            GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(GameObject.Find("HandP2").transform.childCount - GameObject.Find("HandP1").transform.childCount);
+        }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+
+    }
+    public void Fractured_Obelisc_OnPlayEffect()
+    {
+        int FirstNum = 1, SecondNum = 1;
+        if (this.tag == "Player1")
+        {
+            foreach (var card in GameObject.FindGameObjectsWithTag("Player1"))
+            {
+                if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone")
+                {
+                    card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) + FirstNum).ToString();
+                    card.GetComponent<CardDisplay>().attackText.text = (int.Parse(card.GetComponent<CardDisplay>().attackText.text) + SecondNum).ToString();
+                }
+            }
+        }
+        else
+        {
+            foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
+            {
+                if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone")
+                {
+                    card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) + FirstNum).ToString();
+                    card.GetComponent<CardDisplay>().attackText.text = (int.Parse(card.GetComponent<CardDisplay>().attackText.text) + SecondNum).ToString();
+                }
+            }
+        }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+
+    }
+    public void Keth_faseal_OnPlayEffect()
+    {
+        if (StartedTargeting == true)
+        {
+            GameObject EffectArrow = (GameObject)Resources.Load("prefabs/EffectArrow", typeof(GameObject));
+            Instantiate(EffectArrow, gameObject.transform);
+            GameObject.Find("EndTurn").GetComponent<Button>().interactable = false;
+            StartedTargeting = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0) && GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted != null && GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.transform.parent.name == "PlayZone" && GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.tag == this.tag)
+        {
+            Cursor.visible = true;
+            IsTargetFound = true;
+            if (this.tag == "Player1")
+            {
+                foreach (var card in GameObject.FindGameObjectsWithTag("Player1"))
+                {
+                    if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card != GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted)
+                    {
+                        GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) + (int.Parse(GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text))).ToString();
+                        GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().attackText.text = (int.Parse(card.GetComponent<CardDisplay>().attackText.text) + (int.Parse(GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().attackText.text))).ToString();
+                    }
+                }
+                for (int i = 0; i < PlayZone1.transform.childCount; i++)
+                {
+                    GameObject card = PlayZone1.transform.GetChild(i).gameObject;
+                    if (card != GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted)
+                    {
+                        card.GetComponent<CardDisplay>().healthText.text = "0";
+                    }
+                }
+            }
+            else
+            {
+                foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
+                {
+                    if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && card != GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted)
+                    {
+                        GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) + (int.Parse(GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text))).ToString();
+                        GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().attackText.text = (int.Parse(card.GetComponent<CardDisplay>().attackText.text) + (int.Parse(GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().attackText.text))).ToString();
+                    }
+                }
+                for (int i = 0; i < PlayZone2.transform.childCount; i++)
+                {
+                    GameObject card = PlayZone2.transform.GetChild(i).gameObject;
+                    if (card != GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted)
+                    {
+                        card.GetComponent<CardDisplay>().healthText.text = "0";
+                    }
+                }
+            }
+            GameObject.Find("EndTurn").GetComponent<Button>().interactable = true;
+            Destroy(GameObject.Find("EffectArrow(Clone)"));
+            gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+            IsTargetFound = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            Cursor.visible = true;
+            IsTargetFound = true;
+            GameObject.Find("EndTurn").GetComponent<Button>().interactable = true;
+            Destroy(GameObject.Find("EffectArrow(Clone)"));
+            gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+            IsTargetFound = false;
+        }
+    }
+    public void Card19_OnPlayEffect()
+    {
+        if (tag == "Player1" && GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side < 1)
+        {
+        gameObject.GetComponent<CardDisplay>().HasAttackedThisTurn = false;
+        }
+        else if(tag == "Player2" && GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side < 1)
+        {
+        gameObject.GetComponent<CardDisplay>().HasAttackedThisTurn = false;
+        }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+    }
+    public void Card20_OnPlayEffect()
+    {
+        int FirstNum = 2;
+        for (int i = 0; i < FirstNum; i++)
+        {
+        SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Fractured_Obelisc_Spawn", typeof(CardStats)), gameObject.transform.parent);
+        }
+    }
+    public void Card21_OnPlayEffect()
+    {
+        int FirstNum = 2;
+        if (tag == "Player1" && DeckP1.transform.childCount > DeckP2.transform.childCount)
+        {
+            for (int i = 0; i < FirstNum; i++)
+            {
+                SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Card21_Spawn", typeof(CardStats)), gameObject.transform.parent);
+            }
+        }
+        else if (tag == "Player2" && DeckP2.transform.childCount > DeckP1.transform.childCount)
+        {
+            for (int i = 0; i < FirstNum; i++)
+            {
+                SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Card21_Spawn", typeof(CardStats)), gameObject.transform.parent);
+            }
+        }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+    }
+    public void Dun_Rast_OnPlayEffect()
+    {
+        int FirstNum = 1;
+        for (int i = 0; i < FirstNum; i++)
+        {
+            SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Dun_Rast_Spawn", typeof(CardStats)), gameObject.transform.parent);
+        }
+    }
+
     //OnDeathEffects
 
     public void Card0_OnDeathEffect()
@@ -549,6 +815,36 @@ public class CardEffects : MonoBehaviour
             GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) - FirstNum).ToString();
         }
     }
+    public void Card16_OnDeathEffect()
+    {
+        int FirstNum = 20, SecondNum = 60;
+        if (tag == "Player1")
+        {
+            if (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) < FirstNum || int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) > SecondNum)
+            {
+                GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(2);
+            }
+        }
+        else
+        {
+            if (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) < FirstNum || int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) > SecondNum)
+            {
+                GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(2);
+            }
+        }
+    }
+    public void Card17_OnDeathEffect()
+    {
+        int FirstNum = 5;
+        if (this.tag == "Player1")
+        {
+            GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(FirstNum);
+        }
+        else
+        {
+            GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(FirstNum);
+        }
+    }
 
     //PassiveEffects
     public void Card1_OnStartOfTurnEffect()
@@ -563,6 +859,7 @@ public class CardEffects : MonoBehaviour
             GetComponent<CardDisplay>().healthText.text = (int.Parse(GetComponent<CardDisplay>().healthText.text) + 1).ToString();
         }
     }
+
     public void HungeringDemon_OnEndOfTurnEffect()
     {
         if (int.Parse(this.GetComponent<CardDisplay>().healthText.text) > 0)
@@ -623,15 +920,28 @@ public class CardEffects : MonoBehaviour
         //    gameObject.transform.SetParent(PlayZone2.transform);
         //}
     }
+    public void StoneGate_Priestess_OnEndOfTurnEffect()
+    {
+        int FirstNum = 3;
+        if (gameObject.transform.parent.tag == "Player1")
+        {
+            GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) + FirstNum).ToString();
+        }
+        if (gameObject.transform.parent.tag == "Player2")
+        {
+            GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) + FirstNum).ToString();
+        }
+    }
+    
     public void Repairatron_WhenDrawnEffect()
     {
         if (tag == "Player1")
         {
-            GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) + GameObject.Find("HandP1").transform.childCount).ToString();
+            GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) + GameObject.Find("HandP1").transform.childCount-1).ToString();
         }
         else
         {
-            GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) + GameObject.Find("HandP2").transform.childCount).ToString();
+            GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) + GameObject.Find("HandP2").transform.childCount-1).ToString();
         }
     }
     public void Phum_ra_WhenDrawnEffect()
@@ -647,7 +957,49 @@ public class CardEffects : MonoBehaviour
             SummonNEW("WhenDrawn", (CardStats)Resources.Load("CardPrefabs/Py'ra", typeof(CardStats)), PlayZone1.transform);
         }
     }
-
+    public void Card15_WhenDrawnEffect()
+    {
+        int FirstNum = 5, SecondNum = 5;
+        if (tag == "Player1")
+        {
+            if (GameObject.Find("HandP1").transform.childCount - 1 >= SecondNum)
+            {
+                GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) + FirstNum).ToString();
+            }
+            if (GameObject.Find("HandP1").transform.childCount - 1 <= SecondNum)
+            {
+                GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(1);
+            }
+        }
+        else
+        {
+            if (GameObject.Find("HandP2").transform.childCount - 1 >= SecondNum)
+            {
+                GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) + FirstNum).ToString();
+            }
+            if (GameObject.Find("HandP2").transform.childCount - 1 <= SecondNum)
+            {
+                GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
+            }
+        }
+    }
+    public void Fractured_Obelisc_WhenDrawnEffect()
+    {
+        if (tag == "Player1")
+        {
+            for (int i = 0; i < GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1ManaMax ; i++)
+            {
+                SummonNEW("WhenDrawn", (CardStats)Resources.Load("CardPrefabs/Fractured_Obelisc_Spawn", typeof(CardStats)), PlayZone1.transform);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < GameObject.Find("EndTurn").GetComponent<MyTurn>().Player2ManaMax; i++)
+            {
+                SummonNEW("WhenDrawn", (CardStats)Resources.Load("CardPrefabs/Fractured_Obelisc_Spawn", typeof(CardStats)), PlayZone2.transform);
+            }
+        }
+    }
     //public void Snek_OnPlayTargetedDmgEffect()
     //{
     //    if (StartedTargeting == true)

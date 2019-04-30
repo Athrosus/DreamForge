@@ -418,7 +418,7 @@ MonoBehaviour:
   EachOnPlayEffect: 0
   EachOnDeathEffect: 0
   EachWhenDrawnEffect: 0
-  card: {fileID: 11400000, guid: af1ff8a11ccd6a4499b17baef12cc3d5, type: 2}
+  card: {fileID: 11400000, guid: 42ea2c06c49987a4caf806b59e72c1b0, type: 2}
   nameText: {fileID: 114584676485639988}
   descriptionText: {fileID: 114063581742997828}
   artworkImage: {fileID: 114671146400038660}
@@ -524,6 +524,9 @@ MonoBehaviour:
   player1turn: 0
   PlayZone1: {fileID: 0}
   PlayZone2: {fileID: 0}
+  DeckP1: {fileID: 0}
+  DeckP2: {fileID: 0}
+  NumberOfTargets: 0
 --- !u!1 &1302642113486452
 GameObject:
   m_ObjectHideFlags: 0

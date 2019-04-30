@@ -4,9 +4,12 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using System.ComponentModel;
+using System;
 
 public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+  
     public delegate void OnPlayEffect();
     public delegate void OnDeathEffect();
     public delegate void PassiveEffect();
@@ -18,7 +21,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public List<PassiveEffect> ThisOnEndOfTrunEffects = new List<PassiveEffect>();
     public List<PassiveEffect> ThisWhenDrawnEffects = new List<PassiveEffect>();
 
-    public bool HasAttackedThisTurn = false, WasItPlayed = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = true, OnPlayTargetFound, OnEndOfTurnOnce = true;
+    public bool HasAttackedThisTurn = true, WasItPlayed = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = true, OnPlayTargetFound, OnEndOfTurnOnce = true;
     public int EachOnPlayBuff, EachOnPlayEffect, EachOnDeathEffect, EachWhenDrawnEffect;
 
     public CardStats card;
@@ -31,6 +34,17 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Text Tire;
     int health;
 
+    public Text HealthText{
+        get { return healthText; }
+        set
+        {
+            if (healthText != value)
+            {
+                healthText = value;
+            }
+        }
+    }
+
     // Use this for initialization
     void Start () {
         if (card != null)
@@ -42,8 +56,11 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             attackText.text = card.attack.ToString();
             healthText.text = card.health.ToString();
             Tire.text = card.tire;
+
         }
     }
+
+    
     // Update is called once per frame
     void FixedUpdate () {
         GameObject TurnButton = GameObject.Find("EndTurn");

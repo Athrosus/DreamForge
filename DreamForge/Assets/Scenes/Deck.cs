@@ -7,7 +7,7 @@ public class Deck : MonoBehaviour {
     GameObject Card;
     public List<GameObject> DeckCards = new List<GameObject>();
     public GameObject FakeCardHand, Hand, EndTurnButton;
-
+    
     public List<int> RanNum = new List<int>();
 
     public void Start()
@@ -55,11 +55,11 @@ public class Deck : MonoBehaviour {
     }
     public void DrawACard( int numOfCardsDrawn)
     {
-        if (DeckCards.Count >= 0)
+        for (int i = 0; i < numOfCardsDrawn; i++)
         {
-            if (Hand.transform.childCount <= 9)
+            if (DeckCards.Count >= 0)
             {
-                for (int i = 0; i < numOfCardsDrawn; i++)
+                if (Hand.transform.childCount <= 9)
                 {
                     Card = DeckCards[DeckCards.Count - 1];
                     DeckCards.RemoveAt(DeckCards.Count - 1);
@@ -68,15 +68,16 @@ public class Deck : MonoBehaviour {
                     Card.GetComponent<CardDisplay>().WhenDrwanEffects();
                     //Debug.Log("You drew "+Card.GetComponent<CardDisplay>().nameText.text + " which is the "+ DeckCards.Count+" card in your deck.");   //Starts at 29
                 }
+                else
+                {
+                    Debug.Log("HandFull");
+                    break;
+                }
             }
             else
             {
-                Debug.Log("HandFull");
+                Debug.Log("U ded");
             }
-        }
-        else
-        {
-            Debug.Log("U ded");
         }
     }
 }
