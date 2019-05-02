@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62deecb7fd86b3c4695ce7a85e2e1190, type: 3}
   m_Name: Card14
   m_EditorClassIdentifier: 
-  cardname: Card8
+  cardname: Card14
   description: 'Taunt, OnPlay: Summon 1: 2/4 Taunt minion.'
   artwork: {fileID: 21300000, guid: f9be61431bf87704ebe11f571d088975, type: 3}
   manaCost: 4

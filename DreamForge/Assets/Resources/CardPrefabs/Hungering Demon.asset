@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -16,7 +17,7 @@ MonoBehaviour:
     stats if there are none destry this minion and deal dmg equal to its Attack to
     its owner.
   artwork: {fileID: 21300000, guid: cc9ed050edff93341a88c4cf756cbfba, type: 3}
-  manaCost: 1
+  manaCost: 5
   attack: 7
   health: 7
   tire: Rare

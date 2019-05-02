@@ -12,7 +12,7 @@ public class WhatCard : MonoBehaviour {
     {
         //gameObject.GetComponentInChildren<Text>().text = ThisCardForRemoval.name;
         //Debug.Log(NumOfCard-1);
-        NumOfCard = GameObject.Find(ThisCardForRemoval.name).GetComponent<AddCard>().RemovePlateClone.Count;
+        NumOfCard = GameObject.Find(ThisCardForRemoval.cardname).GetComponent<AddCard>().RemovePlateClone.Count;
     }
     public void OnButtonPressRemove()
     {
@@ -24,7 +24,7 @@ public class WhatCard : MonoBehaviour {
              }
          }*/
         Scene CurrentScene = SceneManager.GetActiveScene();
-        GameObject.Find(ThisCardForRemoval.name).GetComponent<AddCard>().RemovePlateClone.RemoveAt(NumOfCard - 1);
+        GameObject.Find(ThisCardForRemoval.cardname).GetComponent<AddCard>().RemovePlateClone.RemoveAt(NumOfCard - 1);
         if (CurrentScene.name == "DeckBuilderP1")
         {
             GameObject.Find("MadeDeck1").GetComponent<DeckList>().CardsInDeck.Remove(ThisCardForRemoval);

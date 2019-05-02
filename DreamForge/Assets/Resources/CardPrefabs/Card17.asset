@@ -15,7 +15,7 @@ MonoBehaviour:
   cardname: Card17
   description: 'OnPlay and OnDeath: Draw 5 cards.'
   artwork: {fileID: 21300000, guid: cc9ed050edff93341a88c4cf756cbfba, type: 3}
-  manaCost: 0
+  manaCost: 10
   attack: 10
   health: 10
   tire: Common

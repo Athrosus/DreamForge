@@ -7,10 +7,27 @@ public class Attack : MonoBehaviour {
     public string StartTag ;
     public GameObject CardThatStartedAttack, CardBeingAttacked, Face;
     public int StartAtt, StartHP ,TargetAttack ,TargetHP;
+
+    static void Damage(GameObject CardDoingDmg, string AmountOfDmg, GameObject CardBeingDmged)
+    {
+        CardBeingDmged.GetComponent<CardDisplay>().healthText.text = (int.Parse(CardBeingDmged.GetComponent<CardDisplay>().healthText.text) - int.Parse(AmountOfDmg)).ToString();
+    }
+    static void Damage(GameObject CardDoingDmg, int AmountOfDmg, GameObject CardBeingDmged)
+    {
+        CardBeingDmged.GetComponent<CardDisplay>().healthText.text = (int.Parse(CardBeingDmged.GetComponent<CardDisplay>().healthText.text) - AmountOfDmg).ToString();
+        string message = "Wew, look like "+CardDoingDmg.GetComponent<CardDisplay>().card.name + " did "+AmountOfDmg+" dmg to "+CardBeingDmged.GetComponent<CardDisplay>().card.name;
+        Debug.Log(message);
+    }
+    static void DamageToFace(GameObject CardDoingDmg, string AmountOfDmg, GameObject FaceBeingDmged)
+    {
+        FaceBeingDmged.GetComponentInChildren<Text>().text = ((int.Parse(FaceBeingDmged.GetComponentInChildren<Text>().text) - int.Parse(AmountOfDmg)).ToString());
+        string message = "Wew, look like " + CardDoingDmg.GetComponent<CardDisplay>().card.name + " did " + AmountOfDmg + " dmg to " + FaceBeingDmged.tag;
+        Debug.Log(message);
+    }
+
     // Use this for initialization
     void Start () {
         GetComponent<CanvasGroup>().blocksRaycasts = false;
-        //CardThatStartedAttack = this.transform.parent.gameObject;
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -32,7 +49,7 @@ public class Attack : MonoBehaviour {
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && gameObject.transform.parent.gameObject.transform.parent.GetComponent<PlayMinion>().IsThereAnEnemyTaunt == false)
             {
-                Face.GetComponentInChildren<Text>().text = (TargetHP - StartAtt).ToString() ;
+                DamageToFace(CardThatStartedAttack, StartAtt.ToString(), Face);
                 Cursor.visible = true;
                 CardThatStartedAttack.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
             }
@@ -48,15 +65,15 @@ public class Attack : MonoBehaviour {
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && CardBeingAttacked.GetComponent<CardDisplay>().IsTaunt == true && gameObject.transform.parent.gameObject.transform.parent.GetComponent<PlayMinion>().IsThereAnEnemyTaunt == true)
             {
-                CardBeingAttacked.GetComponent<CardDisplay>().healthText.text = (TargetHP - StartAtt).ToString();
-                CardThatStartedAttack.GetComponent<CardDisplay>().healthText.text = (StartHP - TargetAttack).ToString();
+                Damage(CardThatStartedAttack ,StartAtt, CardBeingAttacked);
+                Damage(CardBeingAttacked,TargetAttack, CardThatStartedAttack);
                 Cursor.visible = true;
                 CardThatStartedAttack.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && CardBeingAttacked.GetComponent<CardDisplay>().IsTaunt == false && gameObject.transform.parent.gameObject.transform.parent.GetComponent<PlayMinion>().IsThereAnEnemyTaunt == false)
             {
-                CardBeingAttacked.GetComponent<CardDisplay>().healthText.text = (TargetHP - StartAtt).ToString();
-                CardThatStartedAttack.GetComponent<CardDisplay>().healthText.text = (StartHP - TargetAttack).ToString();
+                Damage(CardThatStartedAttack,StartAtt, CardBeingAttacked);
+                Damage(CardBeingAttacked,TargetAttack, CardThatStartedAttack);
                 Cursor.visible = true;
                 CardThatStartedAttack.GetComponent<CardDisplay>().HasAttackedThisTurn = true;
             }

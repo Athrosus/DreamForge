@@ -72,7 +72,9 @@
     <Compile Include="Assets\Scenes\DeckList.cs" />
     <Compile Include="Assets\Scenes\drag.cs" />
     <Compile Include="Assets\Scenes\EffectTargeting.cs" />
+    <Compile Include="Assets\Scenes\EventTracker.cs" />
     <Compile Include="Assets\Scenes\FaceHealth.cs" />
+    <Compile Include="Assets\Scenes\ImportDeck.cs" />
     <Compile Include="Assets\Scenes\ManaCount.cs" />
     <Compile Include="Assets\Scenes\MinionCount.cs" />
     <Compile Include="Assets\Scenes\MyTurn.cs" />

@@ -44,7 +44,7 @@ public class CardEffects : MonoBehaviour
         }
 
         //    OnPlaySelfBuffs
-        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower" || gameObject.GetComponent<CardDisplay>().nameText.text == "Dun_Rast_Spawn" || gameObject.GetComponent<CardDisplay>().nameText.text == "Dun'Rast" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card18" || gameObject.GetComponent<CardDisplay>().nameText.text == "StoneGate Priestess" || gameObject.GetComponent<CardDisplay>().nameText.text == "Maunten" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card2" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card5" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8_Spawn" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card9")
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower" || gameObject.GetComponent<CardDisplay>().nameText.text == "Dun_Rast_Spawn" || gameObject.GetComponent<CardDisplay>().nameText.text == "Dun'Rast" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card18" || gameObject.GetComponent<CardDisplay>().nameText.text == "StoneGate Priestess" || gameObject.GetComponent<CardDisplay>().nameText.text == "Maunten" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card2" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card5" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8_Spawn")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlaySelfBuff.Add(Taunt);
         }
@@ -63,10 +63,6 @@ public class CardEffects : MonoBehaviour
             gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card4_OnPlayEffect); // !!! CAN OVERKILL !!!
         }
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card8")
-        {
-            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card8_OnPlayEffect);
-        }
-        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card9")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card8_OnPlayEffect);
         }
@@ -157,7 +153,7 @@ public class CardEffects : MonoBehaviour
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Hungering Demon")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnEndOfTrunEffects.Add(HungeringDemon_OnEndOfTurnEffect);
-        } // !!! Kinda buggy with more of the same effect happoning at once, probably will get fixed when ordering is added !!! 
+        } // !!! Kinda buggy with more of the same effect happoning at once, also kills itself randomly 
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Inmo'faseal the Everlasting")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnEndOfTrunEffects.Add(Inmo_faseal_the_Everlasting_OnEndOfTurnEffect);
@@ -757,28 +753,30 @@ public class CardEffects : MonoBehaviour
     }
     public void Inmo_faseal_the_Everlasting_OnDeathEffect()
     {
-        player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
-        if (gameObject.tag == "Player1")
-        {
-            GameObject New_snek = Instantiate(gameObject, PlayZone1.transform);
-            New_snek.name = "Card(Clone)";
-            New_snek.GetComponent<LayoutElement>().ignoreLayout = true;
-            New_snek.GetComponent<BoxCollider2D>().enabled = false;
-            New_snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("CardPrefabs/" + gameObject.GetComponent<CardDisplay>().card.name, typeof(CardStats));
-            New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-            New_snek.tag = "Player1";
-        }
-        if (gameObject.tag == "Player2")
-        {
-            GameObject New_snek = Instantiate(gameObject, PlayZone2.transform);
-            New_snek.name = "Card(Clone)";
-            New_snek.GetComponent<LayoutElement>().ignoreLayout = true;
-            New_snek.GetComponent<BoxCollider2D>().enabled = false;
-            New_snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("CardPrefabs/" + gameObject.GetComponent<CardDisplay>().card.name, typeof(CardStats));
-            New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
-            New_snek.tag = "Player2";
-        }
-        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+        //player1turn = GameObject.Find("EndTurn").GetComponent<MyTurn>().Player1Turn;
+        //if (gameObject.tag == "Player1")
+        //{
+        //    GameObject New_snek = Instantiate(gameObject, PlayZone1.transform);
+        //    New_snek.name = "Card(Clone)";
+        //    New_snek.GetComponent<LayoutElement>().ignoreLayout = true;
+        //    New_snek.GetComponent<BoxCollider2D>().enabled = false;
+        //    New_snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("CardPrefabs/" + gameObject.GetComponent<CardDisplay>().card.name, typeof(CardStats));
+        //    New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+        //    New_snek.tag = "Player1";
+        //}
+        //if (gameObject.tag == "Player2")
+        //{
+        //    GameObject New_snek = Instantiate(gameObject, PlayZone2.transform);
+        //    New_snek.name = "Card(Clone)";
+        //    New_snek.GetComponent<LayoutElement>().ignoreLayout = true;
+        //    New_snek.GetComponent<BoxCollider2D>().enabled = false;
+        //    New_snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("CardPrefabs/" + gameObject.GetComponent<CardDisplay>().card.name, typeof(CardStats));
+        //    New_snek.GetComponent<Button>().onClick.AddListener(gameObject.transform.parent.GetComponent<PlayMinion>().AttackInitiation);
+        //    New_snek.tag = "Player2";
+        //}
+        //gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+        GameObject newcard = SummonNEW("OnDeath", (CardStats)Resources.Load("CardPrefabs/Inmo'faseal the Everlasting", typeof(CardStats)), gameObject.transform.parent);
+        newcard.GetComponent<LayoutElement>().ignoreLayout = true;
     } //Not a true copy FULL card
     public void Py_ra_OnDeathEffect()
     {

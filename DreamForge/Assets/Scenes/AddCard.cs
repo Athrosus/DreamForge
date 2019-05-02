@@ -14,6 +14,11 @@ public class AddCard : MonoBehaviour {
 
     public void Start()
     {
+        if (GetComponent<CardDisplay>() != null)
+        {
+            ThisCard = GetComponent<CardDisplay>().card;
+            gameObject.name = ThisCard.name;
+        }
     }
     public void PickThisCard()
     {
