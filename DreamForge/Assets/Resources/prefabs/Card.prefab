@@ -526,6 +526,8 @@ MonoBehaviour:
   PlayZone2: {fileID: 0}
   DeckP1: {fileID: 0}
   DeckP2: {fileID: 0}
+  FaceP1: {fileID: 0}
+  FaceP2: {fileID: 0}
   NumberOfTargets: 0
 --- !u!1 &1302642113486452
 GameObject:

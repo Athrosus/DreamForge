@@ -9,7 +9,7 @@ public class CardEffects : MonoBehaviour
     public delegate void OnDeathEffect();
     public delegate void PassiveEffect();
     public bool IsTargetFound, StartedTargeting = false, player1turn;
-    public GameObject PlayZone1, PlayZone2, DeckP1, DeckP2;
+    public GameObject PlayZone1, PlayZone2, DeckP1, DeckP2, FaceP1, FaceP2;
     public int NumberOfTargets=0;
 
     public void Start()
@@ -42,6 +42,8 @@ public class CardEffects : MonoBehaviour
                 PlayZone2 = item;
             }
         }
+        FaceP1 = GameObject.Find("FaceIconP1");
+        FaceP2 = GameObject.Find("FaceIconP2");
 
         //    OnPlaySelfBuffs
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Flower" || gameObject.GetComponent<CardDisplay>().nameText.text == "Dun_Rast_Spawn" || gameObject.GetComponent<CardDisplay>().nameText.text == "Dun'Rast" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card18" || gameObject.GetComponent<CardDisplay>().nameText.text == "StoneGate Priestess" || gameObject.GetComponent<CardDisplay>().nameText.text == "Maunten" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card2" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card5" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8" || gameObject.GetComponent<CardDisplay>().nameText.text == "Card8_Spawn")
@@ -173,6 +175,10 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card3_OnDeathEffect);
         }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card3_Spawn")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card3_Spawn_OnDeathEffect);
+        }
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card5")
         {
             gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card5_OnDeathEffect);
@@ -300,14 +306,13 @@ public class CardEffects : MonoBehaviour
             {
                 int RandomEnemyMinions, MinionNumber = 0;
                 RandomEnemyMinions = Random.Range(0, GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side);
-                Debug.Log("The minion Chosen is" + RandomEnemyMinions);
                 foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
                 {
                     if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
                     {
                         if (MinionNumber == RandomEnemyMinions)
                         {
-                            card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) - 1).ToString();
+                            EventTracker.Damage(gameObject, 1, card);
                         }
                         MinionNumber++;
                     }
@@ -317,7 +322,6 @@ public class CardEffects : MonoBehaviour
             {
                 int RandomEnemyMinions, MinionNumber = 0;
                 RandomEnemyMinions = Random.Range(0, GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer1Side);
-                Debug.Log("The minion Chosen is" + RandomEnemyMinions);
 
                 foreach (var card in GameObject.FindGameObjectsWithTag("Player1"))
                 {
@@ -325,7 +329,7 @@ public class CardEffects : MonoBehaviour
                     {
                         if (MinionNumber == RandomEnemyMinions)
                         {
-                            card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) - 1).ToString();
+                            EventTracker.Damage(gameObject, 1, card);
                         }
                         MinionNumber++;
                     }
@@ -388,7 +392,6 @@ public class CardEffects : MonoBehaviour
     public void Spark_Finger_OnPlayEffect()
     {
         int FirstNum = 2;
-        int TargetHP;
         if (StartedTargeting == true)
         {
             GameObject EffectArrow = (GameObject)Resources.Load("prefabs/EffectArrow", typeof(GameObject));
@@ -400,8 +403,7 @@ public class CardEffects : MonoBehaviour
         {
             Cursor.visible = true;
             IsTargetFound = true;
-            int.TryParse(GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text, out TargetHP);
-            GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted.GetComponent<CardDisplay>().healthText.text = (TargetHP - 1).ToString();
+            EventTracker.Damage(gameObject, 1, GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted);
             GameObject.Find("EndTurn").GetComponent<Button>().interactable = true;
             Destroy(GameObject.Find("EffectArrow(Clone)"));
             NumberOfTargets++;
@@ -422,7 +424,6 @@ public class CardEffects : MonoBehaviour
             gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
             IsTargetFound = false;
         }
-
     }
     public void Card16_OnPlayEffect()
     {
@@ -526,7 +527,7 @@ public class CardEffects : MonoBehaviour
                     GameObject card = PlayZone1.transform.GetChild(i).gameObject;
                     if (card != GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted)
                     {
-                        card.GetComponent<CardDisplay>().healthText.text = "0";
+                        EventTracker.DestroyCard(gameObject, card);
                     }
                 }
             }
@@ -545,7 +546,7 @@ public class CardEffects : MonoBehaviour
                     GameObject card = PlayZone2.transform.GetChild(i).gameObject;
                     if (card != GameObject.Find("EffectArrow(Clone)").GetComponent<EffectTargeting>().CardBeingTargeted)
                     {
-                        card.GetComponent<CardDisplay>().healthText.text = "0";
+                        EventTracker.DestroyCard(gameObject, card);
                     }
                 }
             }
@@ -650,14 +651,14 @@ public class CardEffects : MonoBehaviour
         {
             if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
             {
-                card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) - 2).ToString();
+                EventTracker.Damage(gameObject, 2, card);
             }
         }
         foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
         {
             if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
             {
-                card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) - 2).ToString();
+                EventTracker.Damage(gameObject, 2, card);
             }
         }
 
@@ -669,9 +670,7 @@ public class CardEffects : MonoBehaviour
             {
                 GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP1").transform);
                 New_snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("CardPrefabs/Card3_Spawn", typeof(CardStats));
-                New_snek.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card3_Spawn_OnDeathEffect);
                 New_snek.GetComponent<drag>().StartParent = GameObject.Find("HandP1").transform;
-                New_snek.GetComponent<CardEffects>().enabled = false;
                 New_snek.tag = "Player1";
             }
         }
@@ -681,10 +680,8 @@ public class CardEffects : MonoBehaviour
             {
                 GameObject New_snek = Instantiate(New_Snek, GameObject.Find("HandP2").transform);
                 New_snek.GetComponent<CardDisplay>().card = (CardStats)Resources.Load("CardPrefabs/Card3_Spawn", typeof(CardStats));
-                New_snek.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card3_Spawn_OnDeathEffect);
                 New_snek.GetComponent<drag>().StartParent = GameObject.Find("HandP2").transform;
                 New_snek.transform.Rotate(0, 0, -180);
-                New_snek.GetComponent<CardEffects>().enabled = false;
                 New_snek.tag = "Player2";
             }
         }
@@ -695,14 +692,14 @@ public class CardEffects : MonoBehaviour
         {
             if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
             {
-                card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) - 2).ToString();
+                EventTracker.Damage(gameObject, 2, card);
             }
         }
         foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
         {
             if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
             {
-                card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) - 2).ToString();
+                EventTracker.Damage(gameObject, 2, card);
             }
         }
     }
@@ -712,14 +709,14 @@ public class CardEffects : MonoBehaviour
         {
             if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
             {
-                card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) - 2).ToString();
+                EventTracker.Damage(gameObject, 2, card);
             }
         }
         foreach (var card in GameObject.FindGameObjectsWithTag("Player2"))
         {
             if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
             {
-                card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) - 2).ToString();
+                EventTracker.Damage(gameObject, 2, card);
             }
         }
     }
@@ -732,11 +729,11 @@ public class CardEffects : MonoBehaviour
         int FirstNum = 2;
         if (gameObject.tag == "Player1")
         {
-            GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) - FirstNum).ToString();
+            EventTracker.DamageToFace(gameObject, FirstNum, FaceP1);
         }
         if (gameObject.tag == "Player2")
         {
-            GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) - FirstNum).ToString();
+            EventTracker.DamageToFace(gameObject, FirstNum, FaceP2);
         }
     }
     public void Card11_OnDeathEffect()
@@ -783,11 +780,11 @@ public class CardEffects : MonoBehaviour
         int FirstNum = 2;
         if (gameObject.transform.parent.tag == "Player1")
         {
-            GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) - FirstNum).ToString();
+            EventTracker.DamageToFace(gameObject, FirstNum, FaceP1);
         }
         if (gameObject.transform.parent.tag == "Player2")
         {
-            GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) - FirstNum).ToString();
+            EventTracker.DamageToFace(gameObject, FirstNum, FaceP2);
         }
     }
     public void Lum_ra_OnDeathEffect()
@@ -806,11 +803,11 @@ public class CardEffects : MonoBehaviour
         int FirstNum = 1;
         if (tag == "Player1")
         {
-            GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) - FirstNum).ToString();
+            EventTracker.DamageToFace(gameObject, FirstNum, FaceP2);
         }
         else
         {
-            GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) - FirstNum).ToString();
+            EventTracker.DamageToFace(gameObject, FirstNum, FaceP1);
         }
     }
     public void Card16_OnDeathEffect()
@@ -868,13 +865,15 @@ public class CardEffects : MonoBehaviour
                 try {
                     this.GetComponent<CardDisplay>().healthText.text = (int.Parse(this.GetComponent<CardDisplay>().healthText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text)).ToString();
                     this.GetComponent<CardDisplay>().attackText.text = (int.Parse(this.GetComponent<CardDisplay>().attackText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().attackText.text)).ToString();
-                    this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text = "0";
+                    //this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text = "0";
+                    EventTracker.DestroyCard(gameObject, transform.parent.GetChild(transform.GetSiblingIndex() + 1).gameObject);
                 }
                 //else
                 catch {
                     this.GetComponent<CardDisplay>().healthText.text = (int.Parse(this.GetComponent<CardDisplay>().healthText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().healthText.text)).ToString();
                     this.GetComponent<CardDisplay>().attackText.text = (int.Parse(this.GetComponent<CardDisplay>().attackText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().attackText.text)).ToString();
-                    this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().healthText.text = "0";
+                    //this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().healthText.text = "0";
+                    EventTracker.DestroyCard(gameObject, transform.parent.GetChild(transform.GetSiblingIndex() - 1).gameObject);
                 }
             }
             else if (this.tag == "Player2" && GameObject.Find("Bord").GetComponent<MinionCount>().MinionsOnPlayer2Side > 1)
@@ -883,29 +882,34 @@ public class CardEffects : MonoBehaviour
                 try {
                     this.GetComponent<CardDisplay>().healthText.text = (int.Parse(this.GetComponent<CardDisplay>().healthText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().healthText.text)).ToString();
                     this.GetComponent<CardDisplay>().attackText.text = (int.Parse(this.GetComponent<CardDisplay>().attackText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().attackText.text)).ToString();
-                    this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().healthText.text = "0";
+                    //this.transform.parent.GetChild(this.transform.GetSiblingIndex() - 1).GetComponent<CardDisplay>().healthText.text = "0";
+                    EventTracker.DestroyCard(gameObject, transform.parent.GetChild(transform.GetSiblingIndex() - 1).gameObject);
                 }
                 //else
                 catch {
                     this.GetComponent<CardDisplay>().healthText.text = (int.Parse(this.GetComponent<CardDisplay>().healthText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text)).ToString();
                     this.GetComponent<CardDisplay>().attackText.text = (int.Parse(this.GetComponent<CardDisplay>().attackText.text) + int.Parse(this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().attackText.text)).ToString();
-                    this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text = "0";
+                    //this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1).GetComponent<CardDisplay>().healthText.text = "0";
+                    EventTracker.DestroyCard(gameObject, transform.parent.GetChild(transform.GetSiblingIndex() + 1).gameObject);
                 }
             }
             else
             {
                 if (gameObject.tag == "Player1")
                 {
-                    GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) - int.Parse(this.GetComponent<CardDisplay>().attackText.text)).ToString();
+                    EventTracker.DamageToFace(gameObject, GetComponent<CardDisplay>().attackText.text, FaceP1);
+                    //GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP1").GetComponentInChildren<Text>().text) - int.Parse(this.GetComponent<CardDisplay>().attackText.text)).ToString();
                 }
                 else
                 {
-                    GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) - int.Parse(this.GetComponent<CardDisplay>().attackText.text)).ToString();
+                    //GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text = (int.Parse(GameObject.Find("FaceHPTextP2").GetComponentInChildren<Text>().text) - int.Parse(this.GetComponent<CardDisplay>().attackText.text)).ToString();
+                    EventTracker.DamageToFace(gameObject, GetComponent<CardDisplay>().attackText.text, FaceP1);
                 }
-                this.GetComponent<CardDisplay>().healthText.text = "0";
+                EventTracker.DestroyCard(gameObject, gameObject);
+                //this.GetComponent<CardDisplay>().healthText.text = "0";
             }
         }
-    }
+    } //Changed a lot so might work even worse
     public void Inmo_faseal_the_Everlasting_OnEndOfTurnEffect()
     {
         gameObject.GetComponent<LayoutElement>().ignoreLayout = false;

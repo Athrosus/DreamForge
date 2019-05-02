@@ -38,6 +38,7 @@ Artifacts:
 		+-(Nut)Passive; Whenever you draw a card deal 1 damage to a random enemy unit, if the card didnt start in your deck you also heal for 2.
 		+-(Nut)1 use a turn; Use the rest of your mana and Summon a random Common minion with Cost equal to what was spent.
 		+-(Nut)Passive; As long as you have less cards in hand then your opponent draw and extra card, as long as you have more cards in your deck then your opponent drwa an extra card.
+		--(Nut)At the start of the game; Add 10 "Cost 0; OnPlay: Gain 1 empty max mana, cant cast more then one of these per turn." cards to your deck.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
@@ -151,7 +152,7 @@ Cards:
 	-(Common)Cost 4; 3/5; Taunt, At the end of your turn heal this cards owner by 3.(StoneGate Priestess)+
 	-(Common)Cost 2; 2/2; OnPlay: Kill a friendly minion, OnKill: Heal owner for the Health of the killed minion.(Demonic Bloodsucker)
 	-(Epic)Cost 5; 0/1; Taunt, OnPlay: get +0/+2 for each time you used you've used your Hero Power, OnDeath: Heal owner by 2 for each time you've used your Hero Power.
-	-(Rare)Cost 5; 4/5; When drawn: Heal self for the number of cards in your hand.+(Repairatron)
+	-(Rare)Cost 5; 4/5; When drawn: Heal self for the number of cards in your hand.(Repairatron)+
 	-(Common)Cost 8; 6/13; Taunt, LifeSteal.
 	-(Common)Cost 9; 8/10; Aura: All damage owner takes this minion takes instead, OnDeath: If owners life is abole 30 heal owner by 5 then if it's over 40 heal owner by 10 then if it's 70 deal damage equal this minions Attack to all enemy units. 
 	
