@@ -1,18 +1,52 @@
+------------------------------------Game Rules-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Same rules as hearthstone exept for:
+		-Win conditions are getting your opponent to 0 life or storing enough unspent mana throughout the game)(storing unspent mana triggers events at sirten thresholds "5,10,20,30,40,50,60,70,80"
+		-Heros start with 40 life with a max of 999
+		-Max number of minions on your bord is 10
+		-Max Hand size is 10 ,insted of drawing the 11th card(overdraw) you take fatigue damage
+		-Hero Powers Cost 1
+
+Unspent mana thresholds events:
+		5)Summon a "Cost 4; 2/2; Aura: If this is the only minion on your side of the board it gets +2/+4 and Taunt."
+		10)Draw a card and heal self by 2 for each enemy minion.
+		20)Summon a "Cost 6; 6/5; Taunt, Aura: All other friendly minions cant be targeted by any Heropower or minion effect".
+		30)Summon all cards from your hand and destroy them, then draw as many cards as you had in your hand.
+		40)Add "OnDeath: When this dies Summon a FULL copy of it without this effect." to every minion in your hand and deck.
+		50)Permanently get the Aegis, Ascendent Artifact.
+		60)Pick any of the 50 or lower threshold events to trigger again.
+		70)Your hero power turns into "Hand of Fate" untill the end of your turn.
+		80)Transform into The Apostle: If you have less then 40 life you now have 40 life, the cards in your opponent's deck and hand are revealed to you and transform your hero power into "Hand of Fate" which has different effects depending on where it's used.
+		   Hand of Fate: Used on; Your hero: Heal self by 10 life; Your card in hand: Discard that card and add 2 FULL copys of it that cost 0 to your hand; Your deck: Add the 10 highest Cost cards you start the game with to your deck;
+		   Your hero Power: You can use your hero power an addition time next turn(effect stacks); Your mana counter: Refill your mana; Your minion: Summon 2 FULL copys of chosen minion that can attack this turn and have Taunt;
+		   Enemy hero: Damage enemy hero by 10; Enemy card in hand: Double it's Cost till the start of your next turn; Enemy deck: Arrange the top 5 cards in the deck in any order;
+		   Enemy hero power: Steal his Hero power until the start of your next turn; Enemy mana counter: Decreases his and increase your max mana by 2; Enemy minion; Take controle of it for one turn, it can attack this turn;
+		
+		or:
+		30)Summon a "Cost 10; 4/15; Aura: Has as much LifeBloom as the enemy has minions". 
+		40)Spread all the When drawn and OnDeath effects of your starting cards amongst your remaining cards as When drawn effects then draw three cards with OnDeath or When drawn in their text.
+		50)Permanently get the Unbalanced hourglass, Neutral Artifact.
+		60)Give your Hero "Can't be damaged" until the start of your next turn.
+		70)Your hero power turns into "Lament" and you can use it three times untill the end of your turn.
+		80)Transform into The Dark Apostle: Set your life to 50, and transform your hero power into "Choose" and after it's used once it becomes "Lament".
+		   Choose: Pick a card in your hand, half it's Cost and replace every card in your hand and deck with a FULL copy of it while adding 30 FULL copies of that card to your deck.
+		   Lament: Draw a card and set it's Cost to 0.
+------------------------------------Heros/Hero Powers-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 (Ass- Ascendent ,Mag- Magus ,Arc- Archivist, Cou- Countess,Nut- Neutral)
-(Hero Powers Cost 1)(Max number of minions on your bord is 10)(Heros start with 40 life with a max of 999)(Hand size is 10, insted of drawing the 11th card(overdraw) you take damage equal to 1*(Number of times you've overdrawn this game))
 Hero Power: -Ass: Increases any number on any card by 1.(including the number of Charges on cards)
             -Mag: Copy the text of a friendly minion on the bord to another minion card.(in your hand as well)
 			-Arc: Look at the top 3 cards of your deck then for each card choose its position in your deck.
 			-Cou: Draw 2 cards, they get While in hand: At the end of your turn destroy this card. 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------Artifacts-----------------------------------------------------------------------------------------------------------------------------------------------------
 
-(Artifacts are what makes the heros different, not the cards [all cards are shered by all classes], and they can be chosen as a "Gift") 
-(Gifts are what defines your deck, you can choose an Artifact or a single card as your Gift. If you choose one card you start the game with it being available as if it were in your hand and your opponent can see it.)
+(Artifacts and Hero Powers are what makes the heros different, not the cards [all cards are shered by all classes]) 
+(Artifacts are what defines your deck, you can choose one Artifact when making a deck.)
 Artifacts: 	
 		+-(Ass)1 use a turn; Cost 1; Decreases any number on any card by 1.
 		+-(Ass)Passive; Don't draw at the start of turn, replace Hero Power with :"Draw a card", Give all cards in your deck: When drawn: Heal owner by 3 and reduce this cards Cost by 1.
 		+-(Ass)1 use a turn; Cost (Cost of chosen minion) - 3; Trigger any OnDeath, OnPlay or When drawn effect of a minion in hand (as if it was a spell) then discard that card.
-		+-(Ass)Passive; All of your minions have -2/+2 stats and "Taunt, Aura: This minion can't attack the opponent's hero directly".
+		+-(Ass)Passive; All of your minions have -2/+2 stats and "Taunt, Aura: This minion can't attack the opponent's hero directly".(Aegis)
 		+-(Ass)Passive; Choose 2 Neutral Artifacts but your Hero Power is disabled.
 
 		+-(Mag)Passive; When a minion is played copy it's text to all minions in hand and increase their Cost by 1.
@@ -37,9 +71,9 @@ Artifacts:
 		+-(Nut)Passive; At the start of the game choose a card from your deck then reveal it to your opponent and draw it.
 		+-(Nut)Passive; Whenever you draw a card deal 1 damage to a random enemy unit, if the card didnt start in your deck you also heal for 2.
 		+-(Nut)1 use a turn; Use the rest of your mana and Summon a random Common minion with Cost equal to what was spent.
-		+-(Nut)Passive; As long as you have less cards in hand then your opponent draw and extra card, as long as you have more cards in your deck then your opponent drwa an extra card.
+		+-(Nut)Passive; As long as you have less cards in hand then your opponent draw and extra card, as long as you have more cards in your deck then your opponent drwa an extra card.(Unbalanced hourglass)
 		--(Nut)At the start of the game; Add 10 "Cost 0; OnPlay: Gain 1 empty max mana, cant cast more then one of these per turn." cards to your deck.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------Cads-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 (Copy a card only copys the base, copy a FULL card copys the cards base and all the text additions/alterations)
 (A deck has 30 cards, max 4 Commons, 2 Rare and 1 Epic)
@@ -214,7 +248,7 @@ Cards:
 	-(Epic)Cost 0; 1/1; While in hand: Combine(Stats,Text,Cost) minions you play with this one.(Lindra the Wraith of Envy)
 	-(Epic)Cost 8; 9/7; OnPlay: Add 1 (Cost 0; 1/1; While in hand: This cards text becomes the same as the last card you played) to your hand.
 	-(Epic)Cost 8; 4/8; Taunt, At the end of turn: Summon a FULL copy of the most expensive minion that died this game.
-	-(Epic)Cost 7; 12/8; OnStartOfGame: If you have 4 copys of 4 cards and 3 copys of 3 cards and 2 copys of 2 cards in your deck your Hero Power is free.(Fate Breaker)
+	-(Epic)Cost 7; 12/8; OnStartOfGame: If you have 4 copys of 4 cards and 3 copys of 3 cards and 2 copys of 2 cards in your deck give your Hero "After using your Hero Power 15 times turn into The Apostle".(Fate Breaker)
 	-(Rare)Cost 3; 4/3; OnPlay: Destroy up to 6 random Commons from your deck and add 1 random Epic for every 2 destroyed. 
 	-(Epic)Cost 10; 1/1; OnStartOfGame: The 3 highest Cost cards in deck get: OnDeath: Combine(Stats,Text) this card with "Exsanguanoes", When drawn: If you have cards in the deck Draw a card then reshuffle this card, OnPlay: Set owners max mana to 5.(Exsanguanoes)
 	-(Rare)Cost 3; 5/4; OnKill: Combine(Stats,Text) killed minion with "Exsanguanoes".(Zealot of the Mass)
