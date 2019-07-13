@@ -120,6 +120,10 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Dun_Rast_OnPlayEffect);
         }
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card22")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnPlayEffects.Add(Card22_OnPlayEffect);
+        }
 
         //    OnPlayEffects
         //    WhenDrawnEffects
@@ -164,8 +168,14 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnEndOfTrunEffects.Add(StoneGate_Priestess_OnEndOfTurnEffect);
         }
-        
+
         //    OnEndOfTurnEffects
+        //    OnKillEffects
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card22")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnKillEffects.Add(Card22_OnKillEffect);
+        }
+        //    OnKillEffects
         //    OnDeathEffects
         if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card0")
         {
@@ -219,7 +229,10 @@ public class CardEffects : MonoBehaviour
         {
             gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card17_OnDeathEffect);
         }
-
+        if (gameObject.GetComponent<CardDisplay>().nameText.text == "Card22")
+        {
+            gameObject.GetComponent<CardDisplay>().ThisOnDeathEffects.Add(Card22_OnDeathEffect);
+        }
 
         //    OnDeathEffects
 
@@ -612,6 +625,18 @@ public class CardEffects : MonoBehaviour
             SummonNEW("OnPlay", (CardStats)Resources.Load("CardPrefabs/Dun_Rast_Spawn", typeof(CardStats)), gameObject.transform.parent);
         }
     }
+    public void Card22_OnPlayEffect()
+    {
+        int FirstdNum = 1;
+        foreach (var card in GameObject.FindGameObjectsWithTag(gameObject.tag))
+        {
+            if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
+            {
+                card.GetComponent<CardDisplay>().healthText.text = (int.Parse(card.GetComponent<CardDisplay>().healthText.text) + FirstdNum).ToString();
+            }
+        }
+        gameObject.GetComponent<CardDisplay>().OnPlayTargetFound = true;
+    }
 
     //OnDeathEffects
 
@@ -840,6 +865,17 @@ public class CardEffects : MonoBehaviour
             GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(FirstNum);
         }
     }
+    public void Card22_OnDeathEffect()
+    {
+        int SecondNum = 1;
+        foreach (var card in GameObject.FindGameObjectsWithTag(gameObject.tag))
+        {
+            if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
+            {
+                card.GetComponent<CardDisplay>().attackText.text = (int.Parse(card.GetComponent<CardDisplay>().attackText.text) + SecondNum).ToString();
+            }
+        }
+    }
 
     //PassiveEffects
     public void Card1_OnStartOfTurnEffect()
@@ -1002,6 +1038,19 @@ public class CardEffects : MonoBehaviour
             }
         }
     }
+
+    public void Card22_OnKillEffect()
+    {
+        int SecondNum = 1;
+        foreach (var card in GameObject.FindGameObjectsWithTag(gameObject.tag))
+        {
+            if (card.name == "Card(Clone)" && card.transform.parent.name == "PlayZone" && int.Parse(card.GetComponent<CardDisplay>().healthText.text) > 0)
+            {
+                card.GetComponent<CardDisplay>().attackText.text = (int.Parse(card.GetComponent<CardDisplay>().attackText.text) + SecondNum).ToString();
+            }
+        }
+    }
+
     //public void Snek_OnPlayTargetedDmgEffect()
     //{
     //    if (StartedTargeting == true)

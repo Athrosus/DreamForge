@@ -418,7 +418,8 @@ MonoBehaviour:
   EachOnPlayEffect: 0
   EachOnDeathEffect: 0
   EachWhenDrawnEffect: 0
-  card: {fileID: 11400000, guid: 5a430b5f7f4c47d459ac89097995a513, type: 2}
+  EachOnKillEffect: 0
+  card: {fileID: 11400000, guid: 7c164682733e3014dac3faf6e8bdc27e, type: 2}
   nameText: {fileID: 114584676485639988}
   descriptionText: {fileID: 114063581742997828}
   artworkImage: {fileID: 114671146400038660}

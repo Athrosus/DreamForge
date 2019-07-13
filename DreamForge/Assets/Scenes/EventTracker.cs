@@ -18,14 +18,32 @@ public class EventTracker : MonoBehaviour
 
     public static void Damage(GameObject CardDoingDmg, string AmountOfDmg, GameObject CardBeingDmged)
     {
+        string message;
         CardBeingDmged.GetComponent<CardDisplay>().healthText.text = (int.Parse(CardBeingDmged.GetComponent<CardDisplay>().healthText.text) - int.Parse(AmountOfDmg)).ToString();
-        string message = CardDoingDmg.tag +" "+ CardDoingDmg.GetComponent<CardDisplay>().card.name + " did " + AmountOfDmg + " dmg to " + CardBeingDmged.tag +" "+ CardBeingDmged.GetComponent<CardDisplay>().card.name;
+        if (int.Parse(CardBeingDmged.GetComponent<CardDisplay>().healthText.text) <=0)
+        {
+            message = CardDoingDmg.tag + " " + CardDoingDmg.GetComponent<CardDisplay>().card.name + " Has Killed " + CardBeingDmged.tag + " " + CardBeingDmged.GetComponent<CardDisplay>().card.name;
+            CardDoingDmg.GetComponent<CardDisplay>().OnKillEffects();
+        }
+        else
+        {
+            message = CardDoingDmg.tag + " " + CardDoingDmg.GetComponent<CardDisplay>().card.name + " did " + AmountOfDmg + " dmg to " + CardBeingDmged.tag + " " + CardBeingDmged.GetComponent<CardDisplay>().card.name;
+        }
         History.Add(message);
     }
     public static void Damage(GameObject CardDoingDmg, int AmountOfDmg, GameObject CardBeingDmged)
     {
+        string message;
         CardBeingDmged.GetComponent<CardDisplay>().healthText.text = (int.Parse(CardBeingDmged.GetComponent<CardDisplay>().healthText.text) - AmountOfDmg).ToString();
-        string message = CardDoingDmg.tag +" "+ CardDoingDmg.GetComponent<CardDisplay>().card.name + " did " + AmountOfDmg + " dmg to " + CardBeingDmged.tag +" "+ CardBeingDmged.GetComponent<CardDisplay>().card.name;
+        if (int.Parse(CardBeingDmged.GetComponent<CardDisplay>().healthText.text) <= 0)
+        {
+            message = CardDoingDmg.tag + " " + CardDoingDmg.GetComponent<CardDisplay>().card.name + " Has Killed " + CardBeingDmged.tag + " " + CardBeingDmged.GetComponent<CardDisplay>().card.name;
+            CardDoingDmg.GetComponent<CardDisplay>().OnKillEffects();
+        }
+        else
+        {
+            message = CardDoingDmg.tag + " " + CardDoingDmg.GetComponent<CardDisplay>().card.name + " did " + AmountOfDmg + " dmg to " + CardBeingDmged.tag + " " + CardBeingDmged.GetComponent<CardDisplay>().card.name;
+        }
         History.Add(message);
     }
     public static void DestroyCard(GameObject CardDoingDestroying, GameObject CardBeingDestroyed)
