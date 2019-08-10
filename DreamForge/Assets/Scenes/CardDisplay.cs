@@ -22,7 +22,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public List<PassiveEffect> ThisWhenDrawnEffects = new List<PassiveEffect>();
     public List<PassiveEffect> ThisOnKillEffects = new List<PassiveEffect>();
 
-    public bool HasAttackedThisTurn = true, WasItPlayed = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = true, OnPlayTargetFound, OnEndOfTurnOnce = true;
+    public bool HasAttackedThisTurn = true, WasItPlayed = false, IsRevealed = false, IsLifeSteal = false, IsTaunt = false, HasDied = false, OnStartOfTurnOnce = false, OnPlayTargetFound, OnEndOfTurnOnce = true;
     public int EachOnPlayBuff, EachOnPlayEffect, EachOnDeathEffect, EachWhenDrawnEffect, EachOnKillEffect;
 
     public CardStats card;

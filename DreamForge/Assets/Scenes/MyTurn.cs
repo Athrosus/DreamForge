@@ -27,7 +27,10 @@ public class MyTurn : MonoBehaviour {
         {
             //Player 2 turn ended
             MyTurnJustEndedP2 = true;
+            GameObject.Find("P2HeroPower").GetComponent<Button>().enabled = false;
             //Player 1 turn started
+            GameObject.Find("P1HeroPower").GetComponent<Button>().enabled = true;
+            GameObject.Find("Player1").transform.SetAsLastSibling();
             MyTurnJustStartedP1 = true;
             GameObject.Find("Player1").GetComponentInChildren<Deck>().DrawACard(1);
             MyTurnJustStartedP2 = false;
@@ -44,7 +47,10 @@ public class MyTurn : MonoBehaviour {
         {
             //Player 1 turn ended
             MyTurnJustEndedP1 = true;
+            GameObject.Find("P1HeroPower").GetComponent<Button>().enabled = false;
             //Player 2 turn started
+            GameObject.Find("P2HeroPower").GetComponent<Button>().enabled = true;
+            GameObject.Find("Player2").transform.SetAsLastSibling();
             MyTurnJustStartedP2 = true;
             GameObject.Find("Player2").GetComponentInChildren<Deck>().DrawACard(1);
             MyTurnJustStartedP1 = false;
@@ -88,13 +94,6 @@ public class MyTurn : MonoBehaviour {
     }
     // Update is called once per frame
     void FixedUpdate () {
-        if (Player1Turn == true)
-        {
-            GameObject.Find("Player1").transform.SetAsLastSibling();
-        }
-        if (Player1Turn == false)
-        {
-            GameObject.Find("Player2").transform.SetAsLastSibling();
-        }
+        
     }
 }

@@ -69,6 +69,17 @@ public class drag : MonoBehaviour
                 }
             }
         }
+        if (StartParent == GameObject.Find("Canvas").transform)
+        {
+            for (int i = 0; i < placeholderP.childCount; i++)
+            {
+                if (this.transform.position.x < placeholderP.GetChild(i).position.x)
+                {
+                    placeholder.transform.SetSiblingIndex(i);
+                    break;
+                }
+            }
+        }
     }
     public void OnMouseUp()
     {

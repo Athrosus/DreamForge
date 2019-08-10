@@ -7,7 +7,7 @@ public class Deck : MonoBehaviour {
     GameObject Card;
     public List<GameObject> DeckCards = new List<GameObject>();
     public GameObject FakeCardHand, Hand, EndTurnButton;
-    
+
     public List<int> RanNum = new List<int>();
 
     public void Start()
@@ -51,7 +51,20 @@ public class Deck : MonoBehaviour {
     }
     public void OnMouseDown()
     {
-        DrawACard(1);
+        for (int i = 0; i < GameObject.Find("CardsInDeck").transform.childCount; i++)
+        {
+            Destroy(GameObject.Find("CardsInDeck").transform.GetChild(i).gameObject);
+        }
+        GameObject.Find("DeckCards").transform.SetParent(GameObject.Find("Canvas").transform);
+        GameObject.Find("DeckCards").transform.SetAsLastSibling();
+
+        foreach (Transform cardindeck in transform)
+        {
+            GameObject tempcard = Instantiate((GameObject)Resources.Load("prefabs/DeckCard"), GameObject.Find("CardsInDeck").transform);
+            tempcard.GetComponent<CardDisplay>().card = cardindeck.GetComponent<CardDisplay>().card;
+            tempcard.GetComponent<CardDisplay>().IsRevealed = cardindeck.GetComponent<CardDisplay>().IsRevealed;
+            tempcard.GetComponent<drag>().StartParent = GameObject.Find("HandP1").transform; //Both Player 1 and 2 give DeckCards HandP1 as the Startparent becaus I suck at programming !
+        }
     }
     public void DrawACard( int numOfCardsDrawn)
     {
@@ -61,7 +74,7 @@ public class Deck : MonoBehaviour {
             {
                 if (Hand.transform.childCount <= 9)
                 {
-                    Card = DeckCards[DeckCards.Count - 1];
+                    Card = transform.GetChild(DeckCards.Count - 1).gameObject;
                     DeckCards.RemoveAt(DeckCards.Count - 1);
                     Card.transform.SetParent(Hand.transform);
                     Card.GetComponent<CardDisplay>().EachWhenDrawnEffect = 0;

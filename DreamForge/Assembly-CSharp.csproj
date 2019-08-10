@@ -61,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DeckCardsScript.cs" />
+    <Compile Include="Assets\HeroPowerScript.cs" />
     <Compile Include="Assets\Scenes\AddCard.cs" />
     <Compile Include="Assets\Scenes\AllCards.cs" />
     <Compile Include="Assets\Scenes\Attack.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Assets\Scenes\MyTurn.cs" />
     <Compile Include="Assets\Scenes\NotYourTurn.cs" />
     <Compile Include="Assets\Scenes\PlayMinion.cs" />
+    <Compile Include="Assets\Scenes\ScrollRectNoDrag.cs" />
     <Compile Include="Assets\Scenes\WhatCard.cs" />
     <Compile Include="Assets\Scenes\WhoTurn.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

@@ -409,6 +409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasAttackedThisTurn: 0
   WasItPlayed: 0
+  IsRevealed: 0
+  IsLifeSteal: 0
   IsTaunt: 0
   HasDied: 0
   OnStartOfTurnOnce: 0
@@ -419,7 +421,7 @@ MonoBehaviour:
   EachOnDeathEffect: 0
   EachWhenDrawnEffect: 0
   EachOnKillEffect: 0
-  card: {fileID: 11400000, guid: 7c164682733e3014dac3faf6e8bdc27e, type: 2}
+  card: {fileID: 11400000, guid: cac92a8b50e63fe4e829b7e9634c2da7, type: 2}
   nameText: {fileID: 114584676485639988}
   descriptionText: {fileID: 114063581742997828}
   artworkImage: {fileID: 114671146400038660}
