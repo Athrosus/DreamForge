@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62deecb7fd86b3c4695ce7a85e2e1190, type: 3}
+  m_Name: Card21
+  m_EditorClassIdentifier: 
+  cardname: Card21
+  description: 'OnPlay: If you have more cards in your deck then your opponent Summon
+    two 2/2 minion.'
+  artwork: {fileID: 21300000, guid: aa087804505618246b46866c2c905c13, type: 3}
+  manaCost: 3
+  attack: 2
+  health: 2
+  tire: Common

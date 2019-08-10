@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62deecb7fd86b3c4695ce7a85e2e1190, type: 3}
+  m_Name: Fractured Obelisc
+  m_EditorClassIdentifier: 
+  cardname: Fractured Obelisc
+  description: 'When drawn: Summon a 1/1 then repeat this for each mana you have,
+    OnPlay: Give all minions +1/+1.'
+  artwork: {fileID: 21300000, guid: f9be61431bf87704ebe11f571d088975, type: 3}
+  manaCost: 7
+  attack: 3
+  health: 3
+  tire: Epic
